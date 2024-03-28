@@ -6,7 +6,7 @@ public class BookModel extends AbstractModel{
 	private String title;
 	private String thumbnail;
 	private Long authorId;
-	private double price;
+	private Double price;
 	private Long typeId;
 	private Timestamp publicationDate;
 	private Long publisherId;
