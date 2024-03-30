@@ -16,7 +16,6 @@ import com.webapp.servicce.ITypeService;
 @WebServlet(urlPatterns = {"/user-home"})
 public class HomeController extends HttpServlet{
 	
-	
 	@Inject
 	private ITypeService typeService;
 	

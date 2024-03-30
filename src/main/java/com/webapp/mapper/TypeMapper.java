@@ -5,7 +5,7 @@ import java.sql.SQLException;
 
 import com.webapp.model.TypeModel;
 
-public class TypeMapper implements RowMapper<TypeModel>{
+public class TypeMapper implements RowMapper<TypeModel> {
 
 	@Override
 	public TypeModel mapRow(ResultSet resultSet) {

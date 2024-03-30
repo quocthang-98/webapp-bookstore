@@ -5,7 +5,7 @@ import java.sql.SQLException;
 
 import com.webapp.model.BookModel;
 
-public class BookMapper implements RowMapper<BookModel>{
+public class BookMapper implements RowMapper<BookModel> {
 
 	@Override
 	public BookModel mapRow(ResultSet resultSet) {
@@ -20,5 +20,5 @@ public class BookMapper implements RowMapper<BookModel>{
 			return null;
 		}
 	}
-	
+
 }

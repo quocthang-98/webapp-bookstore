@@ -12,5 +12,5 @@ public class TypeDAO extends AbstractDAO<TypeModel> implements ITypeDAO {
 	public List<TypeModel> findAll() {
 		String sql = "SELECT * FROM type";
 		return query(sql, new TypeMapper());
-	}	
+	}
 }

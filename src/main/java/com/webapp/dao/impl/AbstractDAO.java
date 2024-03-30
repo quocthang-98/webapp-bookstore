@@ -28,7 +28,7 @@ public class AbstractDAO<T> implements IGenericDAO<T> {
 	}
 
 	@Override
-	public <T> List<T> query(String sql, RowMapper<T> rowMapper, Object... objects) {
+	public List<T> query(String sql, RowMapper<T> rowMapper, Object... objects) {
 		List<T> results = new ArrayList<T>();
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
