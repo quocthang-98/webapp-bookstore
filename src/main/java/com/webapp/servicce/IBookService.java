@@ -7,4 +7,6 @@ import com.webapp.model.BookModel;
 public interface IBookService {
 	List<BookModel> findByTypeId(Long id);
 	BookModel save(BookModel bookModel);	
+	BookModel update(BookModel bookModel);
+	void delete(long[] ids);
 }

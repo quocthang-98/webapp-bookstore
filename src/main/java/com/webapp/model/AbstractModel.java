@@ -5,8 +5,21 @@ import java.sql.Timestamp;
 public class AbstractModel {
 	private Long id;
 	private Timestamp createdDate;
-	private String createBy;
+	private String createdBy;
+	private long[] ids;
 	
+	public long[] getIds() {
+		return ids;
+	}
+	public void setIds(long[] ids) {
+		this.ids = ids;
+	}
+	public String getCreatedBy() {
+		return createdBy;
+	}
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
 	public Long getId() {
 		return id;
 	}
@@ -19,12 +32,6 @@ public class AbstractModel {
 	public void setCreatedDate(Timestamp createdDate) {
 		this.createdDate = createdDate;
 	}
-	public String getCreateBy() {
-		return createBy;
-	}
-	public void setCreateBy(String createBy) {
-		this.createBy = createBy;
-	}
-	
+
 }
 		
