@@ -13,8 +13,16 @@ public class BookMapper implements RowMapper<BookModel> {
 			BookModel bookModel = new BookModel();
 			bookModel.setId(resultSet.getLong("id"));
 			bookModel.setTitle(resultSet.getString("title"));
+			bookModel.setThumbnail(resultSet.getString("thumbnail"));
+			bookModel.setAuthorId(resultSet.getLong("author_id"));
 			bookModel.setPrice(resultSet.getDouble("price"));
 			bookModel.setTypeId(resultSet.getLong("type_id"));
+			bookModel.setPublicationDate(resultSet.getTimestamp("publication_date"));
+			bookModel.setPublisherId(resultSet.getLong("publisher_id"));
+			bookModel.setDescription(resultSet.getString("description"));
+			bookModel.setStocks(resultSet.getLong("stocks"));
+			bookModel.setCreatedBy(resultSet.getString("created_by"));
+			bookModel.setCreatedDate(resultSet.getTimestamp("date_created"));
 			return bookModel;
 		} catch (SQLException e) {
 			return null;

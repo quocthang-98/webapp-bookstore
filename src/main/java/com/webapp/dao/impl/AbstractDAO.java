@@ -7,9 +7,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
+import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
 import com.webapp.dao.IGenericDAO;
 import com.webapp.mapper.RowMapper;
 
@@ -76,6 +78,8 @@ public class AbstractDAO<T> implements IGenericDAO<T> {
 					preparedStatement.setInt(index, (Integer) parameter);
 				} else if (parameter instanceof Timestamp) {
 					preparedStatement.setTimestamp(index, (Timestamp) parameter);
+				} else if (parameter == null) {
+					preparedStatement.setNull(index, Types.NULL);
 				}
 			}
 		} catch (SQLException e) {
