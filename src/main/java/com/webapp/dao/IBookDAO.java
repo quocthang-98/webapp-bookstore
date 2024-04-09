@@ -10,4 +10,6 @@ public interface IBookDAO {
 	Long save(BookModel bookModel);
 	void update(BookModel bookModel);
 	void delete(long id);
+	List<BookModel> findAll();
+	List<BookModel> findByConditions(Long typeId);
 }

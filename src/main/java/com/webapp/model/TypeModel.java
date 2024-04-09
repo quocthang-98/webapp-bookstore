@@ -1,8 +1,6 @@
 package com.webapp.model;
 
-import java.sql.Timestamp;
-
-public class TypeModel extends AbstractModel{
+public class TypeModel extends AbstractModel<TypeModel>{
 	private String name;
 	private Long genreId;
 	

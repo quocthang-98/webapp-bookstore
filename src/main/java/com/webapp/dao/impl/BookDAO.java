@@ -2,6 +2,7 @@ package com.webapp.dao.impl;
 
 import java.util.List;
 
+import com.opensymphony.sitemesh.webapp.decorator.BaseWebAppDecorator;
 import com.webapp.dao.IBookDAO;
 import com.webapp.mapper.BookMapper;
 import com.webapp.model.BookModel;
@@ -37,6 +38,24 @@ public class BookDAO extends AbstractDAO<BookModel> implements IBookDAO {
 	public void delete(long id) {
 		String sql = "DELETE FROM book WHERE id = ?";
 		update(sql, id);
+	}
+
+	@Override
+	public List<BookModel> findAll() {
+		String sql = "SELECT * FROM book";
+		return query(sql, new BookMapper());
+				
+	}
+
+	@Override
+	public List<BookModel> findByConditions(Long typeId) {
+		StringBuilder sql = new StringBuilder("SELECT * FROM book WHERE ");
+		if (typeId == null) {
+			sql.append("type_id > 0");
+		} else {
+			sql.append("type_id = "+typeId);
+		}
+		return query(sql.toString(), new BookMapper());
 	}
 
 }

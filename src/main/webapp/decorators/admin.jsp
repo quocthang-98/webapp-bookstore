@@ -4,7 +4,7 @@
 <html>
 <head>
 	<title><dec:title default="Homepage"/></title>
-	
+		
 	<link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
     <link href="<c:url value='/template/admin/css/styles.css' />" rel="stylesheet" />
    	<script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"></script>
@@ -21,7 +21,7 @@
     		<main><dec:body/></main>
  		   	<%@ include file="/common/admin/footer.jsp" %>
     	</div>
-    </div>
+    </div>	
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <script src="<c:url value='/template/admin/js/scripts.js' />"></script>
