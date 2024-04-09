@@ -43,4 +43,14 @@ public class BookService implements IBookService{
 			bookDAO.delete(id);
 		}
 	}
+
+	@Override
+	public List<BookModel> findAll() {
+		return bookDAO.findAll();
+	}
+
+	@Override
+	public List<BookModel> findByConditions(Long typeId) {
+		return bookDAO.findByConditions(typeId);
+	}
 }

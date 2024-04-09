@@ -1,13 +1,23 @@
 package com.webapp.model;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
-public class AbstractModel {
+public class AbstractModel<T> {
 	private Long id;
 	private Timestamp createdDate;
 	private String createdBy;
 	private long[] ids;
+	private List<T> resultList = new ArrayList<>();
 	
+	
+	public List<T> getResultList() {
+		return resultList;
+	}
+	public void setResultList(List<T> resultList) {
+		this.resultList = resultList;
+	}
 	public long[] getIds() {
 		return ids;
 	}

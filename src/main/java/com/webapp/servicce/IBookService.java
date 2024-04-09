@@ -9,4 +9,6 @@ public interface IBookService {
 	BookModel save(BookModel bookModel);	
 	BookModel update(BookModel bookModel);
 	void delete(long[] ids);
+	List<BookModel> findAll();
+	List<BookModel> findByConditions(Long typeId);
 }

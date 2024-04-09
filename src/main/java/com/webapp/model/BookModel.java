@@ -2,7 +2,7 @@ package com.webapp.model;
 
 import java.sql.Timestamp;
 
-public class BookModel extends AbstractModel{
+public class BookModel extends AbstractModel<BookModel>{
 	private String title;
 	private String thumbnail;
 	private Long authorId;
@@ -12,7 +12,6 @@ public class BookModel extends AbstractModel{
 	private Long publisherId;
 	private String description;
 	private Long stocks;
-	
 	
 	public String getTitle() {
 		return title;

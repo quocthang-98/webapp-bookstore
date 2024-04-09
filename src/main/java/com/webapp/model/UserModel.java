@@ -1,8 +1,6 @@
 package com.webapp.model;
 
-import java.sql.Timestamp;
-
-public class UserModel extends AbstractModel{
+public class UserModel extends AbstractModel<UserModel>{
 	private Long roleId;
 	private String firstName;
 	private String lastName;
