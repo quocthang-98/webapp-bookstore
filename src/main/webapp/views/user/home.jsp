@@ -29,7 +29,7 @@
 	          <div class="col-md-12 ftco-animate">
 	          	<div class="text w-100 text-center">
 	          		<h2>Best Place to Travel</h2>
-		            <h1 class="mb-3">Norway</h1>
+		            <h1 class="mb-3">Phuc Dep Trai</h1>
 	            </div>
 	          </div>
 	        </div>
@@ -43,7 +43,7 @@
 	          <div class="col-md-12 ftco-animate">
 	          	<div class="text w-100 text-center">
 	          		<h2>Best Place to Travel</h2>
-		            <h1 class="mb-3">Japan</h1>
+		            <h1 class="mb-3">Thang Xau Trai</h1>
 	            </div>
 	          </div>
 	        </div>
@@ -57,7 +57,7 @@
 	          <div class="col-md-12 ftco-animate">
 	          	<div class="text w-100 text-center">
 	          		<h2>Best Place to Travel</h2>
-		            <h1 class="mb-3">Singapore</h1>
+		            <h1 class="mb-3">Anh yeu</h1>
 	            </div>
 	          </div>
 	        </div>
