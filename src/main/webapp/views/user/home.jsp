@@ -11,9 +11,8 @@
 	<header class="bg-dark py-5">
 		<div class="container px-4 px-lg-5 my-5">
 			<div class="text-center text-white">
-				<h1 class="display-4 fw-bolder">Shop in style</h1>
-				<p class="lead fw-normal text-white-50 mb-0">With this shop
-					hompage template</p>
+				<h1 class="display-4 fw-bolder">The World of Ideas</h1>
+				<p class="lead fw-normal text-white-50 mb-0">The books you choose tell people who you truly are.</p>
 			</div>
 		</div>
 	</header>
@@ -28,8 +27,9 @@
           <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center">
 	          <div class="col-md-12 ftco-animate">
 	          	<div class="text w-100 text-center">
-	          		<h2>Best Place to Travel</h2>
-		            <h1 class="mb-3">Phuc Dep Trai</h1>
+	          		<h2>Book Of The Week</h2>
+		            <h1 class="mb-3">The Godfather</h1>
+		            <h3>Mario Puzzo</h3>
 	            </div>
 	          </div>
 	        </div>
@@ -42,8 +42,9 @@
           <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center">
 	          <div class="col-md-12 ftco-animate">
 	          	<div class="text w-100 text-center">
-	          		<h2>Best Place to Travel</h2>
-		            <h1 class="mb-3">Thang Xau Trai</h1>
+	          		<h2>BookBrowse Awards Winner</h2>
+		            <h1 class="mb-3">Remember Us</h1>
+		            <h3>Jacqueline Woodson</h3>
 	            </div>
 	          </div>
 	        </div>
@@ -56,8 +57,9 @@
           <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center">
 	          <div class="col-md-12 ftco-animate">
 	          	<div class="text w-100 text-center">
-	          		<h2>Best Place to Travel</h2>
-		            <h1 class="mb-3">Anh yeu</h1>
+	          		<h2>Readers Recommend</h2>
+		            <h1 class="mb-3">The Flower Sisters</h1>
+		            <h3>Michelle Collins Anderson</h3>
 	            </div>
 	          </div>
 	        </div>
@@ -226,7 +228,7 @@
 						<!-- Product actions-->
 						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
 							<div class="text-center">
-								<a class="btn btn-outline-dark mt-auto" href="#">View
+								<a class="btn btn-outline-dark mt-auto" href="/list.jsp">View
 									options</a>
 							</div>
 						</div>
@@ -300,6 +302,12 @@
 				</div>
 			</div>
 		</div>
+		
+		<div class="container">
+    		<div class="d-flex justify-content-center">
+      			<button type="button" class="btn btn-primary">View All</button>
+    		</div>
+    	</div>
 	</section>
 </body>
 </html>
