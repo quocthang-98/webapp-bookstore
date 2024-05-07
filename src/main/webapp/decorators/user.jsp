@@ -16,7 +16,6 @@
 	rel="stylesheet" type="text/css" media="all" />
 <link href="<c:url value='/template/user/css/styles.css' />"
 	rel="stylesheet" type="text/css" media="all" />
-
 	
 </head>
 <body>
