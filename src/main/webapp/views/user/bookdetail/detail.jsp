@@ -11,26 +11,55 @@
 	<section class="py-5">
             <div class="container px-4 px-lg-5 my-5">
                 <div class="row gx-4 gx-lg-5 align-items-center">
-                    <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="https://dummyimage.com/600x700/dee2e6/6c757d.jpg" alt="..." /></div>
+                    <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="https://i.scdn.co/image/ab67616d0000b27371d5ffe4407f913393ecdd11" alt="..." /></div>
                     <div class="col-md-6">
-                        <div class="small mb-1">SKU: BST-498</div>
-                        <h1 class="display-5 fw-bolder">Shop item template</h1>
+                        <div class="small mb-1">WREN EVANS</div>
+                        
+                        <h1 class="display-5 fw-bolder">LOI CHOI: The Neo Pop Punk - Standard CD</h1>
                         <div class="fs-5 mb-5">
-                            <span class="text-decoration-line-through">$45.00</span>
-                            <span>$40.00</span>
+                            <span class="text-decoration-line-through">500.000</span>
+                            <span style="font-weight: bold;">350.000 VND</span>
+                            <div class="small">Remaining: 20</div>
                         </div>
-                        <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium at dolorem quidem modi. Nam sequi consequatur obcaecati excepturi alias magni, accusamus eius blanditiis delectus ipsam minima ea iste laborum vero?</p>
+						
                         <div class="d-flex">
-                            <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" />
-                            <button class="btn btn-outline-dark flex-shrink-0" type="button">
+                        	<button type="button" class="btn btn-dark">-</button>
+                            	<input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" />
+                            	<button type="button" class="btn btn-dark">+</button>
+                            
+                            <button class="btn btn-outline-dark flex-shrink-0" type="button" style="margin-left: 20px">
                                 <i class="bi-cart-fill me-1"></i>
                                 Add to cart
                             </button>
+                            
+                            
                         </div>
+                        
+
+                        
+                        <p class="lead">
+                        Album đầu tay của Wren Evans. <br>
+                        Tracklist: <br>
+                        1. Phóng Đổ Tim Em <br>
+                        2. Call Me <br>
+                        3. Cầu Vĩnh Tuy <br>
+                        4. Từng Quen <br>
+                        5. bé ơi từ từ <br>
+                        6. Lối Chơi (Interlude) <br>
+                        7. Tình Yêu Vĩ Mô <br>
+                        8. Việt Kiều <br>
+                        9. ĐĐĐ <br>
+                        10. Quyền Anh <br>
+                        11. Tò Te Tí <br>
+                        </p>
+                        
+                        
+                        
                     </div>
                 </div>
             </div>
         </section>
+        <hr>
         <!-- Related items section-->
         <section class="py-5 bg-light">
             <div class="container px-4 px-lg-5 mt-5">
@@ -137,5 +166,19 @@
                 </div>
             </div>
         </section>
+        
+        <!-- Comment section -->
+        <section class="py-5 bg-light">
+            <div class="container px-4 px-lg-5 mt-5">
+                <h2 class="fw-bolder mb-4">Comments</h2>
+                <div class="mb-3">
+				  <label for="commentInput" class="form-label">What do you think about this product?</label>
+				  <input type="email" class="form-control" id="commentInput" placeholder="Type your comments here...">
+				</div>
+				<button type="button" class="btn btn-dark">Post</button>
+            </div>
+            
+        </section>
+        
 </body>
 </html>

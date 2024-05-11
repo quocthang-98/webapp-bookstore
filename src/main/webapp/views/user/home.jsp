@@ -88,7 +88,7 @@
 						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
 							<div class="text-center">
 								<a class="btn btn-outline-dark mt-auto" href="#">View
-									options</a>
+									Details</a>
 							</div>
 						</div>
 					</div>
@@ -123,7 +123,7 @@
 						<!-- Product actions-->
 						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
 							<div class="text-center">
-								<a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a>
+								<a class="btn btn-outline-dark mt-auto" href="#">View Details</a>
 							</div>
 						</div>
 					</div>
@@ -149,7 +149,7 @@
 						<!-- Product actions-->
 						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
 							<div class="text-center">
-								<a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a>
+								<a class="btn btn-outline-dark mt-auto" href="#">View Details</a>
 							</div>
 						</div>
 					</div>
@@ -180,7 +180,7 @@
 						<!-- Product actions-->
 						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
 							<div class="text-center">
-								<a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a>
+								<a class="btn btn-outline-dark mt-auto" href="#">View Details</a>
 							</div>
 						</div>
 					</div>
@@ -206,7 +206,7 @@
 						<!-- Product actions-->
 						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
 							<div class="text-center">
-								<a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a>
+								<a class="btn btn-outline-dark mt-auto" href="#">View Details</a>
 							</div>
 						</div>
 					</div>
@@ -229,7 +229,7 @@
 						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
 							<div class="text-center">
 								<a class="btn btn-outline-dark mt-auto" href="/list.jsp">View
-									options</a>
+									Details</a>
 							</div>
 						</div>
 					</div>
@@ -264,7 +264,7 @@
 						<!-- Product actions-->
 						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
 							<div class="text-center">
-								<a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a>
+								<a class="btn btn-outline-dark mt-auto" href="#">View Details</a>
 							</div>
 						</div>
 					</div>
@@ -295,7 +295,7 @@
 						<!-- Product actions-->
 						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
 							<div class="text-center">
-								<a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a>
+								<a class="btn btn-outline-dark mt-auto" href="#">View Details</a>
 							</div>
 						</div>
 					</div>
@@ -305,7 +305,7 @@
 		
 		<div class="container">
     		<div class="d-flex justify-content-center">
-      			<button type="button" class="btn btn-primary">View All</button>
+      			<a href="user-booklist" class="btn btn-primary">View All</a>
     		</div>
     	</div>
 	</section>
