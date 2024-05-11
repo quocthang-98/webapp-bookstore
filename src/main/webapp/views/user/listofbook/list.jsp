@@ -21,7 +21,7 @@
             <div class="sidebar">
                 <div class="widget">
                     <div class="widget-title widget-collapse">
-                        <h6>Type</h6>
+                        <h6>TYPE</h6>
                         <a class="ml-auto" data-toggle="collapse" href="#dateposted" role="button" aria-expanded="false" aria-controls="dateposted"> <i class="fas fa-chevron-down"></i> </a>
                     </div>
                     <div class="collapse show" id="dateposted">
@@ -39,7 +39,7 @@
                 </div>
                 <div class="widget">
                     <div class="widget-title widget-collapse">
-                        <h6>Genre</h6>
+                        <h6>GENRE</h6>
                         <a class="ml-auto" data-toggle="collapse" href="#specialism" role="button" aria-expanded="false" aria-controls="specialism"> <i class="fas fa-chevron-down"></i> </a>
                     </div>
                     <div class="collapse show" id="specialism">
@@ -64,6 +64,8 @@
                         <img class="img-fluid" src="images/add-banner.png" alt=""></div>
                 </div>
             </div>
+            
+           <a href="user-home" class="btn btn-success" style="margin-top: 20px; margin-bottom: 8px;">Apply</a>
         </div>
         <div class="col-lg-9">
             <div class="row mb-4">
@@ -75,12 +77,17 @@
                 <div class="job-shortby ml-sm-auto d-flex align-items-center">
                     <form class="form-inline">
                         <div class="form-group mb-0">
-                            <label class="justify-content-start mr-2">Sort by :</label>
+                            <label class="justify-content-start mr-2">Sort by:</label>
                             <div class="short-by">
-                                <select class="form-control basic-select select2-hidden-accessible" data-select2-id="1" tabindex="-1" aria-hidden="true">
-                                    <option data-select2-id="3">Newest</option>
-                                    <option>Oldest</option>
-                                </select>
+                                <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								    ---
+								  </button>
+								  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+								  	<a class="dropdown-item" href="#">Lastest</a>
+								    <a class="dropdown-item" href="#">Rating</a>
+								    <a class="dropdown-item" href="#">Price</a>
+								    
+								  </div>
                             </div>
                         </div>
                     </form>
@@ -295,8 +302,8 @@
 						</div>
 					</div>
                 </div>
-                <div class="col-sm-6 col-lg-4 mb-4 mb-md-0">
-                   <div class="card h-100">
+                <div class="col-sm-6 col-lg-4 mb-4">
+                    <div class="card h-100">
 						<!-- Sale badge-->
 						<div class="badge bg-dark text-white position-absolute"
 							style="top: 0.5rem; right: 0.5rem">Sale</div>
@@ -319,8 +326,8 @@
 								<a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a>
 							</div>
 						</div>
-					</div>	
-            </div>
+					</div>
+                </div>
             <div class="row">
                 <div class="col-12 text-center mt-4 mt-sm-5">
                     <ul class="pagination justify-content-center mb-0">

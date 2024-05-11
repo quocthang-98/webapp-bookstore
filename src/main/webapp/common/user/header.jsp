@@ -28,14 +28,16 @@
 					</ul></li>
 			</ul>
 			
-			<div class="input-group rounded">
-			  	<input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-			  	<span class="input-group-text border-0" id="search-addon">
-			    	<i class="fas fa-search"></i>
-			  	</span>
-			</div>
+			 <div class="container h-100">
+		      <div class="d-flex justify-content-center h-100">
+		        <div class="search">
+		          <input class="search_input" type="text" name="" placeholder="Search here...">
+		          <a href="user-booklist" class="search_icon"><i class="fa fa-search"></i></a>
+		        </div>
+		      </div>
+		    </div>
 			
-			<form class="d-flex">
+			<form class="d-flex" action="user-cart">
 				<button class="btn btn-outline-dark" type="submit">
 					<i class="bi-cart-fill me-1"></i> Cart <span
 						class="badge bg-dark text-white ms-1 rounded-pill">0</span>

@@ -8340,3 +8340,67 @@ h1, h2, h3, h4, h5,
 .owl-carousel.owl-drag .owl-item {
   -ms-touch-action: pan-y;
   touch-action: pan-y; }
+  
+.widget {
+	margin-bottom: 8px;
+}
+
+
+    body,html{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    }
+
+    .search{
+    margin-bottom: auto;
+    margin-top: auto;
+    height: 70px;
+    background-color: #e1e1e1;
+    border-radius: 40px;
+    padding: 10px;
+    }
+
+    .search_input{
+    color: white;
+    border: 0;
+    outline: 0;
+    background: none;
+    width: 0;
+    margin-top:5px;
+    caret-color:transparent;
+    line-height: 40px;
+    transition: width 0.4s linear;
+    }
+
+    .search .search_input{
+    padding: 0 10px;
+    width: 550px;
+    caret-color:red;
+    transition: width 0.4s linear;
+    }
+    
+    .search:hover > .search_icon{
+    background: red;
+    color: #fff;
+    }
+
+    .search_icon{
+    height: 50px;
+    width: 50px;
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color:white;
+    background-color:black;
+    }
+    
+a:link{
+    text-decoration:none;
+}    
+
+  
+  

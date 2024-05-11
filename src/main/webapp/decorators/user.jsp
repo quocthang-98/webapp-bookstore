@@ -12,10 +12,13 @@
 <link href="<c:url value='/template/user/css/owl.carousel.min.css' />" rel="stylesheet" type="text/css" media="all" />	
 <link href="<c:url value='/template/user/css/owl.theme.default.min.css' />" rel="stylesheet" type="text/css" media="all" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/4.5.6/css/ionicons.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
 <link href="<c:url value='/template/user/css/style.css' />"
 	rel="stylesheet" type="text/css" media="all" />
 <link href="<c:url value='/template/user/css/styles.css' />"
 	rel="stylesheet" type="text/css" media="all" />
+
 	
 </head>
 <body>
@@ -31,6 +34,8 @@
 
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css"></script>
 	<!-- Core theme JS-->
 	<script src="<c:url value='/template/user/js/scripts.js' />"></script>
 	<script src="<c:url value='/template/user/js/jquery.min.js' />"></script>
@@ -38,6 +43,7 @@
 	<script src="<c:url value='/template/user/js/bootstrap.min.js' />"></script>
 	<script src="<c:url value='/template/user/js/owl.carousel.min.js' />"></script>
 	<script src="<c:url value='/template/user/js/main.js' />"></script>
+	
 	
 </body>
 </html>
