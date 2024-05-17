@@ -14,16 +14,25 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-				<li class="nav-item"><a class="nav-link active"
-					aria-current="page" href="#!">Home</a></li>
-				<li class="nav-item"><a class="nav-link" href="#!">Libraries</a></li>
+				<c:if test="${not empty USERMODEL}">
+					<li class="nav-item"><a class="nav-link active"
+					aria-current="page" href='<c:url value="/login?action=login"/>'>Welcome, ${USERMODEL.lastName}</a></li>
+					<li class="nav-item"><a class="nav-link" href="<c:url value="/logout?action=logout"/>">Logout</a></li>
+				</c:if>
+				
+				<c:if test="${empty USERMODEL}">
+					<li class="nav-item"><a class="nav-link active"
+					aria-current="page" href='<c:url value="/login?action=login"/>'>Login</a></li>
+				</c:if>	
+				
+				
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle" id="navbarDropdown" href="#"
 					role="button" data-bs-toggle="dropdown" aria-expanded="false">Browse</a>
 					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 						<li><a class="dropdown-item" href="#!">All Items</a></li>
 						<li><hr class="dropdown-divider" /></li>
-						<li><a class="dropdown-item" href="#!">Top List</a></li>
+						<li><a class="dropdown-item" href="#!">Top List<	/a></li>
 						<li><a class="dropdown-item" href="#!">New Arrivals</a></li>
 					</ul></li>
 			</ul>

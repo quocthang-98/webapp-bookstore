@@ -53,4 +53,15 @@ public class BookService implements IBookService{
 	public List<BookModel> findByConditions(Long typeId) {
 		return bookDAO.findByConditions(typeId);
 	}
+
+	@Override
+	public int getTotalItem() {
+		return bookDAO.getTotalItem();
+		
+	}
+
+	@Override
+	public List<BookModel> findAll(Integer offset, Integer limit) {
+		return bookDAO.findAll(offset, limit);
+	}
 }
