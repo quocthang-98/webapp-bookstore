@@ -12,7 +12,38 @@ public class BookModel extends AbstractModel<BookModel>{
 	private Long publisherId;
 	private String description;
 	private Long stocks;
+	private Integer page;
+	private Integer limit;
+	private Integer totalPages;
+	private Integer totalItem;
 	
+
+	
+	
+	public Integer getPage() {
+		return page;
+	}
+	public void setPage(Integer page) {
+		this.page = page;
+	}
+	public Integer getLimit() {
+		return limit;
+	}
+	public void setLimit(Integer limit) {
+		this.limit = limit;
+	}
+	public Integer getTotalPages() {
+		return totalPages;
+	}
+	public void setTotalPages(Integer totalPages) {
+		this.totalPages = totalPages;
+	}
+	public Integer getTotalItem() {
+		return totalItem;
+	}
+	public void setTotalItem(Integer totalItem) {
+		this.totalItem = totalItem;
+	}
 	public String getTitle() {
 		return title;
 	}

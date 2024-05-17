@@ -56,6 +56,18 @@ public class BookDAO extends AbstractDAO<BookModel> implements IBookDAO {
 			sql.append("type_id = "+typeId);
 		}
 		return query(sql.toString(), new BookMapper());
+	}	
+
+	@Override
+	public int getTotalItem() {
+		String sql = "SELECT count(*) FROM book";
+		return count(sql);
+	}
+
+	@Override
+	public List<BookModel> findAll(Integer offset, Integer limit) {
+		String sql = "SELECT * FROM book LIMIT ?, ?";
+		return query(sql, new BookMapper(), offset, limit);
 	}
 
 }

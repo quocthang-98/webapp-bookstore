@@ -10,19 +10,26 @@ import java.sql.Timestamp;
 import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 
 import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
 import com.webapp.dao.IGenericDAO;
 import com.webapp.mapper.RowMapper;
 
 public class AbstractDAO<T> implements IGenericDAO<T> {
+	
+	ResourceBundle resourceBundle = ResourceBundle.getBundle("db");
 
 	public Connection getConnection() {
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			String url = "jdbc:mysql://localhost:3306/online_bookstore";
-			String user = "root";
-			String password = "1234";
+//			Class.forName("com.mysql.jdbc.Driver");
+//			String url = "jdbc:mysql://localhost:3306/online_bookstore";
+//			String user = "root";
+//			String password = "1234";
+			Class.forName(resourceBundle.getString("driverName"));
+			String url = resourceBundle.getString("url");
+			String user = resourceBundle.getString("user");
+			String password = resourceBundle.getString("password");
 			return DriverManager.getConnection(url, user, password);
 		} catch (ClassNotFoundException | SQLException e) {
 			return null;
@@ -160,6 +167,40 @@ public class AbstractDAO<T> implements IGenericDAO<T> {
 				}
 			} catch (SQLException e) {
 				return null;
+			}
+		}
+	}
+
+	@Override
+	public int count(String sql, Object... objects) {
+		Connection connection = null;	
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+		try {
+			int count = 0;
+			connection = getConnection();
+			preparedStatement = connection.prepareStatement(sql);
+			setParameters(preparedStatement, objects);
+			resultSet = preparedStatement.executeQuery();
+			while (resultSet.next()) {
+				count = resultSet.getInt(1);
+			}
+			return count;
+		} catch (SQLException e) {
+			return 0;
+		} finally {
+			try {
+				if (connection != null) {
+					connection.close();
+				}
+				if (preparedStatement != null) {
+					preparedStatement.close();
+				}
+				if (resultSet != null) {
+					resultSet.close();
+				}
+			} catch (SQLException e) {
+				return 0;
 			}
 		}
 	}

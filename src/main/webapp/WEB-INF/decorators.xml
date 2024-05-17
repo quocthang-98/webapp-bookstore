@@ -13,4 +13,8 @@
     <decorator name="user" page="user.jsp">
         <pattern>/user*</pattern>
     </decorator>
+    
+    <decorator name="login" page="login.jsp">
+        <pattern>/login*</pattern>
+    </decorator>
 </decorators>

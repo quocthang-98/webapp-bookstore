@@ -12,4 +12,6 @@ public interface IBookDAO {
 	void delete(long id);
 	List<BookModel> findAll();
 	List<BookModel> findByConditions(Long typeId);
+	int getTotalItem();
+	List<BookModel> findAll(Integer offset, Integer limit);
 }
