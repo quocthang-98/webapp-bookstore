@@ -23,7 +23,6 @@ public class BookService implements IBookService{
 	@Override
 	public BookModel save(BookModel bookModel) {
 		bookModel.setCreatedDate(new Timestamp(System.currentTimeMillis()));
-		bookModel.setCreatedBy("");
 		Long bookId = bookDAO.save(bookModel);
 		return bookDAO.findOne(bookId);
 	}
@@ -63,5 +62,10 @@ public class BookService implements IBookService{
 	@Override
 	public List<BookModel> findAll(Integer offset, Integer limit) {
 		return bookDAO.findAll(offset, limit);
+	}
+
+	@Override
+	public BookModel findOne(Long id) {
+		return bookDAO.findOne(id);
 	}
 }

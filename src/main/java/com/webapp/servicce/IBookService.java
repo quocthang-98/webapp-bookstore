@@ -8,6 +8,7 @@ public interface IBookService {
 	List<BookModel> findByTypeId(Long id);
 	BookModel save(BookModel bookModel);	
 	BookModel update(BookModel bookModel);
+	BookModel findOne(Long id);
 	void delete(long[] ids);
 	List<BookModel> findAll();
 	List<BookModel> findAll(Integer offset, Integer limit);
