@@ -11,8 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.webapp.model.BookModel;
+import com.webapp.model.UserModel;
 import com.webapp.servicce.IBookService;
 import com.webapp.utils.HttpUtil;
+import com.webapp.utils.SessionUtil;
 
 
 @WebServlet(urlPatterns = {"/api-admin-book"})
@@ -28,6 +30,7 @@ public class BookAPI extends HttpServlet{
 		ObjectMapper objectMapper = new ObjectMapper();
 		resp.setContentType("application/json");
 		BookModel bookModel = HttpUtil.of(req.getReader()).toModel(BookModel.class);
+		bookModel.setCreatedBy(((UserModel) SessionUtil.getInstance().getValue(req, "USERMODEL")).getUsername());
 		bookModel = bookService.save(bookModel);
 		objectMapper.writeValue(resp.getOutputStream(), bookModel);
 	}

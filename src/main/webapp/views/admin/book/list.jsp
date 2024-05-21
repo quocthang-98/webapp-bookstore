@@ -35,7 +35,7 @@
 					</div>
 					</div>
 					
-					<div class="col-md-6 mb-4">
+					<div class="col-md-3 mb-4">
 					<div class="dropdown">
 						<button class="btn btn-secondary dropdown-toggle" type="button"
 							data-bs-toggle="dropdown" aria-expanded="false">
@@ -50,6 +50,11 @@
 						</ul>
 					</div>
 					</div>
+					<div class="col-md-3 mb-4">
+						<a class="btn btn-outline-info" data-toggle="tooltip" title="Add new book" href='<c:url value="/admin-book?type=edit"/>'>
+									<i class="fa-solid fa-square-plus"></i>
+									</a>
+					</div>
 					</div>
 					<div></div>
 					<table id="datatablesSimple">
@@ -63,6 +68,7 @@
 								<th>Publication Date</th>
 								<th>Description</th>
 								<th>Stock</th>
+								<th>Action</th>
 							</tr>
 						</thead>
 						<tfoot>
@@ -75,6 +81,7 @@
 								<th>Publication Date</th>
 								<th>Description</th>
 								<th>Stock</th>
+								<th>Action</th>
 							</tr>
 						</tfoot>
 						<tbody>
@@ -88,17 +95,34 @@
 									<td>${item.publicationDate}</td>
 									<td>${item.description}</td>
 									<td>${item.stocks}</td>
+									<td>
+									
+									<c:url var="editURL" value="/admin-book">
+										<c:param name = "type" value = "edit"/>
+										<c:param name = "id" value="${item.id}"/>
+									</c:url>
+								
+									<a class="btn btn-outline-danger" data-toggle="tooltip" title="Delete item">
+									<i class="fa-solid fa-trash"></i>
+									</a>
+									<a>&nbsp</a>
+									<a class="btn btn-outline-warning" data-toggle="tooltip" title="Edit item"  href='${editURL}'>
+									<i class="fa-solid fa-pen-to-square"></i>
+									</a>
+									</td>
 								</tr>
 							</c:forEach>
 						</tbody>
 					</table>
 					<input type="hidden" value="" id="typeId" name="typeId" />
+					<input type="hidden" value="" id="type" name="type" />
 				</div>
 			</div>
 		</form>
 		<script>
 			function myfunction(index) {
 			    document.getElementById("typeId").value = index;
+			    document.getElementById("type").value = 'list';
 				document.getElementById("formSubmit").submit();
 				
 			}
