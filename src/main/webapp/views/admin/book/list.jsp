@@ -86,6 +86,7 @@
 						</tfoot>
 						<tbody>
 							<c:forEach var="item" items="${book.resultList}">
+								<c:set var="bookTitle" value="${item.title}" />
 								<tr>
 									<td>${item.title}</td>
 									<td>${item.authorId}</td>
@@ -102,9 +103,29 @@
 										<c:param name = "id" value="${item.id}"/>
 									</c:url>
 								
-									<a class="btn btn-outline-danger" data-toggle="tooltip" title="Delete item">
+									<a class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#exampleModal" title="Delete item">
+									
 									<i class="fa-solid fa-trash"></i>
 									</a>
+									
+									
+									<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+									  <div class="modal-dialog modal-dialog-centered">
+									    <div class="modal-content">
+									      <div class="modal-header">
+									        <h5 class="modal-title" id="exampleModalLabel">Confirm Deletion</h5>
+									        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+									      </div>
+									      <div class="modal-body">
+									        Are you sure you want to remove the selected item? This action cannot be undone.
+									      </div>
+									      <div class="modal-footer">
+									        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+									        <button type="button" class="btn btn-danger">Delete</button>
+									      </div>
+									    </div>
+									  </div>
+									</div>
 									<a>&nbsp</a>
 									<a class="btn btn-outline-warning" data-toggle="tooltip" title="Edit item"  href='${editURL}'>
 									<i class="fa-solid fa-pen-to-square"></i>
