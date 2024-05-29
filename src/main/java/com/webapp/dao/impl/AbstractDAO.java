@@ -1,6 +1,7 @@
 package com.webapp.dao.impl;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -85,6 +86,8 @@ public class AbstractDAO<T> implements IGenericDAO<T> {
 					preparedStatement.setInt(index, (Integer) parameter);
 				} else if (parameter instanceof Timestamp) {
 					preparedStatement.setTimestamp(index, (Timestamp) parameter);
+				} else if (parameter instanceof Date) {
+					preparedStatement.setDate(index, (Date) parameter);
 				} else if (parameter == null) {
 					preparedStatement.setNull(index, Types.NULL);
 				}

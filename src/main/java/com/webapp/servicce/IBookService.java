@@ -14,4 +14,5 @@ public interface IBookService {
 	List<BookModel> findAll(Integer offset, Integer limit);
 	List<BookModel> findByConditions(Long typeId);
 	int getTotalItem();
+	void deleteOne(Long id);
 }

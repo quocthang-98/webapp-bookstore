@@ -112,19 +112,17 @@
 								<div class="col-sm-6 col-lg-4 mb-4">
 									<div class="card h-100">
 										<!-- Sale badge-->
-										<div class="badge bg-dark text-white position-absolute"
-											style="top: 0.5rem; right: 0.5rem">Sale</div>
 										<!-- Product image-->
 										<img class="card-img-top"
-											src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg"
-											alt="..." />
+											src="<c:url value='${item.thumbnail}' />"
+											 />
 										<!-- Product details-->
 										<div class="card-body p-4">
 											<div class="text-center">
 												<!-- Product name-->
 												<h5 class="fw-bolder">${item.title}</h5>
 												<!-- Product price-->
-												$25.00
+												${item.price} VND
 											</div>
 										</div>
 										<!-- Product actions-->
