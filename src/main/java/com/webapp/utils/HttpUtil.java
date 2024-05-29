@@ -6,7 +6,7 @@ import java.io.IOException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class HttpUtil {
-	private String value;
+	private String value;	
 	
 	public HttpUtil (String value) {
 		this.value = value;
@@ -16,8 +16,9 @@ public class HttpUtil {
 		try {
 			return new ObjectMapper().readValue(value, tClass);
 		} catch (Exception e) {
-			return null;
+			System.out.print(e.getMessage());
 		}
+		return null;
 		
 	}
 	

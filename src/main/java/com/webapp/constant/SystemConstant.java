@@ -8,4 +8,8 @@ public class SystemConstant {
 	public static final String EDIT = "edit";
 	public static final String LIST = "list";
 	public static final String ADD = "add";
+	public static final String GENRE = "genre";
+	public static final String PUBLISHER = "publisher";
+	public static final String AUTHOR = "author";
+	public static final String VALIDATE = "validate";
 }

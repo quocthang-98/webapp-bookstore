@@ -1,19 +1,40 @@
 package com.webapp.service.impl;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
 
+import com.webapp.dao.IAuthorDAO;
 import com.webapp.dao.IBookDAO;
+import com.webapp.dao.IGenreDAO;
+import com.webapp.dao.IPublisherDAO;
+import com.webapp.dao.ITypeDAO;
 import com.webapp.dao.impl.BookDAO;
+import com.webapp.model.AuthorModel;
 import com.webapp.model.BookModel;
+import com.webapp.model.GenreModel;
+import com.webapp.model.PublisherModel;
+import com.webapp.model.TypeModel;
 import com.webapp.servicce.IBookService;
 
 public class BookService implements IBookService{
 	
 	@Inject
 	private IBookDAO bookDAO;
+	
+	@Inject
+	private ITypeDAO typeDAO;
+	
+	@Inject
+	private IGenreDAO genreDAO;
+	
+	@Inject
+	private IPublisherDAO publisherDAO;
+	
+	@Inject
+	private IAuthorDAO authorDAO;
 
 	@Override
 	public List<BookModel> findByTypeId(Long id) {
@@ -29,9 +50,6 @@ public class BookService implements IBookService{
 
 	@Override
 	public BookModel update(BookModel bookModel) {
-		BookModel oldBook = bookDAO.findOne(bookModel.getId());
-		bookModel.setCreatedBy(oldBook.getCreatedBy());
-		bookModel.setCreatedDate(oldBook.getCreatedDate());
 		bookDAO.update(bookModel);	
 		return bookDAO.findOne(bookModel.getId());
 	}
@@ -50,13 +68,31 @@ public class BookService implements IBookService{
 
 	@Override
 	public List<BookModel> findByConditions(Long typeId) {
-		return bookDAO.findByConditions(typeId);
+		List<BookModel> bookList = bookDAO.findByConditions(typeId);
+		TypeModel typeModel;
+		GenreModel genreModel;
+		PublisherModel publisherModel;
+		AuthorModel authorModel;
+		for (BookModel book: bookList) {
+			typeModel = null;
+			genreModel = null;
+			publisherModel = null;
+			authorModel = null;
+			typeModel = typeDAO.findOne(book.getTypeId());
+			genreModel = genreDAO.findOne(book.getGenreId());
+			publisherModel = publisherDAO.findOne(book.getPublisherId());
+			authorModel = authorDAO.findOne(book.getAuthorId());
+			if (genreModel != null) book.setGenreName(genreModel.getName());
+			if (publisherModel != null) book.setPublisherName(publisherModel.getName());
+			if (typeModel != null) book.setTypeName(typeModel.getName());
+			if (authorModel != null) book.setAuthorName(authorModel.getName());
+		}
+		return bookList;
 	}
 
 	@Override
 	public int getTotalItem() {
 		return bookDAO.getTotalItem();
-		
 	}
 
 	@Override
@@ -66,6 +102,20 @@ public class BookService implements IBookService{
 
 	@Override
 	public BookModel findOne(Long id) {
-		return bookDAO.findOne(id);
+		BookModel bookModel = bookDAO.findOne(id);
+		TypeModel typeModel = typeDAO.findOne(bookModel.getTypeId());
+		GenreModel genreModel = genreDAO.findOne(bookModel.getGenreId());
+		PublisherModel publisherModel = publisherDAO.findOne(bookModel.getPublisherId());
+		AuthorModel authorModel = authorDAO.findOne(bookModel.getAuthorId());
+		if (genreModel != null) bookModel.setGenreName(genreModel.getName());
+		if (publisherModel != null) bookModel.setPublisherName(publisherModel.getName());
+		if (typeModel != null) bookModel.setTypeName(typeModel.getName());
+		if (authorModel!=null) bookModel.setAuthorName(authorModel.getName());
+		return bookModel;
+	}
+
+	@Override
+	public void deleteOne(Long id) {
+		bookDAO.delete(id);
 	}
 }

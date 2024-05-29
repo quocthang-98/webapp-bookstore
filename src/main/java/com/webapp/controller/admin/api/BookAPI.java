@@ -1,6 +1,7 @@
 package com.webapp.controller.admin.api;
 
 import java.io.IOException;
+import java.sql.Date;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -30,16 +31,27 @@ public class BookAPI extends HttpServlet{
 		ObjectMapper objectMapper = new ObjectMapper();
 		resp.setContentType("application/json");
 		BookModel bookModel = HttpUtil.of(req.getReader()).toModel(BookModel.class);
+		try {
+			bookModel.setPublicationDate(Date.valueOf(bookModel.getPublicationDateString().substring(0, 10)));
+		} catch (Exception e) {
+			
+		}
+		
 		bookModel.setCreatedBy(((UserModel) SessionUtil.getInstance().getValue(req, "USERMODEL")).getUsername());
 		bookModel = bookService.save(bookModel);
 		objectMapper.writeValue(resp.getOutputStream(), bookModel);
 	}
 	
-	@Override
+	@Override	
 	protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		ObjectMapper objectMapper = new ObjectMapper();
 		resp.setContentType("application/json");
 		BookModel bookModel = HttpUtil.of(req.getReader()).toModel(BookModel.class);
+		try {
+			bookModel.setPublicationDate(Date.valueOf(bookModel.getPublicationDateString().substring(0, 10)));
+		} catch (Exception e) {
+			
+		}
 		bookModel = bookService.update(bookModel);
 		objectMapper.writeValue(resp.getOutputStream(), bookModel);
 	}
@@ -49,7 +61,7 @@ public class BookAPI extends HttpServlet{
 		ObjectMapper objectMapper = new ObjectMapper();
 		resp.setContentType("application/json");
 		BookModel bookModel = HttpUtil.of(req.getReader()).toModel(BookModel.class);
-		bookService.delete(bookModel.getIds());
+		bookService.deleteOne(bookModel.getId());
 		objectMapper.writeValue(resp.getOutputStream(), "");
 	}
 }

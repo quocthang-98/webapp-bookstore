@@ -17,7 +17,8 @@ public class BookMapper implements RowMapper<BookModel> {
 			bookModel.setAuthorId(resultSet.getLong("author_id"));
 			bookModel.setPrice(resultSet.getDouble("price"));
 			bookModel.setTypeId(resultSet.getLong("type_id"));
-			bookModel.setPublicationDate(resultSet.getTimestamp("publication_date"));
+			bookModel.setGenreId(resultSet.getLong("genre_id"));
+			bookModel.setPublicationDate(resultSet.getDate("publication_date"));
 			bookModel.setPublisherId(resultSet.getLong("publisher_id"));
 			bookModel.setDescription(resultSet.getString("description"));
 			bookModel.setStocks(resultSet.getLong("stocks"));
