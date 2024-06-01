@@ -305,7 +305,7 @@
 		
 		<div class="container">
     		<div class="d-flex justify-content-center">
-      			<a href="<c:url value="/user-booklist?page=1&limit=6"/>" class="btn btn-primary">View All</a>
+      			<a href="<c:url value="/user-booklist?page=1&limit=6"/>" class="btn btn-dark view-all-btn">View All</a>
     		</div>
     	</div>
 	</section>

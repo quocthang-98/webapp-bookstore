@@ -4,60 +4,131 @@
 
 <!-- Navigation-->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-	<div class="container px-4 px-lg-5">
-		<a class="navbar-brand" href="#!">PT BOOKSHOP</a>
-		<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-			data-bs-target="#navbarSupportedContent"
-			aria-controls="navbarSupportedContent" aria-expanded="false"
-			aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-				<c:if test="${not empty USERMODEL}">
-					<li class="nav-item"><a class="nav-link active"
-					aria-current="page" href='<c:url value="/login?action=login"/>'>Welcome, ${USERMODEL.lastName}</a></li>
-					<li class="nav-item"><a class="nav-link" href="<c:url value="/logout?action=logout"/>">Logout</a></li>
-				</c:if>
-				
-				<c:if test="${empty USERMODEL}">
-					<li class="nav-item"><a class="nav-link active"
-					aria-current="page" href='<c:url value="/login?action=login"/>'>Login</a></li>
-				</c:if>	
-				
-				
-				<li class="nav-item dropdown"><a
-					class="nav-link dropdown-toggle" id="navbarDropdown" href="#"
-					role="button" data-bs-toggle="dropdown" aria-expanded="false">Browse</a>
-					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<li><a class="dropdown-item" href="#!">All Items</a></li>
-						<li><hr class="dropdown-divider" /></li>
-						<li><a class="dropdown-item" href="#!">Top List<	/a></li>
-						<li><a class="dropdown-item" href="#!">New Arrivals</a></li>
-					</ul></li>
-			</ul>
-			
-			 <div class="container h-100">
-		      <div class="d-flex justify-content-center h-100">
-		        <div class="search">
-		          <input class="search_input" type="text" name="" placeholder="Search here...">
-		          <a href="user-booklist" class="search_icon"><i class="fa fa-search"></i></a>
-		        </div>
-		      </div>
-		    </div>
-			
-			<form class="d-flex" action="user-cart">
-				<button class="btn btn-outline-dark" type="submit">
-					<i class="bi-cart-fill me-1"></i> Cart <span
-						class="badge bg-dark text-white ms-1 rounded-pill">0</span>
-				</button>
-			</form>
-			
-			
-		</div>
-	</div>
-	
+  <div class="container">
+  	<!-- brand name -->
+    <a class="navbar-brand fs-4" href="#">PT BOOKSTORE</a>
+    
+    <!-- navbar toggler -->
+    <button class="navbar-toggler shadow-none border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <!-- sidebar -->
+    <div class="sidebar offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+    
+      <!-- sidebar header-->
+      <div class="offcanvas-header text-black border-bottom">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+        <button type="button" class="btn-close shadow-none" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      
+      <!-- sidebar body-->
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-start flex-grow-1 pe-3">
+          <li class="nav-item mx-2">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          
+          <li class="nav-item mx-2 dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Browse</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#"><strong>All Books</strong></a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">New Books</a></li>
+              <li><a class="dropdown-item" href="#">Top Rated</a></li>
+            </ul>
+          </li>
+          
+          <li class="nav-item mx-2">
+            <a class="nav-link" aria-current="page" href="#">Support</a>
+          </li>
+          
+          <li class="nav-item mx-2">
+            <a class="nav-link" aria-current="page" href="#">About</a>
+          </li>
+          
+          <li class="nav-item mx-2">
+			<div class="justify-content-end align-items-end mw-100">
+	       		<form action="user-booklist" class="form-control-sm" style="width: 300px;">
+					<div class="input-group ">
+					  <input type="search" class="form-control rounded" style="background-color: rgba(0, 0, 0, 0.02); height: 50%;" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+					  <button type="button" class="btn btn-dark search-btn" style="height: 50%;" data-mdb-ripple-init><img src="./template/images/iconSearch.svg" style="display: inline-block; filter: invert(1);"></button>
+					</div>
+				</form>
+      		</div>
+			</li>
+       
+        </ul>
 
-	
+    	</div>
+  		</div>
+  		
+<!--   		<ul class="navbar-nav justify-content-end align-items-end flex-grow-1 pe-3"> -->
+<!-- 			<li class="nav-item mx-2"> -->
+<!-- 			<div class="justify-content-end align-items-end"> -->
+<!-- 	       		<form action="user-cart" class=" justify-content-end align-items-end"> -->
+<!-- 					<button class="btn btn-outline-dark form-control me-2 cart-button" type="submit"> -->
+<!-- 					<div class="cart-button-content align-items-center"> -->
+<!-- 						<img src="./template/images/shopping-cart-outline.svg" class="cart-button-image" style="display: inline-block;"> -->
+<!-- 						<p class="cart-button-text" style="display: inline-block;">Cart</p> -->
+<!-- 					</div> -->
+<!-- 					<span class="badge bg-dark text-white ms-1 rounded-pill cart-button-badge">0</span> -->
+<!-- 					</button> -->
+<!-- 				</form> -->
+<!--       		</div></li> -->
+       
+        </ul>
+  		
+  		<div class="justify-content-center align-items-center mr-2">
+    		<c:if test="${not empty USERMODEL}">
+    		
+    		<!-- cart button -->
+    		<ul class="navbar-nav justify-content-end align-items-end flex-grow-1 pe-3">
+			<li class="nav-item mx-2">
+			<div class="justify-content-end align-items-end">
+	       		<form action="user-cart" class=" justify-content-end align-items-end">
+					<button class="btn btn-outline-dark form-control me-2 cart-button" type="submit">
+					<div class="cart-button-content align-items-center">
+						<img src="./template/images/shopping-cart-outline.svg" class="cart-button-image" style="display: inline-block;">
+						<p class="cart-button-text" style="display: inline-block;">Cart</p>
+					</div>
+					<span class="badge bg-dark text-white ms-1 rounded-pill cart-button-badge">0</span>
+					</button>
+				</form>
+      		</div></li>
+      		
+<%-- 				<li class="nav-item mx-2"><a class="text-black mr-1" aria-current="page" href='<c:url value="/login?action=login"/>'>Welcome, <strong>${USERMODEL.lastName}</strong></a></li> --%>
+<%-- 				<li class="nav-item mx-2"><a class="btn btn-secondary text-white text-decoration-none px-3 py-1 rounded-3" style="background-color: #232323;" href="<c:url value="/logout?action=logout"/>">Logout</a></li> --%>
+				
+				<li class="nav-item mx-2 dropdown">
+                    <a class="nav-link user-profile-icon" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><img src="./template/images/user-circle.svg" class="user-profile-image" style="display: inline-block;"></a>
+                    <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#!">Welcome, <strong>${USERMODEL.lastName}</strong></a></li>
+                        <li><a class="dropdown-item" href="#!">Activity Log</a></li>
+                        <li><hr class="dropdown-divider" /></li>
+                        <li class="d-sm-flex justify-content-center"><a class="btn btn-secondary text-white text-decoration-none px-3 py-1 rounded-3" style="background-color: #232323;" href="<c:url value="/logout?action=logout"/>">Logout</a></li>
+                        
+                    </ul>
+                </li>
+				  		
+       
+        </ul>
+			</c:if>
+			
+			<c:if test="${empty USERMODEL}">
+				<a class=" text-black btn btn-light text-decoration-none px-3 py-1 rounded-3" aria-current="page" href='<c:url value="/login?action=login"/>'>Sign Up</a>
+				<a class=" text-white btn btn-secondary text-decoration-none px-3 py-1 rounded-3" style="background-color: #232323;" aria-current="page" href='<c:url value="/login?action=login"/>'>Login</a>
+			</c:if>	
+    	</div>
+    	
+    	<div></div>
+  		
+          
+  </div>
 </nav>
 
+<script>
+import { Ripple, initMDB } from "mdb-ui-kit";
+
+initMDB({ Ripple });
+</script>

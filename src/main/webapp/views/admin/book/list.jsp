@@ -13,51 +13,145 @@
 	<div class="container-fluid px-4">
 		<form action="<c:url value='/admin-book'/>" id="formSubmit"
 			method="get">
-			<h1 class="mt-4">Dashboard</h1>
+			<h1 class="mt-4">BOOK MANAGER</h1>
 			<ol class="breadcrumb mb-4">
-				<li class="breadcrumb-item active">Dashboard</li>
+				<li class="breadcrumb-item active">Find, add, edit, and delete your books here.</li>
 			</ol>
 			<div class="card mb-4">
 				<div class="card-header">
-					<i class="fas fa-table me-1"></i> DataTable Example
+					<i class="fas fa-table me-1"></i> Database: <strong>online-bookstore</strong>
 				</div>
+				
 				<div class="card-body">
-					<div class="row">
-                    <div class="col-md-3 mb-4">
-					<div class="dropdown">
-						<button class="btn btn-secondary dropdown-toggle" type="button"
-							data-bs-toggle="dropdown" aria-expanded="false">
-							Types of book</button>
-						<ul class="dropdown-menu dropdown-menu-dark">
-							<c:forEach var="item" items="${type.resultList}">
-							<li><a type = "button" onclick = "myfunction(${item.id})" class="dropdown-item">${item.name}</a></li>
-							</c:forEach>
-							
-						</ul>
-					</div>	
-					</div>
+				<div class="row">
 					
-					<div class="col-md-3 mb-4">
-					<div class="dropdown">
-						<button class="btn btn-secondary dropdown-toggle" type="button"
-							data-bs-toggle="dropdown" aria-expanded="false">
-							Dropdown button</button>
-						<ul class="dropdown-menu dropdown-menu-dark">
-							<li><a class="dropdown-item active" href="#">Action</a></li>
-							<li><a class="dropdown-item" href="#">Another action</a></li>
-							<li><a class="dropdown-item" href="#">Something else
-									here</a></li>
-							<li><hr class="dropdown-divider"></li>
-							<li><a class="dropdown-item" href="#">Separated link</a></li>
-						</ul>
-					</div>
-					</div>
+					<div class="dropdown my-3">
+				  <button class="btn btn-success dropdown-toggle dropdown-toggle-split" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				   Filter
+				  </button>
+				  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+				    <form>
+				    	<div class="row">
+					      <div class="col-4">
+					      	<h6 class="dropdown-header">Types</h6>
+					        <div class="form-check dropdown-item">
+							  <input class="form-check-input filter-menu-check" type="checkbox" value="" id="defaultCheck1">
+							  <label class="form-check-label" for="defaultCheck1">
+							    Book
+							  </label>
+							</div>
+					        <div class="form-check dropdown-item">
+							  <input class="form-check-input filter-menu-check" type="checkbox" value="" id="defaultCheck1">
+							  <label class="form-check-label" for="defaultCheck1">
+							    Magazine
+							  </label>
+							</div>
+					        <div class="form-check dropdown-item">
+							  <input class="form-check-input filter-menu-check" type="checkbox" value="" id="defaultCheck1">
+							  <label class="form-check-label" for="defaultCheck1">
+							    Newspapers
+							  </label>
+							</div>
+					      </div>
+					      
+					      
+					      
+					      <div class="col-4">
+					      	<h6 class="dropdown-header">Genres</h6>
+					        <div class="form-check dropdown-item">
+							  <input class="form-check-input filter-menu-check" type="checkbox" value="" id="defaultCheck1">
+							  <label class="form-check-label" for="defaultCheck1">
+							    Action
+							  </label>
+							</div>
+							<div class="form-check dropdown-item">
+							  <input class="form-check-input filter-menu-check" type="checkbox" value="" id="defaultCheck1">
+							  <label class="form-check-label" for="defaultCheck1">
+							    Comedy
+							  </label>
+							</div>
+					        <div class="form-check dropdown-item">
+							  <input class="form-check-input filter-menu-check" type="checkbox" value="" id="defaultCheck1">
+							  <label class="form-check-label" for="defaultCheck1">
+							    Horror
+							  </label>
+							</div>
+					        <div class="form-check dropdown-item">
+							  <input class="form-check-input filter-menu-check" type="checkbox" value="" id="defaultCheck1">
+							  <label class="form-check-label" for="defaultCheck1">
+							    Self-Education
+							  </label>
+							</div>
+							<div class="form-check dropdown-item">
+							  <input class="form-check-input filter-menu-check" type="checkbox" value="" id="defaultCheck1">
+							  <label class="form-check-label" for="defaultCheck1">
+							    Life Skills
+							  </label>
+							</div>
+							<div class="form-check dropdown-item">
+							  <input class="form-check-input filter-menu-check" type="checkbox" value="" id="defaultCheck1">
+							  <label class="form-check-label" for="defaultCheck1">
+							    Science Fiction
+							  </label>
+							</div>
+							<div class="form-check dropdown-item">
+							  <input class="form-check-input filter-menu-check" type="checkbox" value="" id="defaultCheck1">
+							  <label class="form-check-label" for="defaultCheck1">
+							    Psychology
+							  </label>
+							</div>
+							<div class="form-check dropdown-item">
+							  <input class="form-check-input filter-menu-check" type="checkbox" value="" id="defaultCheck1">
+							  <label class="form-check-label" for="defaultCheck1">
+							    Crime
+							  </label>
+							</div>
+						</div>
+						
+						
+						<div class="col-4">
+					      	<h6 class="dropdown-header">Stocks</h6>
+					        <div class="form-check dropdown-item">
+							  <input class="form-check-input filter-menu-check" type="checkbox" value="" id="defaultCheck1">
+							  <label class="form-check-label" for="defaultCheck1">
+							    0
+							  </label>
+							</div>
+							<div class="form-check dropdown-item">
+							  <input class="form-check-input filter-menu-check" type="checkbox" value="" id="defaultCheck1">
+							  <label class="form-check-label" for="defaultCheck1">
+							    < 50
+							  </label>
+							</div>
+					        <div class="form-check dropdown-item">
+							  <input class="form-check-input filter-menu-check" type="checkbox" value="" id="defaultCheck1">
+							  <label class="form-check-label" for="defaultCheck1">
+							    > 100
+							  </label>
+							</div>
+
+						</div>
+					    
+						
+					      
+					      </div>
+					      
+					      <div class="col-4">
+					      	<input type="submit" class="btn btn-dark">
+					    </div>
+				    </form>
+				  </div>
+				</div>
+								
 					<div class="col-md-3 mb-4">
 						<a class="btn btn-outline-info" data-toggle="tooltip" title="Add new book" href='<c:url value="/admin-book?type=edit"/>'>
 									<i class="fa-solid fa-square-plus"></i>
+			
 									</a>
 					</div>
 					</div>
+					
+					
 					<div></div>
 					<table id="datatablesSimple">
 						<thead>
