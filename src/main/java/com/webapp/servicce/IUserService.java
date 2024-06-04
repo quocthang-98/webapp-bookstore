@@ -7,4 +7,5 @@ import com.webapp.model.UserModel;
 
 public interface IUserService {
 	public UserModel findByUsernameAndPassword(String username, String password);
+	
 }

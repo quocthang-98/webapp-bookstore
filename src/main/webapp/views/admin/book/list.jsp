@@ -34,78 +34,28 @@
 				    	<div class="row">
 					      <div class="col-4">
 					      	<h6 class="dropdown-header">Types</h6>
+					        <c:forEach 	var="item" items="${type.getResultList()}">
 					        <div class="form-check dropdown-item">
-							  <input class="form-check-input filter-menu-check" type="checkbox" value="" id="defaultCheck1">
+							  <input class="form-check-input filter-menu-check" type="checkbox" value="${item.id}" name="typecheckbox">
 							  <label class="form-check-label" for="defaultCheck1">
-							    Book
+							    ${item.name}
 							  </label>
 							</div>
-					        <div class="form-check dropdown-item">
-							  <input class="form-check-input filter-menu-check" type="checkbox" value="" id="defaultCheck1">
-							  <label class="form-check-label" for="defaultCheck1">
-							    Magazine
-							  </label>
-							</div>
-					        <div class="form-check dropdown-item">
-							  <input class="form-check-input filter-menu-check" type="checkbox" value="" id="defaultCheck1">
-							  <label class="form-check-label" for="defaultCheck1">
-							    Newspapers
-							  </label>
-							</div>
-					      </div>
+							</c:forEach>
+					      </div>	
 					      
 					      
 					      
 					      <div class="col-4">
 					      	<h6 class="dropdown-header">Genres</h6>
+					      	<c:forEach var="item" items="${genre.getResultList()}">
 					        <div class="form-check dropdown-item">
-							  <input class="form-check-input filter-menu-check" type="checkbox" value="" id="defaultCheck1">
+							  <input class="form-check-input filter-menu-check" type="checkbox" value="${item.id}" name="genrecheckbox">
 							  <label class="form-check-label" for="defaultCheck1">
-							    Action
+							    ${item.name}
 							  </label>
 							</div>
-							<div class="form-check dropdown-item">
-							  <input class="form-check-input filter-menu-check" type="checkbox" value="" id="defaultCheck1">
-							  <label class="form-check-label" for="defaultCheck1">
-							    Comedy
-							  </label>
-							</div>
-					        <div class="form-check dropdown-item">
-							  <input class="form-check-input filter-menu-check" type="checkbox" value="" id="defaultCheck1">
-							  <label class="form-check-label" for="defaultCheck1">
-							    Horror
-							  </label>
-							</div>
-					        <div class="form-check dropdown-item">
-							  <input class="form-check-input filter-menu-check" type="checkbox" value="" id="defaultCheck1">
-							  <label class="form-check-label" for="defaultCheck1">
-							    Self-Education
-							  </label>
-							</div>
-							<div class="form-check dropdown-item">
-							  <input class="form-check-input filter-menu-check" type="checkbox" value="" id="defaultCheck1">
-							  <label class="form-check-label" for="defaultCheck1">
-							    Life Skills
-							  </label>
-							</div>
-							<div class="form-check dropdown-item">
-							  <input class="form-check-input filter-menu-check" type="checkbox" value="" id="defaultCheck1">
-							  <label class="form-check-label" for="defaultCheck1">
-							    Science Fiction
-							  </label>
-							</div>
-							<div class="form-check dropdown-item">
-							  <input class="form-check-input filter-menu-check" type="checkbox" value="" id="defaultCheck1">
-							  <label class="form-check-label" for="defaultCheck1">
-							    Psychology
-							  </label>
-							</div>
-							<div class="form-check dropdown-item">
-							  <input class="form-check-input filter-menu-check" type="checkbox" value="" id="defaultCheck1">
-							  <label class="form-check-label" for="defaultCheck1">
-							    Crime
-							  </label>
-							</div>
+							</c:forEach>
 						</div>
 						
 						
@@ -135,10 +85,10 @@
 						
 					      
 					      </div>
-					      
-					      <div class="col-4">
+					      <a class="btn btn-dark" type = "button" class="dropdown-item" id="an">Filter</a>
+					      <!-- <div class="col-4">
 					      	<input type="submit" class="btn btn-dark">
-					    </div>
+					    </div> -->
 				    </form>
 				  </div>
 				</div>
@@ -239,8 +189,9 @@
 							</c:forEach>
 						</tbody>
 					</table>
-					<input type="hidden" value="" id="typeId" name="typeId" />
 					<input type="hidden" value="" id="type" name="type" />
+					<input type="hidden" value="" id="typeList" name="typeList" />
+					<input type="hidden" value="" id="genreList" name="genreList" />
 				</div>
 			</div>
 		</form>
@@ -270,14 +221,31 @@
 				}
 			});
 		}
+		$("#an").click(
+				function () {	
+					var types = [];
+					var genres = []; 
+					$("input:checkbox[name=typecheckbox]:checked").each(function(){
+					  	types.push($(this).val());
+					});
+					$("input:checkbox[name=genrecheckbox]:checked").each(function(){
+					  	genres.push($(this).val());
+					});
+
+				    
+				    $('#typeList').val("{" + types + "}");
+					$('#genreList').val(genres);
+					$('#type').val('list');
+					console.log($('#typeList').val());
+					$('#formSubmit').submit();
+					
+					/* document.getElementById("formSubmit").submit(); */
+					
+				}
 		
+		);
 		
-			function myfunction(index) {
-			    document.getElementById("typeId").value = index;
-			    document.getElementById("type").value = 'list';
-				document.getElementById("formSubmit").submit();
-				
-			}
+
 		</script>
 	</div>
 </body>
