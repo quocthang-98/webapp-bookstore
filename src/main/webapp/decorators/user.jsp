@@ -51,13 +51,7 @@
 	<%@ include file="/common/user/footer.jsp"%>
 	<!-- footer -->
 
-	<script
-		src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js"></script>
-	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css"></script>
+
 	<!-- Core theme JS-->
 
 	<script src="<c:url value='/template/user/js/scripts.js' />"></script>
@@ -66,9 +60,16 @@
 	<script src="<c:url value='/template/user/js/bootstrap.min.js' />"></script>
 	<script src="<c:url value='/template/user/js/owl.carousel.min.js' />"></script>
 	<script src="<c:url value='/template/user/js/main.js' />"></script>
+		<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css"></script>
 	<script
 		src="<c:url value='/template/paging/jquery.twbsPagination.min.js' />"></script>
-
+	
 
 </body>
 </html>

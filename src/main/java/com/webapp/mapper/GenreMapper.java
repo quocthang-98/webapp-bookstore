@@ -14,6 +14,8 @@ public class GenreMapper implements RowMapper<GenreModel> {
 			GenreModel genreModel = new GenreModel();
 			genreModel.setId(resultSet.getLong("id"));
 			genreModel.setName(resultSet.getString("genre_name"));
+			genreModel.setCreatedBy(resultSet.getString("created_by"));
+			genreModel.setCreatedDate(resultSet.getTimestamp("date_created"));
 			return genreModel;
 		} catch (SQLException e) {
 			return null;

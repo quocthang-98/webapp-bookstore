@@ -55,7 +55,7 @@ public class BookController extends HttpServlet{
 		AuthorModel authorModel = new AuthorModel();
 		typeModel.setResultList(typeService.findAll());
 		genreModel.setResultList(genreService.findAll());
-		publisherModel.setResultList(publisherService.findAll());
+		publisherModel.setResultList(publisherService.findAll());	
 		authorModel.setResultList(authorService.findAll());
 		BookModel bookModel = FormUtil.toModel(BookModel.class, request);
 		
