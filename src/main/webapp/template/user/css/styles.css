@@ -11085,16 +11085,23 @@ textarea.form-control-lg {
 }
 
 .item-card {
-	height: 550px;
+	height: 580px;
 }
 
+.disabled-item-card {
+	height: 420px;
+}
 
 .inner-item-card {
 		border: solid 2px #00000025;
 		border-radius: 8px;
 		box-shadow: 0px 0px 0px rgba(0, 210, 0, 0.4);
 		transition: all 0.2s ease-in;
-	
+}
+
+.disabled-inner-item-card {
+		border: dashed 2px #00000025;
+		border-radius: 8px;
 }
 
 .inner-item-card:hover {
@@ -11124,13 +11131,14 @@ textarea.form-control-lg {
 	height: 350px;
 	max-height: 350px;
 	object-fit: cover;
+	border-radius: 6px 6px 0 0;
 	filter: grayscale(100%) brightness(80%);
 	transition: filter 0.2s ease-in-out;
 }
 
 .content-item-card-container {
 	position: absolute;
-	bottom: 150px;
+	bottom: 175px;
 	width: 100%;
  	left: 50.5%;
  	margin-left: -50%;
@@ -11144,7 +11152,7 @@ textarea.form-control-lg {
 
 .content-text-item-card {
 	color: black;
-	height: 95px;
+	height: 120px;
 	overflow: hidden;
   	text-overflow: ellipsis;
 	transition: color 0.2s se-in-out;
@@ -11162,10 +11170,14 @@ textarea.form-control-lg {
 	font-family: "Josefin Sans", sans-serif;
 	font-optical-sizing: auto;
 	font-size: 30px;
-	margin-top: 20px;
+	margin-top: 60px;
 	margin-bottom: 0px;
   	font-weight: 700;
   	font-style: normal;
+}
+
+.horizontal-card-body {
+	margin-bottom: 60px;
 }
 
 .inner-item-card:hover .content-text-item-card{
@@ -11175,6 +11187,10 @@ textarea.form-control-lg {
 .content-subtext-item-card {
 	opacity: 0;
 	transition: all 0.2s ease-in-out;
+}
+
+.disabled-content-subtext-item-card {
+	opacity: 1;
 }
 
 .inner-item-card:hover .content-subtext-item-card {
@@ -11357,7 +11373,67 @@ textarea.form-control-lg {
 }
 
 @keyframes up-down-breathe {
-	0% { transform: translateY(1%) scale(1.08) rotate(4deg);}
-	50% { transform: translateY(-2%) scale(1.08) rotate(-1deg);}
-	100% { transform: translateY(1%) scale(1.08) rotate(4deg);}
+	0% { transform: translateY(1%) scale(1.2) rotate(4deg);}
+	50% { transform: translateY(-2%) scale(1.22) rotate(-1deg);}
+	100% { transform: translateY(1%) scale(1.2) rotate(4deg);}
+}
+
+.item-card-link .content-subtext-item-card{
+	color: black;
+}
+
+#section-bookoftheday {
+	margin-bottom: 60px !important;
+}
+
+.disabled-item-card .image-item-card {
+	width: 100%;
+	height: 200px;
+	max-height: 200px;
+	object-fit: cover;
+	border-radius: 4px 4px 0 0;
+}
+
+.all-book-filter-col {
+  border: 1px solid #ccc;
+  border-right-width: 2px;
+  border-top-style: none; 
+  border-bottom-style: none; 
+  border-left-style: none; 
+  max-width: 200px;
+  margin-right: 40px;
+}
+
+.booklist-filter-container input[type="checkbox"]{
+	margin-left: 20px;
+}
+
+..booklist-filter-container label {
+	font-family: "Poppins", san-serif;
+}
+
+.filter-checkbox {
+  margin-right: 10px;
+}
+
+.filter-checkbox:after {
+  /* Style the pseudo-element to appear like a checkbox */
+  content: "";
+  display: block;
+  width: 18px;
+  height: 18px;
+  border: 1px solid #ccc; 
+  overflow: hidden;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.filter-checkbox:checked:after {
+  /* Style for checked state */
+  background-color: #157347;
+  content: "\2713";
+  color: ivory;
+  font-size: 14px;
+  text-align: center;
+  line-height: 16px;  /* Align checkmark vertically */
 }

@@ -11,11 +11,11 @@
 		<div class="d-flex justify-content-center h-100">
 			<div class="card">
 				<div class="card-header">
-					<h3>Sign In</h3>
+					<h3 style="margin-top: 24px; text-align:center; font-weight: bolder;">SIGN IN</h3>
 					<div class="d-flex justify-content-end social_icon">
-						<span><i class="fab fa-facebook-square"></i></span> <span><i
-							class="fab fa-google-plus-square"></i></span> <span><i
-							class="fab fa-twitter-square"></i></span>
+						<h6>Login with</h6>
+						<span><i class="fab fa-facebook-f"></i></span> <span>
+							<i class="fab fa-google"></i></span>
 					</div>
 				</div>
 				<div class="card-body">
@@ -25,7 +25,7 @@
 							<div class="input-group-prepend">
 								<span class="input-group-text"><i class="fas fa-user"></i></span>
 							</div>
-							<input type="text" class="form-control" placeholder="username"
+							<input type="text" class="form-control" placeholder="Username"
 								name="username">
 
 						</div>
@@ -34,7 +34,7 @@
 								<span class="input-group-text"><i class="fas fa-key"></i></span>
 							</div>
 							<input type="password" class="form-control"
-								placeholder="password" name="password">
+								placeholder="Password" name="password">
 						</div>
 						<div class="row align-items-center remember">
 							<input type="checkbox">Remember Me
@@ -48,14 +48,14 @@
 				</div>
 				<div class="card-footer">
 					<div class="d-flex justify-content-center links">
-						Don't have an account?<a href="#">Sign Up</a>
+						Don't have an account?<a href="#" style="margin-left: 4px;">Sign Up</a>
 					</div>
 					<div class="d-flex justify-content-center">
 						<a href="#">Forgot your password?</a>
 					</div>
 				</div>
 				<c:if test="${not empty message}">
-				<div class="alert alert-${alert}">
+				<div class="alert alert-${alert}" style="text-align: center;">
 					<strong>${message}</strong> 
 				</div>	
 				</c:if>

@@ -35,7 +35,7 @@
               <li><a class="dropdown-item" href="<c:url value="/user-booklist?page=1&limit=6"/>"><strong>All Books</strong></a></li>
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" href="./user-home#section-whatsnew">New Arrivals</a></li>
-              <li><a class="dropdown-item" href="./user-home#section-bookoftheday">Book of the Day</a></li>
+              <li><a class="dropdown-item" href="./user-home#section-bookoftheday">Today's Pick</a></li>
                             <li><a class="dropdown-item dropdown-item-end" href="#">Top Rated</a></li>
             </ul>
           </li>

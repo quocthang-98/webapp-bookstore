@@ -39,11 +39,11 @@
                         </td>
                         <td data-th="Price">$49.00</td>
                         <td data-th="Quantity">
-                            <input type="number" class="form-control form-control-lg text-center" value="1">
+                            <input type="number" class="form-control form-control-lg text-center" value="1" min="0" max="10">
                         </td>
                         <td class="actions" data-th="">
                             <div class="text-right">
-                                <button class="btn btn-dark border-secondary bg-black btn-md mb-2">
+                                <button class="btn btn-dark border-secondary bg-black btn-md mb-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
 									Remove
                                 </button>
                             </div>
@@ -63,11 +63,11 @@
                         </td>
                         <td data-th="Price">$49.00</td>
                         <td data-th="Quantity">
-                            <input type="number" class="form-control form-control-lg text-center" value="1">
+                            <input type="number" class="form-control form-control-lg text-center" value="1" min="0" max="10">
                         </td>
                         <td class="actions" data-th="">
                             <div class="text-right">
-                                <button class="btn btn-dark border-secondary bg-black btn-md mb-2">
+                                <button class="btn btn-dark border-secondary bg-black btn-md mb-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
 									Remove
                                 </button>
                             </div>
@@ -87,15 +87,38 @@
                         </td>
                         <td data-th="Price">$49.00</td>
                         <td data-th="Quantity">
-                            <input type="number" class="form-control form-control-lg text-center" value="1">
+                            <input type="number" class="form-control form-control-lg text-center" value="1" min="0" max="10">
                         </td>
                         <td class="actions" data-th="">
                             <div class="text-right">
-                                <button class="btn btn-dark border-secondary bg-black btn-md mb-2">
+                                <button class="btn btn-dark border-secondary bg-black btn-md mb-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
 									Remove
                                 </button>
                             </div>
                             </div>
+                            
+                            
+                            <!-- Delete Warning Popup Box -->
+  								<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+									  <div class="modal-dialog modal-dialog-centered">
+									    <div class="modal-content">
+									      <div class="modal-header">
+									        <h5 class="modal-title" id="exampleModalLabel">Confirm Deletion</h5>
+									        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+									      </div>
+									      <div class="modal-body">
+									        Are you sure you want to remove this item? This action cannot be undone.
+									      </div>
+									      <div class="modal-footer">
+									        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+									        <button type="button" class="btn btn-danger" id="delete">Delete</button>
+									      </div>
+									    </div>
+									  </div>
+									</div>
+                            
+                            
+                            
                         </td>
                     </tr>
                 </tbody>

@@ -25,17 +25,20 @@
 				<div class="card-body">
 				<div class="row">
 					
-					<div class="dropdown my-3">
+				<div class="dropdown my-3">
 				  <button class="btn btn-success dropdown-toggle dropdown-toggle-split" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				   Filter
 				  </button>
-				  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+				 	
+				 	
+				 	<div class="d-flex justify-content-center">
+				 	 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 				    <form>
 				    	<div class="row">
 					      <div class="col-4">
 					      	<h6 class="dropdown-header">Types</h6>
 					        <c:forEach 	var="item" items="${type.getResultList()}">
-					        <div class="form-check dropdown-item">
+					        <div class="form-check">
 							  <input class="form-check-input filter-menu-check" type="checkbox" value="${item.id}" name="typecheckbox">
 							  <label class="form-check-label" for="defaultCheck1">
 							    ${item.name}
@@ -49,7 +52,7 @@
 					      <div class="col-4">
 					      	<h6 class="dropdown-header">Genres</h6>
 					      	<c:forEach var="item" items="${genre.getResultList()}">
-					        <div class="form-check dropdown-item">
+					        <div class="form-check">
 							  <input class="form-check-input filter-menu-check" type="checkbox" value="${item.id}" name="genrecheckbox">
 							  <label class="form-check-label" for="defaultCheck1">
 							    ${item.name}
@@ -61,19 +64,19 @@
 						
 						<div class="col-4">
 					      	<h6 class="dropdown-header">Stocks</h6>
-					        <div class="form-check dropdown-item">
+					        <div class="form-check">
 							  <input class="form-check-input filter-menu-check" type="checkbox" value="" id="defaultCheck1">
 							  <label class="form-check-label" for="defaultCheck1">
 							    0
 							  </label>
 							</div>
-							<div class="form-check dropdown-item">
+							<div class="form-check">
 							  <input class="form-check-input filter-menu-check" type="checkbox" value="" id="defaultCheck1">
 							  <label class="form-check-label" for="defaultCheck1">
 							    < 50
 							  </label>
 							</div>
-					        <div class="form-check dropdown-item">
+					        <div class="form-check">
 							  <input class="form-check-input filter-menu-check" type="checkbox" value="" id="defaultCheck1">
 							  <label class="form-check-label" for="defaultCheck1">
 							    > 100
@@ -85,12 +88,16 @@
 						
 					      
 					      </div>
-					      <a class="btn btn-dark" type = "button" class="dropdown-item" id="an">Filter</a>
+					      <div class="d-flex justify-content-center mt-2 mb-2">
+					      <a class="btn btn-outline-dark bg-light" type = "button" class="dropdown-item" id="an">Filter</a>
+					      </div>
 					      <!-- <div class="col-4">
-					      	<input type="submit" class="btn btn-dark">
+					      	<input type="submit" class="btn btn-light" value="Filter">
 					    </div> -->
 				    </form>
 				  </div>
+				 	
+				 	</div>
 				</div>
 								
 					<div class="col-md-3 mb-4">
@@ -167,6 +174,9 @@
 									<a class="btn btn-outline-warning" data-toggle="tooltip" title="Edit item"  href='${editURL}'>
 									<i class="fa-solid fa-pen-to-square"></i>
 									</a>
+									
+									
+									<!-- Delete Warning Popup Box -->
 									<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
 									  <div class="modal-dialog modal-dialog-centered">
 									    <div class="modal-content">
@@ -184,6 +194,9 @@
 									    </div>
 									  </div>
 									</div>
+									
+									
+									
 									</td>
 								</tr>
 							</c:forEach>
