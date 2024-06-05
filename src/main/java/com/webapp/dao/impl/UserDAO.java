@@ -21,4 +21,11 @@ public class UserDAO extends AbstractDAO<UserModel> implements IUserDAO {
 		return users.isEmpty() ? null : users.get(0);
 	}
 
+	@Override
+	public UserModel findOne(Long id) {
+		String sql = "SELECT * FROM user WHERE id = ?";
+		List<UserModel> users = query(sql, new UserMapper(), id);
+		return users.isEmpty() ? null : users.get(0);
+	}
+
 }

@@ -4,4 +4,5 @@ import com.webapp.model.UserModel;
 
 public interface IUserDAO {
 	public UserModel findByUsernameAndPassword(String username, String password);
+	UserModel findOne(Long id);
 }

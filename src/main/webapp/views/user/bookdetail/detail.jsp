@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="/common/taglib.jsp"%>
+
+<c:url var="APIurl" value="/api-user-comment" />
+<c:url var="BookdetailURL" value="/user-bookdetail" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,12 +16,11 @@
                 <div class="row gx-4 gx-lg-5 align-items-center">
                     <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="https://i.scdn.co/image/ab67616d0000b27371d5ffe4407f913393ecdd11" alt="..." /></div>
                     <div class="col-md-6">
-                        <div class="small mb-1">WREN EVANS</div>
+                        <div class="small mb-1">${book.title}</div>
                         
                         <h1 class="display-5 fw-bolder">LOI CHOI: The Neo Pop Punk - Standard CD</h1>
                         <div class="fs-5 mb-5">
-                            <span class="text-decoration-line-through">500.000</span>
-                            <span style="font-weight: bold;">350.000 VND</span>
+                            <span style="font-weight: bold;">${book.price} VND</span>
                             <div class="small">Remaining: 20</div>
                         </div>
 						
@@ -178,23 +180,27 @@
         
         
         <!-- Comment section -->
-        <section class="py-5 bg-light">
+        <section class="py-5 bg-light" id="commentSection">
+            <form id = "commentForm">
             <div class="container px-4 px-lg-5 mt-5">
                 <h2 class="fw-bolder mb-4">Comments</h2>
                 <div class="mb-3">
 				  <label for="commentInput" class="form-label">What do you think about this product?</label>
-				  <input type="email" class="form-control" id="commentInput" placeholder="Type your comments here...">
+				  <input type="text" class="form-control" id="content" placeholder="Type your comments here..." name="content">
 				</div>
-				<button type="button" class="btn btn-dark">Post</button>
+				<input type="hidden" value ="${book.id}" id="bookId" name="bookId">
+				<input type="hidden" value ="0" id="likes" name="likes">
+				<button type="button" class="btn btn-dark" id="comment">Post</button>
             </div>
-            
+            </form>
+            <c:forEach var="item" items="${comment.resultList}">
             <div class="container px-4 px-lg-5 mt-5">
             <div class="d-flex flex-start">
               <img class="rounded-circle shadow-1-strong me-3"
                 src="https://scontent.fsgn5-15.fna.fbcdn.net/v/t39.30808-1/405372159_871851221392800_4877411962768229159_n.jpg?stp=dst-jpg_p200x200&_nc_cat=111&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeH__uEuwvMUWv1FA9Qrf4c7yzq2hRTIM1bLOraFFMgzVtE7yUYpZRsIeDdpo9kgY_emZ5wQHtFF39R3zS8Cj5vn&_nc_ohc=P78aPtlHgZcQ7kNvgFdukLA&_nc_ht=scontent.fsgn5-15.fna&oh=00_AYBhkhN8e9_s5EkrzkWwFSJhO2ZdiNkxO5yasvhk6heB-A&oe=66607981" alt="avatar" width="60"
                 height="60" />
               <div style="width: 100%; margin: auto;">
-                <h6 class="fw-bold mb-1">Wren Evans</h6>
+                <h6 class="fw-bold mb-1">${item.userName}</h6>
                 <div class="d-flex align-items-center mb-3">
                   <p class="mb-0">
                     March 15, 2021
@@ -202,15 +208,15 @@
                   </p>
                 </div>
                 <p class="mb-0">
-                  Mọi người mua CD để ủng hộ anh Wren dân tổ nhé! &#128526;
+                   ${item.content} &#128526;
                 </p>
 
               </div>
 				 <a href="#!" class="link-muted" style="text-align:right;display:block;"><i class="fa fa-heart ms-2"></i><p>3804</p></a>
             </div>
           </div>
-            
-            <div class="container px-4 px-lg-5 mt-5">
+            </c:forEach>
+           <!--  <div class="container px-4 px-lg-5 mt-5">
             <div class="d-flex flex-start">
               <img class="rounded-circle shadow-1-strong me-3"
                 src="https://scontent.fsgn5-9.fna.fbcdn.net/v/t39.30808-1/444479908_390929930660336_7205019188867939876_n.jpg?stp=dst-jpg_p200x200&_nc_cat=102&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeGD2sRR7A3TBLGhI7H_rwAQowrEd0F_qjWjCsR3QX-qNeGiTYGhHEUEexzTRrG3WoWcFVxqxzjolNA6Tieu_Fry&_nc_ohc=bTgwRkK2uFwQ7kNvgESUcaK&_nc_ht=scontent.fsgn5-9.fna&oh=00_AYDd0yjKN2jFfrfDMqI9J16jpmkJ2-dW2JNIoXaLK3EtGQ&oe=66606418" alt="avatar" width="60"
@@ -253,8 +259,8 @@
 				 <a href="#!" class="link-muted" style="text-align:right;display:block;"><i class="fa fa-heart ms-2"></i><p>1239843</p></a>
             </div>
           </div>
-          
-          <div class="container px-4 px-lg-5 mt-5">
+ -->          
+          <!-- <div class="container px-4 px-lg-5 mt-5">
             <div class="d-flex flex-start">
               <img class="rounded-circle shadow-1-strong me-3"
                 src="https://scontent.fsgn5-10.fna.fbcdn.net/v/t39.30808-1/358456020_686633320174319_2191595948105468142_n.jpg?stp=c283.274.428.429a_dst-jpg_s200x200&_nc_cat=110&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeEXQSULmo1_F5dDRXfkyhp3OVyTtNkJgRs5XJO02QmBGwcWRQErakwyxMvcQxFI0wkpL2eGHBWyo4mU7M37y_G9&_nc_ohc=oiUfbsvAEW0Q7kNvgFAtF2S&_nc_ht=scontent.fsgn5-10.fna&oh=00_AYDsjgeuBNyDNNBPb-t0jv56898z0X_07_itQKac0dew2w&oe=66607500" alt="avatar" width="60"
@@ -276,7 +282,7 @@
             </div>
           </div>
           
-                    <div class="container px-4 px-lg-5 mt-5">
+            <div class="container px-4 px-lg-5 mt-5">
             <div class="d-flex flex-start">
               <img class="rounded-circle shadow-1-strong me-3"
                 src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(26).webp" alt="avatar" width="60"
@@ -297,7 +303,7 @@
               </div>
 				            <a href="#!" class="link-muted" style="text-align:right;display:block;"><i class="fa fa-heart ms-2"></i><p>23</p></a>
             </div>
-          </div>
+          </div> -->
 
         </section>
         
@@ -335,7 +341,33 @@
         $('.input-group').on('click', '.button-minus', function(e) {
             decrementValue(e);
         });
-
+        
+        
+        $("#comment").click(
+				function(e) {
+					e.preventDefault();
+					var data = {};
+					var formdata = $("#commentForm").serializeArray();
+					$.each(formdata, function(i, v) {
+						data["" + v.name + ""] = v.value;
+					});
+					create(data);
+				});
+        function create(data) {
+			$.ajax({
+				url : '${APIurl}',
+				type : 'POST',
+				contentType : 'application/json',
+				data : JSON.stringify(data),
+				dataType : 'json',
+				success : function(result) {
+					window.location.href = "${BookdetailURL}?id=${book.id}";
+				},
+				error : function(error) {
+					console.log(error);
+				}
+			});
+		}
         
         </script>
         

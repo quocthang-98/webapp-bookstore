@@ -13,6 +13,8 @@ public class TypeMapper implements RowMapper<TypeModel> {
 			TypeModel typeModel = new TypeModel();
 			typeModel.setId(resultSet.getLong("id"));
 			typeModel.setName(resultSet.getString("type_name"));
+			typeModel.setCreatedBy(resultSet.getString("created_by"));
+			typeModel.setCreatedDate(resultSet.getTimestamp("date_created"));
 			return typeModel;
 		} catch (SQLException e) {
 			return null;
