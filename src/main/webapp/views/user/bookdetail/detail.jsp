@@ -28,7 +28,7 @@
 						   <div class="d-flex flex-row" style="margin-bottom: 20px;">
 						      <div class="input-group w-auto justify-content-start align-items-start">
 						         <input type="button" value="-" class="btn-dark button-minus border rounded-circle  icon-shape icon-sm mx-1 " data-field="quantity">
-						         <input type="number" step="1" value="1" name="quantity" class="quantity-field border-0 text-center w-25" readonly style="margin: 0;">
+						         <input type="number" step="1" min="0" max="10" value="1" name="quantity" class="quantity-field border-0 text-center w-25" readonly style="margin: 0;">
 						         <input type="button" value="+" class="btn-dark button-plus border rounded-circle icon-shape icon-sm lh-0" data-field="quantity">
 						      </div>
 						   </div>
@@ -309,38 +309,48 @@
         
         <script>
         function incrementValue(e) {
-            e.preventDefault();
-            var fieldName = $(e.target).data('field');
-            var parent = $(e.target).closest('div');
-            var currentVal = parseInt(parent.find('input[name=' + fieldName + ']').val(), 10);
+        	  e.preventDefault();
+        	  var fieldName = $(e.target).data('field');
+        	  var parent = $(e.target).closest('div');
+        	  var input = parent.find('input[name=' + fieldName + ']');
+        	  var currentVal = parseInt(input.val(), 10);
 
-            if (!isNaN(currentVal)) {
-                parent.find('input[name=' + fieldName + ']').val(currentVal + 1);
-            } else {
-                parent.find('input[name=' + fieldName + ']').val(0);
-            }
-        }
+        	  if (!isNaN(currentVal)) {
+        	    var newVal = currentVal + 1;
+        	    // Check if the new value exceeds the maximum allowed value
+        	    if (newVal <= 20) { // Assuming a maximum of 10 (adjust as needed)
+        	      input.val(newVal);
+        	    } 
+        	  } else {
+        	    input.val(0);
+        	  }
+        	}
 
-        function decrementValue(e) {
-            e.preventDefault();
-            var fieldName = $(e.target).data('field');
-            var parent = $(e.target).closest('div');
-            var currentVal = parseInt(parent.find('input[name=' + fieldName + ']').val(), 10);
+        	function decrementValue(e) {
+        	  e.preventDefault();
+        	  var fieldName = $(e.target).data('field');
+        	  var parent = $(e.target).closest('div');
+        	  var input = parent.find('input[name=' + fieldName + ']');
+        	  var currentVal = parseInt(input.val(), 10);
 
-            if (!isNaN(currentVal) && currentVal > 0) {
-                parent.find('input[name=' + fieldName + ']').val(currentVal - 1);
-            } else {
-                parent.find('input[name=' + fieldName + ']').val(0);
-            }
-        }
+        	  if (!isNaN(currentVal) && currentVal > 0) {
+        	    var newVal = currentVal - 1;
+        	    // Check if the new value falls below the minimum allowed value
+        	    if (newVal >= 1) { // Assuming a minimum of 0 (adjust as needed)
+        	      input.val(newVal);
+        	    }
+        	  } else {
+        	    input.val(0);
+        	  }
+        	}
 
-        $('.input-group').on('click', '.button-plus', function(e) {
-            incrementValue(e);
-        });
+        	$('.input-group').on('click', '.button-plus', function(e) {
+        	  incrementValue(e);
+        	});
 
-        $('.input-group').on('click', '.button-minus', function(e) {
-            decrementValue(e);
-        });
+        	$('.input-group').on('click', '.button-minus', function(e) {
+        	  decrementValue(e);
+        	});
         
         
         $("#comment").click(
@@ -368,6 +378,8 @@
 				}
 			});
 		}
+        
+        
         
         </script>
         

@@ -1,11 +1,9 @@
-@import url('https://fonts.googleapis.com/css?family=Numans');
-
 html,body{
 background-image: url("../images/login_bg.png");
 background-size: cover;
 background-repeat: no-repeat;
 height: 100%;
-font-family: 'Numans', sans-serif;
+font-family: "Plus Jakarta Sans", sans-serif;
 }
 
 .container{
@@ -18,17 +16,29 @@ height: 370px;
 margin-top: auto;
 margin-bottom: auto;
 width: 400px;
-background-color: rgba(0,0,0,0.5) !important;
+background-color: rgba(0,0,0,0.7) !important;
+}
+
+.card-body {
+	display: flex;
+  	justify-content: center;
+	width: 100%;
+}
+
+.social_icon {
+	right: 0 !important;
 }
 
 .social_icon span{
-font-size: 60px;
+font-size: 35px;
 margin-left: 10px;
-color: #FFC312;
+color: #559156;
+transition: color 0.2s ease, font-size 0.2s ease;
 }
 
 .social_icon span:hover{
-color: white;
+font-size: 40px;
+color: ivory;
 cursor: pointer;
 }
 
@@ -44,9 +54,13 @@ top: -45px;
 
 .input-group-prepend span{
 width: 50px;
-background-color: #FFC312;
-color: black;
+background-color: #559156;
+color: ivory;
 border:0 !important;
+}
+
+.input-group-prepend span i{
+text-align: center;
 }
 
 input:focus{
@@ -65,11 +79,12 @@ width: 20px;
 height: 20px;
 margin-left: 15px;
 margin-right: 5px;
+accent-color: #497c4a;
 }
 
 .login_btn{
-color: black;
-background-color: #FFC312;
+color: ivory;
+background-color: #559156;
 width: 100px;
 }
 
@@ -78,10 +93,15 @@ color: black;
 background-color: white;
 }
 
-.links{
-color: white;
+.card-footer {
+	border: none;
+	padding-top: 0;
 }
 
-.links a{
-margin-left: 4px;
+.card-footer a {
+	color: #ffff80 !important;
+}
+
+.links{
+color: white;
 }

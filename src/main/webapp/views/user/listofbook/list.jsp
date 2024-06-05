@@ -14,71 +14,54 @@
 		<section class="py-5">
 			
 			<div class="container">
-
 				<div class="row">
-					<div class="col-lg-3">
-						<div class="sidebar">
-							<div class="widget">
-								<div class="widget-title widget-collapse">
-									<h6>TYPE</h6>
-									<!-- <a class="ml-auto" data-toggle="collapse" href=""
-										role="button" aria-expanded="false" aria-controls="dateposted">
-										<i class="fas fa-chevron-down"></i>
-									</a> -->
-								</div>
-								<div class="collapse show" id="dateposted">
-									<div class="widget-content">
-										<div class="custom-control custom-checkbox">
-											<input type="checkbox" class="custom-control-input"
-												id="dateposted1"> <label
-												class="custom-control-label" for="dateposted1">Books</label>
-										</div>
-										<div class="custom-control custom-checkbox">
-											<input type="checkbox" class="custom-control-input"
-												id="dateposted2"> <label
-												class="custom-control-label" for="dateposted2">Magazines</label>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="widget">
-								<div class="widget-title widget-collapse">
-									<h6>GENRE</h6>
-									<!-- <a class="ml-auto" data-toggle="collapse" href=""
-										role="button" aria-expanded="false" aria-controls="specialism">
-										<i class="fas fa-chevron-down"></i>
-									</a> -->
-								</div>
-								<div class="collapse show" id="specialism">
-									<div class="widget-content">
-										<div class="custom-control custom-checkbox">
-											<input type="checkbox" class="custom-control-input"
-												id="specialism1"> <label
-												class="custom-control-label" for="specialism1">Novel</label>
-										</div>
-										<div class="custom-control custom-checkbox">
-											<input type="checkbox" class="custom-control-input"
-												id="specialism2"> <label
-												class="custom-control-label" for="specialism2">Thriller</label>
-										</div>
-										<div class="custom-control custom-checkbox">
-											<input type="checkbox" class="custom-control-input"
-												id="specialism3"> <label
-												class="custom-control-label" for="specialism3">Comedy</label>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="widget border-0">
-								<div class="widget-add">
-									<img class="img-fluid" src="images/add-banner.png" alt="">
-								</div>
-							</div>
+					<div class="col-lg-3 all-book-filter-col" >
+						<div class="booklist-filter-container">
+							<h6>TYPE</h6>
+							
+							<input type="checkbox" id="type-option-all" class="types-filter-group filter-checkbox" onchange="checkAllTypes(this)">
+							<label for="type-option-all">All</label>
+							<br>
+							
+							<input type="checkbox" id="type-option-books" class="types-filter-group filter-checkbox">
+							<label for="type-option-books">Books</label>
+							<br>
+							
+							<input type="checkbox" id="type-option-magazines" class="types-filter-group filter-checkbox">
+							<label for="type-option-magazines">Magazines</label>
+							<br>
+							
+							<input type="checkbox" id="type-option-newspapers" class="types-filter-group filter-checkbox">
+							<label for="type-option-newspapers">Newspapers</label>
+							<br>
+						</div>
+						<br>
+						
+						<div class="booklist-filter-container">
+							<h6>GENRES</h6>
+							
+							<input type="checkbox" id="genres-option-all" class="genres-filter-group filter-checkbox" onchange="checkAllGenres(this)">
+							<label for="type-option-all">All</label>
+							<br>
+							
+							<input type="checkbox" id="genres-option-comedy" class="genres-filter-group filter-checkbox">
+							<label for="type-option-books">Comedy</label>
+							<br>
+							
+							<input type="checkbox" id="genres-option-horror" class="genres-filter-group filter-checkbox">
+							<label for="type-option-magazines">Horror</label>
+							<br>
+							
+							<input type="checkbox" id="genres-option-thriller" class="genres-filter-group filter-checkbox">
+							<label for="type-option-newspapers">Thriller</label>
+							<br>
 						</div>
 
 						<a href="user-home" class="btn btn-success"
 							style="margin-top: 20px; margin-bottom: 8px;">Apply</a>
 					</div>
+					
+					
 					<div class="col-lg-9">
 						<div class="row mb-4">
 							<div class="col-12">
@@ -172,6 +155,37 @@
 		});
 		
 		
+	</script>
+	
+	<script type="text/javascript">
+		var checkboxesTypes = document.querySelectorAll("input[type='checkbox'].types-filter-group");
+		var checkboxesGenres = document.querySelectorAll("input[type='checkbox'].genres-filter-group");
+		
+		function checkAllTypes(myCheckbox) {
+			if (myCheckbox.checked == true) {
+				checkboxesTypes.forEach(function(checkbox){
+					checkbox.checked = true;
+				});
+			}
+			else {
+				checkboxesTypes.forEach(function(checkbox){
+					checkbox.checked = false;
+				});
+			}
+		}
+		
+		function checkAllGenres(myCheckbox) {
+			if (myCheckbox.checked == true) {
+				checkboxesGenres.forEach(function(checkbox){
+					checkbox.checked = true;
+				});
+			}
+			else {
+				checkboxesGenres.forEach(function(checkbox){
+					checkbox.checked = false;
+				});
+			}
+		}
 	</script>
 
 
