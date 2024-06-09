@@ -13,5 +13,6 @@ public interface ICartService {
 	CartModel findOne(Long id);
 	CartModel save(CartModel cartModel);
 	CartModel update(CartModel cartModel);
+	CartModel findByUserIdAndBookId(Long userId, Long bookId);
 	void delete(Long id);
 }

@@ -11,8 +11,10 @@ public interface IBookService {
 	BookModel findOne(Long id);
 	void delete(long[] ids);
 	List<BookModel> findAll();
-	List<BookModel> findAll(Integer offset, Integer limit);
-	List<BookModel> findByConditions(Long typeId);
-	int getTotalItem();
+	List<BookModel> findAll(Integer offset, Integer limit, Long[] typeList, Long[] genreList, String sortBy);
+	List<BookModel> findByConditions(Long[] typeList, Long[] genreList);
+	int getTotalItem(Long[] typeList, Long[] genreList);
+	int getTotalItem(String keyWord);
 	void deleteOne(Long id);
+	List<BookModel> findByKeyWord(Integer offset, Integer limit, String keyWord);
 }

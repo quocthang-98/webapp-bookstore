@@ -20,4 +20,10 @@ public class AuthorDAO extends AbstractDAO<AuthorModel> implements IAuthorDAO {
 		List<AuthorModel> authors = query(sql, new AuthorMapper(), id);
 		return authors.isEmpty() ? null : authors.get(0);
 	}
+
+	@Override
+	public List<AuthorModel> findByKeyWord(String keyWord1, String keyWord2, String keyWord3) {
+		String sql = "SELECT * FROM author WHERE name LIKE '%?%' OR name LIKE '%?%' OR name LIKE '%?%'";
+		return query(sql, new AuthorMapper(), keyWord1, keyWord2, keyWord3);
+	}
 }

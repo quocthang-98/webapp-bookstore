@@ -11,10 +11,21 @@ public class AbstractModel<T> {
 	private long[] ids;
 	private List<T> resultList = new ArrayList<>();
 	private String type;
+	private String keyWord;
+	private String status;
 	
-	
-	
-	
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	public String getKeyWord() {
+		return keyWord;
+	}
+	public void setKeyWord(String keyWord) {
+		this.keyWord = keyWord;
+	}
 	public String getType() {
 		return type;
 	}

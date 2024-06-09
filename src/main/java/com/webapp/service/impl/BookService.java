@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.swing.table.TableStringConverter;
 
 import com.webapp.dao.IAuthorDAO;
 import com.webapp.dao.IBookDAO;
@@ -67,8 +68,8 @@ public class BookService implements IBookService{
 	}
 
 	@Override
-	public List<BookModel> findByConditions(Long typeId) {
-		List<BookModel> bookList = bookDAO.findByConditions(typeId);
+	public List<BookModel> findByConditions(Long[] typeList, Long[] genreList) {
+		List<BookModel> bookList = bookDAO.findByConditions(typeList, genreList);
 		TypeModel typeModel;
 		GenreModel genreModel;
 		PublisherModel publisherModel;
@@ -91,13 +92,13 @@ public class BookService implements IBookService{
 	}
 
 	@Override
-	public int getTotalItem() {
-		return bookDAO.getTotalItem();
+	public int getTotalItem(Long[] typeList, Long[] genreList) {
+		return bookDAO.getTotalItem(typeList, genreList);
 	}
 
 	@Override
-	public List<BookModel> findAll(Integer offset, Integer limit) {
-		return bookDAO.findAll(offset, limit);
+	public List<BookModel> findAll(Integer offset, Integer limit, Long[] typeList, Long[] genreList, String sortBy) {
+		return bookDAO.findAll(offset, limit, typeList, genreList, sortBy);
 	}
 
 	@Override
@@ -117,5 +118,40 @@ public class BookService implements IBookService{
 	@Override
 	public void deleteOne(Long id) {
 		bookDAO.delete(id);
+	}
+
+	@Override
+	public List<BookModel> findByKeyWord(Integer offset, Integer limit, String keyWord) {
+		String newKeyWord = keyWord.trim();
+		newKeyWord = newKeyWord.replaceAll(" +", " ");
+		String newKeyWord1 = newKeyWord.toLowerCase();
+		String newKeyWord2 = newKeyWord.toUpperCase();
+		String newKeyWord3 = capitalizeWords(newKeyWord1);
+		return bookDAO.findByKeyWord(offset, limit, keyWord, newKeyWord1, newKeyWord2, newKeyWord3);
+	}
+	
+	public static String capitalizeWords(String input) { 
+
+        String[] words = input.split("\\s"); 
+
+        StringBuilder result = new StringBuilder(); 
+
+        for (String word : words) { 
+            result.append(Character.toTitleCase(word.charAt(0))) 
+                  .append(word.substring(1)) 
+                  .append(" "); 
+        } 
+
+        return result.toString().trim(); 
+    }
+
+	@Override
+	public int getTotalItem(String keyWord) {
+		String newKeyWord = keyWord.trim();
+		newKeyWord = newKeyWord.replaceAll(" +", " ");
+		String newKeyWord1 = newKeyWord.toLowerCase();
+		String newKeyWord2 = newKeyWord.toUpperCase();
+		String newKeyWord3 = capitalizeWords(newKeyWord1);
+		return bookDAO.getTotalItem(keyWord, newKeyWord1, newKeyWord2, newKeyWord3);
 	}
 }

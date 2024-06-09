@@ -41,6 +41,7 @@ public class OrderAPI extends HttpServlet{
 		orderModel = orderService.save(orderModel);
 		List<CartModel> carts = cartService.findByUserIdAndOrdered(userModel.getId(), 0);
 		for (CartModel cart:carts) {
+			cart.setOrderId(orderModel.getId());
 			cart.setOrdered(1);
 			cartService.update(cart);
 		}

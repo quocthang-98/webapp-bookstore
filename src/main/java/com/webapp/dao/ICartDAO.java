@@ -13,4 +13,5 @@ public interface ICartDAO {
 	Long save(CartModel cartModel);
 	void update(CartModel cartModel);
 	void delete(Long id);
+	CartModel findByUserIdAndBookId(Long userId, Long bookId);
 }
