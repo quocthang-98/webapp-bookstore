@@ -17,6 +17,7 @@ import com.webapp.servicce.IBookService;
 import com.webapp.servicce.IGenreService;
 import com.webapp.servicce.IPublisherService;
 import com.webapp.servicce.ITypeService;
+import com.webapp.utils.ConverterUtil;
 import com.webapp.utils.FormUtil;
 import com.webapp.validation.BookValidation;
 
@@ -58,11 +59,13 @@ public class BookController extends HttpServlet{
 		publisherModel.setResultList(publisherService.findAll());	
 		authorModel.setResultList(authorService.findAll());
 		BookModel bookModel = FormUtil.toModel(BookModel.class, request);
-		
+		bookModel.setTypeList(ConverterUtil.converter(request.getParameter("typeList")));
+		bookModel.setGenreList(ConverterUtil.converter(request.getParameter("genreList")));
 		String view = "";
+		
 		if (bookModel.getType().equals(SystemConstant.LIST)) {
 			view = "/views/admin/book/list.jsp";
-			bookModel.setResultList(bookService.findByConditions(bookModel.getTypeId()));
+			bookModel.setResultList(bookService.findByConditions(bookModel.getTypeList(), bookModel.getGenreList()));
 			
 		} else if (bookModel.getType().equals(SystemConstant.EDIT)){
 			if (bookModel.getId()!=null) {

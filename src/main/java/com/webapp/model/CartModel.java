@@ -6,7 +6,28 @@ public class CartModel extends AbstractModel<CartModel>{
 	private Long quantity;
 	private Long orderId;
 	private Integer ordered;
+	private BookModel bookModel;
+	private Double totalPrice;
 	
+	
+	public void setTotalPrice() {
+		totalPrice = 0.0;
+		for (CartModel cart: getResultList()) {
+			totalPrice+= cart.getBookModel().getPrice() * cart.getQuantity();
+		}
+	}
+	public Double getTotalPrice() {
+		return totalPrice;
+	}
+	public void setTotalPrice(Double totalPrice) {
+		this.totalPrice = totalPrice;
+	}
+	public BookModel getBookModel() {
+		return bookModel;
+	}
+	public void setBookModel(BookModel bookModel) {
+		this.bookModel = bookModel;
+	}
 	public Long getUserId() {
 		return userId;
 	}

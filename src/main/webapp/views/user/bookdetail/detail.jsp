@@ -3,6 +3,7 @@
 <%@include file="/common/taglib.jsp"%>
 
 <c:url var="APIurl" value="/api-user-comment" />
+<c:url var="APICarturl" value="/api-user-cart" />
 <c:url var="BookdetailURL" value="/user-bookdetail" />
 <!DOCTYPE html>
 <html>
@@ -14,31 +15,39 @@
 	<section class="py-5">
             <div class="container px-4 px-lg-5 my-5">
                 <div class="row gx-4 gx-lg-5 align-items-center">
-                    <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="https://i.scdn.co/image/ab67616d0000b27371d5ffe4407f913393ecdd11" alt="..." /></div>
+                    <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="${book.thumbnail}" alt="..." /></div>
                     <div class="col-md-6">
-                        <div class="small mb-1">${book.title}</div>
+                        <div class="small mb-1">${book.authorName}</div>
                         
-                        <h1 class="display-5 fw-bolder">LOI CHOI: The Neo Pop Punk - Standard CD</h1>
+                        <h1 class="display-5 fw-bolder">${book.title}</h1>
                         <div class="fs-5 mb-5">
                             <span style="font-weight: bold;">${book.price} VND</span>
-                            <div class="small">Remaining: 20</div>
+                            <div class="small">Remaining: ${book.stocks}</div>
                         </div>
-						
+                        <c:if test="${not empty cart}">
+                        <div>
+					      	<button type="button" class="btn btn-outline-dark" id="addtocart" disabled>Added to Cart</button>
+						</div>
+                        </c:if>
+                        <c:if test="${empty cart}">
+						<c:if test="${book.stocks > 0}">
+						<form id = "cartForm">
                         <div class="d-flex" style="margin-bottom: 0;">
 						   <div class="d-flex flex-row" style="margin-bottom: 20px;">
 						      <div class="input-group w-auto justify-content-start align-items-start">
 						         <input type="button" value="-" class="btn-dark button-minus border rounded-circle  icon-shape icon-sm mx-1 " data-field="quantity">
-						         <input type="number" step="1" min="0" max="10" value="1" name="quantity" class="quantity-field border-0 text-center w-25" readonly style="margin: 0;">
+						         <input type="number" step="1" min="1" max="5" value="1" name="quantity" class="quantity-field border-0 text-center w-25" readonly style="margin: 0;">
 						         <input type="button" value="+" class="btn-dark button-plus border rounded-circle icon-shape icon-sm lh-0" data-field="quantity">
 						      </div>
 						   </div>
 						</div>
-						
+						<input type="hidden" value ="${book.id}" id="bookId" name="bookId">
+						</form>						
 						<div>
-					      	<button type="button" class="btn btn-outline-dark">Add to Cart</button>
+					      	<button type="button" class="btn btn-outline-dark" id="addtocart" data-bs-toggle="modal"  <c:if test="${book.status == 'notLogin'}">data-bs-target="#alert"</c:if> >Add to Cart</button>
 						</div>
-                            
-                            
+                        </c:if>
+                        </c:if>
                         </div>
                     </div>
                 </div>
@@ -50,19 +59,9 @@
                 <h2 class="fw-bolder mb-4">About this product</h2>
                 <div class="mb-3">
                         <p class="lead">
-                        Album đầu tay của Wren Evans. <br>
-                        Tracklist: <br>
-                        1. Phóng Đổ Tim Em <br>
-                        2. Call Me <br>
-                        3. Cầu Vĩnh Tuy <br>
-                        4. Từng Quen <br>
-                        5. bé ơi từ từ <br>
-                        6. Lối Chơi (Interlude) <br>
-                        7. Tình Yêu Vĩ Mô <br>
-                        8. Việt Kiều <br>
-                        9. ĐĐĐ <br>
-                        10. Quyền Anh <br>
-                        11. Tò Te Tí <br>
+                        Type - Genre: ${book.typeName}  - ${book.genreName}  <br>	
+                        Description: <br>
+                        ${book.description}
                         </p>
 				</div>
             </div>
@@ -178,7 +177,6 @@
         </section>
         <hr>
         
-        
         <!-- Comment section -->
         <section class="py-5 bg-light" id="commentSection">
             <form id = "commentForm">
@@ -190,7 +188,7 @@
 				</div>
 				<input type="hidden" value ="${book.id}" id="bookId" name="bookId">
 				<input type="hidden" value ="0" id="likes" name="likes">
-				<button type="button" class="btn btn-dark" id="comment">Post</button>
+				<button type="button" class="btn btn-dark" id="comment" data-bs-toggle="modal"  <c:if test="${book.status == 'notLogin'}">data-bs-target="#alert"</c:if>>Post</button>
             </div>
             </form>
             <c:forEach var="item" items="${comment.resultList}">
@@ -307,65 +305,133 @@
 
         </section>
         
+        <section>
+        <div class="modal fade" id="alert" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+									  <div class="modal-dialog modal-dialog-centered">
+									    <div class="modal-content">
+									      <div class="modal-header">
+									        <h5 class="modal-title" id="exampleModalLabel">Action denied!</h5>
+									        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+									      </div>
+									      <div class="modal-body">
+									        Please login to continue with this function!
+									      </div>
+									      <div class="modal-footer">
+									        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+									      </div>
+									    </div>
+									  </div>
+		</div>
+        </section>
+        
+        
+        
+        
         <script>
+        $(document).ready(function() {
+        	var status = '${book.status}';
+        	if (status != null && status == 'comment')
+        	window.location.href = "${BookdetailURL}?id=${book.id}#commentSection";
+		});
+        
+        
         function incrementValue(e) {
-        	  e.preventDefault();
-        	  var fieldName = $(e.target).data('field');
-        	  var parent = $(e.target).closest('div');
-        	  var input = parent.find('input[name=' + fieldName + ']');
-        	  var currentVal = parseInt(input.val(), 10);
+      	  e.preventDefault();
+      	  var fieldName = $(e.target).data('field');
+      	  var parent = $(e.target).closest('div');
+      	  var input = parent.find('input[name=' + fieldName + ']');
+      	  var currentVal = parseInt(input.val(), 10);
 
-        	  if (!isNaN(currentVal)) {
-        	    var newVal = currentVal + 1;
-        	    // Check if the new value exceeds the maximum allowed value
-        	    if (newVal <= 20) { // Assuming a maximum of 10 (adjust as needed)
-        	      input.val(newVal);
-        	    } 
-        	  } else {
-        	    input.val(0);
-        	  }
-        	}
+      	  if (!isNaN(currentVal)) {
+      	    var newVal = currentVal + 1;
+      	    // Check if the new value exceeds the maximum allowed value
+      	    if (newVal <= 20) { // Assuming a maximum of 10 (adjust as needed)
+      	      input.val(newVal);
+      	    } 
+      	  } else {
+      	    input.val(0);
+      	  }
+      	}
 
-        	function decrementValue(e) {
-        	  e.preventDefault();
-        	  var fieldName = $(e.target).data('field');
-        	  var parent = $(e.target).closest('div');
-        	  var input = parent.find('input[name=' + fieldName + ']');
-        	  var currentVal = parseInt(input.val(), 10);
+      	function decrementValue(e) {
+      	  e.preventDefault();
+      	  var fieldName = $(e.target).data('field');
+      	  var parent = $(e.target).closest('div');
+      	  var input = parent.find('input[name=' + fieldName + ']');
+      	  var currentVal = parseInt(input.val(), 10);
 
-        	  if (!isNaN(currentVal) && currentVal > 0) {
-        	    var newVal = currentVal - 1;
-        	    // Check if the new value falls below the minimum allowed value
-        	    if (newVal >= 1) { // Assuming a minimum of 0 (adjust as needed)
-        	      input.val(newVal);
-        	    }
-        	  } else {
-        	    input.val(0);
-        	  }
-        	}
+      	  if (!isNaN(currentVal) && currentVal > 0) {
+      	    var newVal = currentVal - 1;
+      	    // Check if the new value falls below the minimum allowed value
+      	    if (newVal >= 1) { // Assuming a minimum of 0 (adjust as needed)
+      	      input.val(newVal);
+      	    }
+      	  } else {
+      	    input.val(0);
+      	  }
+      	}
 
-        	$('.input-group').on('click', '.button-plus', function(e) {
-        	  incrementValue(e);
-        	});
+      	$('.input-group').on('click', '.button-plus', function(e) {
+      	  incrementValue(e);
+      	});
 
-        	$('.input-group').on('click', '.button-minus', function(e) {
-        	  decrementValue(e);
-        	});
+      	$('.input-group').on('click', '.button-minus', function(e) {
+      	  decrementValue(e);
+      	});
         
         
         $("#comment").click(
 				function(e) {
-					e.preventDefault();
-					var data = {};
-					var formdata = $("#commentForm").serializeArray();
-					$.each(formdata, function(i, v) {
-						data["" + v.name + ""] = v.value;
-					});
-					create(data);
+					var status = '${book.status}';
+					if (status == 'notLogin'){
+						window.location.href = "${BookdetailURL}?id=${book.id}#alert";
+					} else {
+						e.preventDefault();
+						var data = {};
+						var formdata = $("#commentForm").serializeArray();
+						$.each(formdata, function(i, v) {
+							data["" + v.name + ""] = v.value;
+						});
+						create(data);
+					}
+					
 				});
         function create(data) {
 			$.ajax({
 				url : '${APIurl}',
+				type : 'POST',
+				contentType : 'application/json',
+				data : JSON.stringify(data),
+				dataType : 'json',
+				success : function(result) {
+					window.location.href = "${BookdetailURL}?id=${book.id}&status=comment";
+				},
+				error : function(error) {
+					console.log(error);
+				}
+			});
+		}
+        
+        
+        $("#addtocart").click(
+				function(e) {
+					var status = '${book.status}';
+					if (status == 'notLogin'){
+						window.location.href = "${BookdetailURL}?id=${book.id}#alert";
+					} else {
+					e.preventDefault();
+					var data = {};
+					var formdata = $("#cartForm").serializeArray();
+					$.each(formdata, function(i, v) {
+						data["" + v.name + ""] = v.value;
+					});
+					console.log(data);
+					add(data);
+					}
+				});
+        function add(data) {
+			$.ajax({
+				url : '${APICarturl}',
 				type : 'POST',
 				contentType : 'application/json',
 				data : JSON.stringify(data),
@@ -378,8 +444,6 @@
 				}
 			});
 		}
-        
-        
         
         </script>
         

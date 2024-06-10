@@ -33,7 +33,6 @@
 				 	
 				 	<div class="d-flex justify-content-center">
 				 	 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-				    <form>
 				    	<div class="row">
 					      <div class="col-4">
 					      	<h6 class="dropdown-header">Types</h6>
@@ -89,12 +88,11 @@
 					      
 					      </div>
 					      <div class="d-flex justify-content-center mt-2 mb-2">
-					      <a class="btn btn-outline-dark bg-light" type = "button" class="dropdown-item" id="an">Filter</a>
+					      <a class="btn btn-outline-dark bg-light" type = "button" class="dropdown-item" id="filter">Filter</a>
 					      </div>
 					      <!-- <div class="col-4">
 					      	<input type="submit" class="btn btn-light" value="Filter">
 					    </div> -->
-				    </form>
 				  </div>
 				 	
 				 	</div>
@@ -217,8 +215,6 @@
 	 	    document.getElementById("bookID").innerHTML = index; 
 		}
 		
-		
-		
 		function myfunction3(){
 			$.ajax({
 				url: '${APIurl}',
@@ -234,7 +230,7 @@
 				}
 			});
 		}
-		$("#an").click(
+		$("#filter").click(
 				function () {	
 					var types = [];
 					var genres = []; 
@@ -244,12 +240,9 @@
 					$("input:checkbox[name=genrecheckbox]:checked").each(function(){
 					  	genres.push($(this).val());
 					});
-
-				    
-				    $('#typeList').val("{" + types + "}");
+				    $('#typeList').val(types);
 					$('#genreList').val(genres);
 					$('#type').val('list');
-					console.log($('#typeList').val());
 					$('#formSubmit').submit();
 					
 					/* document.getElementById("formSubmit").submit(); */

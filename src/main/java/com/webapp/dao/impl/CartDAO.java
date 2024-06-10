@@ -61,5 +61,12 @@ public class CartDAO extends AbstractDAO<CartModel> implements ICartDAO {
 		update(sql, id);
 	}
 
+	@Override
+	public CartModel findByUserIdAndBookId(Long userId, Long bookId) {
+		String sql = "SELECT * FROM cart WHERE user_id = ? AND book_id = ?";
+		List<CartModel> carts = query(sql, new CartMapper(), userId, bookId);
+		return carts.isEmpty() ? null : carts.get(0);
+	}
+
 
 }

@@ -23,7 +23,7 @@ public class CommentDAO extends AbstractDAO<CommentModel> implements ICommentDAO
 
 	@Override
 	public List<CommentModel> findByBookId(Long bookId) {
-		String sql = "SELECT * FROM comment WHERE book_id = ?";
+		String sql = "SELECT * FROM comment WHERE book_id = ? ORDER BY id DESC";
 		return query(sql, new CommentMapper(), bookId);
 	}
 

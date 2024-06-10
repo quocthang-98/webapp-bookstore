@@ -24,6 +24,9 @@ public class BookModel extends AbstractModel<BookModel>{
 	private String publicationDateString;
 	private Long[] typeList;
 	private Long[] genreList;
+	private String typeListString;
+	private String genreListString;
+	private String sortBy;
 	
 	private Integer isNameNotOK = 0;
 	private Integer isStockNotOK = 0;
@@ -38,6 +41,24 @@ public class BookModel extends AbstractModel<BookModel>{
 	
 	
 	
+	public String getSortBy() {
+		return sortBy;
+	}
+	public void setSortBy(String sortBy) {
+		this.sortBy = sortBy;
+	}
+	public String getTypeListString() {
+		return typeListString;
+	}
+	public void setTypeListString(String typeListString) {
+		this.typeListString = typeListString;
+	}
+	public String getGenreListString() {
+		return genreListString;
+	}
+	public void setGenreListString(String genreListString) {
+		this.genreListString = genreListString;
+	}
 	public Long[] getTypeList() {
 		return typeList;
 	}
