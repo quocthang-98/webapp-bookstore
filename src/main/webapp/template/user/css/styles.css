@@ -11437,3 +11437,23 @@ textarea.form-control-lg {
   text-align: center;
   line-height: 16px;  /* Align checkmark vertically */
 }
+
+.footer-icon {
+	margin-right: 6px;
+}
+
+.footer-outline-light-button {
+	transition: all 0.2s ease;
+}
+
+.footer-link {
+	transition: all 0.2s ease;
+}
+
+.footer-outline-light-button:hover .footer-link {
+	color: black !important;
+}
+
+.footer-outline-light-button:hover {
+	color: black;
+}
