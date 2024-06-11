@@ -52,8 +52,8 @@
 			<div class="justify-content-end align-items-end mw-100">
 	       		<form action="<c:url value='user-booklist'/>" id="formSubmit" method="GET" class="form-control-sm" style="width: 300px; padding-top: 2px;">
 					<div class="input-group ">
-					  <input type="search" class="form-control search-bar" style="background-color: rgba(0, 0, 0, 0.02); height: 100%;" placeholder="I'm searching for..." aria-label="Search" aria-describedby="search-addon" name="keyWord" id="keyWord" value="${book.keyWord}"/>
-					  <a type="button" class="btn btn-dark search-btn" style="height: 50%;" data-mdb-ripple-init id="searchbar"><img src="./template/images/iconSearch.svg" style="display: inline-block; filter: invert(1);"></a>
+					  <input type="text" class="form-control search-bar" id="searchKeyword" style="background-color: rgba(0, 0, 0, 0.02); height: 100%;" placeholder="I'm searching for..." aria-describedby="search-addon" name="keyWord" id="keyWord" value="${book.keyWord}"/>
+					  <a type="submit" class="btn btn-dark search-btn" style="height: 50%;" onClick="searchFunction()" data-mdb-ripple-init id="searchbar"><img src="./template/images/iconSearch.svg" style="display: inline-block; filter: invert(1);"></a>
 					</div>
 					 <input type="hidden" value="" id="page" name="page"> 
 					<input type="hidden" value="" id="limit" name="limit">
@@ -62,16 +62,11 @@
 					<input type="hidden" value="${book.sortBy}" id="sortBy" name="sortBy"/>
 					<input type="hidden" value="${book.keyWord}" id="keyWord" name="keyWord" />
 				</form>
-
       		</div>
 			</li>
-       
         </ul>
-
     	</div>
   		</div>
-  	
-       
         </ul>
   		
   		<div class="justify-content-center align-items-center mr-2 ">
@@ -147,14 +142,22 @@ initMDB({ Ripple });
 		lastScrollTop = scrollTop;
 	})
 	
+	const searchBar = document.getElementById('searchKeyword');
+	const searchBtn = document.querySelector('.search-btn');
 	
-	$("#searchbar").click(function() {
-			$('#page').val(1);
-			$('#limit').val(6);
-			$('#typeList').val("");
-			$('#genreList').val("");
-			$('#sortBy').val("");
-			$('#formSubmit').submit();
-
-		});
+	$('#searchKeyword').keypress(function(event) {
+		  if (event.keyCode === 13) {
+		    searchFunction();
+		  }
+	});
+	
+	function searchFunction() {
+		$('#page').val(1);
+		$('#limit').val(6);
+		$('#typeList').val("");
+		$('#genreList').val("");
+		$('#sortBy').val("");
+		$('#formSubmit').submit();
+	}
+	
 </script>
