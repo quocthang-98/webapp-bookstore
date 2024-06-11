@@ -191,6 +191,8 @@
 				<button type="button" class="btn btn-dark" id="comment" data-bs-toggle="modal"  <c:if test="${book.status == 'notLogin'}">data-bs-target="#alert"</c:if>>Post</button>
             </div>
             </form>
+            
+            
             <c:forEach var="item" items="${comment.resultList}">
             <div class="container px-4 px-lg-5 mt-5">
             <div class="d-flex flex-start">
@@ -205,103 +207,19 @@
                     <span class="badge bg-success">Author</span>
                   </p>
                 </div>
-                <p class="mb-0">
-                   ${item.content} &#128526;
+                <p class="mb-0 commentContent">
+                   ${item.content}
                 </p>
 
               </div>
-				 <a href="#!" class="link-muted" style="text-align:right;display:block;"><i class="fa fa-heart ms-2"></i><p>3804</p></a>
+				<div class="like-button-pair">
+					  <button id="button-like btn btn-link" style="border: 0; background-color: transparent;"><i class="fa-regular fa-heart"></i><p>0</p></button>
+					  <button id="button-unlike btn btn-link" style="display: none; border: 0; background-color: transparent;"><i class="fa-solid fa-heart"></i><p>1</p></button>
+				</div>
             </div>
           </div>
             </c:forEach>
-           <!--  <div class="container px-4 px-lg-5 mt-5">
-            <div class="d-flex flex-start">
-              <img class="rounded-circle shadow-1-strong me-3"
-                src="https://scontent.fsgn5-9.fna.fbcdn.net/v/t39.30808-1/444479908_390929930660336_7205019188867939876_n.jpg?stp=dst-jpg_p200x200&_nc_cat=102&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeGD2sRR7A3TBLGhI7H_rwAQowrEd0F_qjWjCsR3QX-qNeGiTYGhHEUEexzTRrG3WoWcFVxqxzjolNA6Tieu_Fry&_nc_ohc=bTgwRkK2uFwQ7kNvgESUcaK&_nc_ht=scontent.fsgn5-9.fna&oh=00_AYDd0yjKN2jFfrfDMqI9J16jpmkJ2-dW2JNIoXaLK3EtGQ&oe=66606418" alt="avatar" width="60"
-                height="60" />
-              <div style="width: 100%; margin: auto;">
-                <h6 class="fw-bold mb-1">Sun Phan</h6>
-                <div class="d-flex align-items-center mb-3">
-                  <p class="mb-0">
-                    March 15, 2021
-                    <span class="badge bg-success">Top Contributor</span>
-                  </p>
-                </div>
-                <p class="mb-0">
-                  Nhạc hay vờ cờ lờ luôn anh ui! &#128525;&#10024;
-                </p>
 
-              </div>
-				 <a href="#!" class="link-muted" style="text-align:right;display:block;"><i class="fa fa-heart ms-2"></i><p>4</p></a>
-            </div>
-          </div>
-          
-          <div class="container px-4 px-lg-5 mt-5">
-            <div class="d-flex flex-start">
-              <img class="rounded-circle shadow-1-strong me-3"
-                src="https://scontent.fsgn5-9.fna.fbcdn.net/v/t39.30808-1/434674815_3608894492772727_9041989188412370689_n.jpg?stp=dst-jpg_p200x200&_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeGBlTrGjdo25fpfaLZtQPtC0PHZXOa7cWfQ8dlc5rtxZyuZJb3mr8M9t-yZ17J020wBAzB9j8DWgBR-YcfP3yDR&_nc_ohc=znWvne_NPJkQ7kNvgEFb8_V&_nc_ht=scontent.fsgn5-9.fna&oh=00_AYBUZvhO-WDyY8C9D1yoYVrVL5CjtoVPtpAvwWYDvznmXQ&oe=66606383" alt="avatar" width="60"
-                height="60" />
-              <div style="width: 100%; margin: auto;">
-                <h6 class="fw-bold mb-1">Đỗ Đình Phúc</h6>
-                <div class="d-flex align-items-center mb-3">
-                  <p class="mb-0">
-                    March 15, 2021
-                    <span class="badge bg-success"></span>
-                  </p>
-                </div>
-                <p class="mb-0">
-                  Mọi người vào trang em mua kem trộn nhe <a href="https://www.facebook.com/profile.php?id=100009566342416" target="_blank">https://www.facebook.com/profile.php?id=100009566342416</a>
-                </p>
-
-              </div>
-				 <a href="#!" class="link-muted" style="text-align:right;display:block;"><i class="fa fa-heart ms-2"></i><p>1239843</p></a>
-            </div>
-          </div>
- -->          
-          <!-- <div class="container px-4 px-lg-5 mt-5">
-            <div class="d-flex flex-start">
-              <img class="rounded-circle shadow-1-strong me-3"
-                src="https://scontent.fsgn5-10.fna.fbcdn.net/v/t39.30808-1/358456020_686633320174319_2191595948105468142_n.jpg?stp=c283.274.428.429a_dst-jpg_s200x200&_nc_cat=110&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeEXQSULmo1_F5dDRXfkyhp3OVyTtNkJgRs5XJO02QmBGwcWRQErakwyxMvcQxFI0wkpL2eGHBWyo4mU7M37y_G9&_nc_ohc=oiUfbsvAEW0Q7kNvgFAtF2S&_nc_ht=scontent.fsgn5-10.fna&oh=00_AYDsjgeuBNyDNNBPb-t0jv56898z0X_07_itQKac0dew2w&oe=66607500" alt="avatar" width="60"
-                height="60" />
-              <div style="width: 100%; margin: auto;">
-                <h6 class="fw-bold mb-1">Cần Phét Sần trường I</h6>
-                <div class="d-flex align-items-center mb-3">
-                  <p class="mb-0">
-                    March 15, 2021
-                    <span class="badge bg-success"></span>
-                  </p>
-                </div>
-                <p class="mb-0">
-                  Em mong là BGH nhà trường sẽ tổ chức 1 buổi đối thoại trực tiếp với sinh viên chứ hiện giờ em thấy IU đang gặp quá nhiều vấn đề luôn đó ạ 
-                </p>
-
-              </div>
-				            <a href="#!" class="link-muted" style="text-align:right;display:block;"><i class="fa fa-heart ms-2"></i><p>77</p></a>
-            </div>
-          </div>
-          
-            <div class="container px-4 px-lg-5 mt-5">
-            <div class="d-flex flex-start">
-              <img class="rounded-circle shadow-1-strong me-3"
-                src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(26).webp" alt="avatar" width="60"
-                height="60" />
-              <div style="width: 100%; margin: auto;">
-                <h6 class="fw-bold mb-1">Học Sinh Ngoan</h6>
-                <div class="d-flex align-items-center mb-3">
-                  <p class="mb-0">
-                    March 15, 2021
-                    <span class="badge bg-success"></span>
-                  </p>
-                </div>
-                <p class="mb-0">
-                  Ý của cá nhân mình là như thế này, sau 1 khoảng thời gian đọc những cfs complain về mọi thứ của trường hiện tại: từ csvc, trang thiết bị đến dịch vụ, đặc biệt những vật chất phục vụ mục đích học tập đg xuống cấp hoặc đg ko đúng như những gì kì vọng (mặc dù học phí mỗi kì-mỗi năm lại tăng lên) thì mình đg có 1 ý tưởng như thế này: Tổng hợp toàn bộ sinh viên lại làm 1 cái đơn request gửi trực tiếp lên trường: Nêu ra những điều chưa hài lòng và mong muốn đc cải thiện cho đúng với cái số tiền học phí bỏ ra cùng với những lời giới thiệu về trường khi là 1 học sinh cấp 3 hay là tân sinh viên. 
-					Các bạn thấy như nào, nếu đồng ý (thật sự muốn cải thiện để có thể học tập tốt) thì hãy thả tim vào phần React của bài viết, và mình coi như sẽ liên hệ và tạo group cùng những bạn đó viết đơn nói ra những mong muốn và gửi lên phía trường ! Vậy nha mọi người ơi<3 
-                </p>
-
-              </div>
-				            <a href="#!" class="link-muted" style="text-align:right;display:block;"><i class="fa fa-heart ms-2"></i><p>23</p></a>
-            </div>
-          </div> -->
 
         </section>
         
@@ -310,14 +228,14 @@
 									  <div class="modal-dialog modal-dialog-centered">
 									    <div class="modal-content">
 									      <div class="modal-header">
-									        <h5 class="modal-title" id="exampleModalLabel">Action denied!</h5>
+									        <h5 class="modal-title" id="exampleModalLabel">Hang on!</h5>
 									        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 									      </div>
 									      <div class="modal-body">
-									        Please login to continue with this function!
+									        You need to log in first.
 									      </div>
 									      <div class="modal-footer">
-									        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+									       	<a class=" text-white btn btn-secondary text-decoration-none px-3 py-1 rounded-3" style="background-color: #232323; display: block; width: 90px;" aria-current="page" href='<c:url value="/login?action=login"/>'>Login</a>
 									      </div>
 									    </div>
 									  </div>
@@ -396,6 +314,7 @@
 					}
 					
 				});
+        
         function create(data) {
 			$.ajax({
 				url : '${APIurl}',
@@ -444,6 +363,40 @@
 				}
 			});
 		}
+        
+        function linkify(text) {
+       	  var urlRegex = /(?:(https?:\/\/)?(?:www\.)?[-a-zA-Z0-9@:%_\+~#=]{1,256}\.[a-z]{2,6}\b)([-a-zA-Z0-9@:%_\+.~#?&//=]*)/gi;
+
+       	  return text.replace(urlRegex, function(url) {
+       	    // Prepend "http://" if no protocol is found
+       	    if (!url.startsWith("http")) {
+       	      var newurl = "http://" + url;
+       	      return '<a href="' + newurl + '" target="_blank">' + url + '</a>';
+
+       	    }
+       	    return '<a href="' + url + '" target="_blank">' + url + '</a>';
+       	  });
+       	}   
+
+       	const contentElement = document.getElementsByClassName('commentContent');
+       	contentElement.innerHTML = linkify(contentElement.textContent);
+        
+        const buttonPairs = document.querySelectorAll('.like-button-pair');
+
+        buttonPairs.forEach(pair => {
+          const buttonLike = pair.querySelector('button[id^="button-like"]'); // Select button starting with "buttonA"
+          const buttonUnlike = pair.querySelector('button[id^="button-unlike"]'); // Select button starting with "buttonB"
+
+          buttonLike.addEventListener('click', function() {
+            buttonLike.style.display = 'none';
+            buttonUnlike.style.display = 'block';
+          });
+
+          buttonUnlike.addEventListener('click', function() {
+            buttonLike.style.display = 'block';
+            buttonUnlike.style.display = 'none';
+          });
+        });
         
         </script>
         
