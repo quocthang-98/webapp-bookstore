@@ -37,7 +37,11 @@ public class CartService implements ICartService{
 
 	@Override
 	public List<CartModel> findByUserId(Long userId) {
-		return cartDAO.findByUserId(userId);
+		List<CartModel> carts = cartDAO.findByUserId(userId);
+		for (CartModel cart: carts) {
+			cart.setBookModel(bookDAO.findOne(cart.getBookId()));
+		}
+		return carts;
 	}
 
 	@Override
@@ -86,6 +90,11 @@ public class CartService implements ICartService{
 			bookDAO.update(bookModel);
 		}
 		cartDAO.delete(id);
+	}
+
+	@Override
+	public CartModel findByUserIdAndBookId(Long userId, Long bookId) {
+		return cartDAO.findByUserIdAndBookId(userId, bookId);
 	}
 	
 	
