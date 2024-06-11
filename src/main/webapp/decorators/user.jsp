@@ -53,7 +53,7 @@
 
 
 	<!-- Core theme JS-->
-
+	<script src="https://kit.fontawesome.com/b31709c2ba.js" crossorigin="anonymous"></script>
 	<script src="<c:url value='/template/user/js/scripts.js' />"></script>
 	<script src="<c:url value='/template/user/js/jquery.min.js' />"></script>
 	<script src="<c:url value='/template/user/js/popper.js' />"></script>
