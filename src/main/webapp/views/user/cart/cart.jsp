@@ -40,7 +40,12 @@
                         </td>
                         <td data-th="Price">${item.bookModel.price} VND</td>
                         <td data-th="Quantity">
-                            <input type="number" class="form-control form-control-lg text-center" value="${item.quantity}" min="1" max="${item.quantity + item.bookModel.stocks}">
+<%--                             <input type="number" class="form-control form-control-lg text-center" value="${item.quantity}" min="1" max="${item.quantity + item.bookModel.stocks}"> --%>
+							<div class="input-group w-auto justify-content-start align-items-start">
+						         <input type="button" value="-" class="btn-dark button-minus border rounded-circle  icon-shape icon-sm mx-1 " data-field="quantity">
+						         <input type="number" step="1" min="1" max="5" value="1" name="quantity" class="quantity-field border-0 text-center w-25" readonly style="margin: 0;">
+						         <input type="button" value="+" class="btn-dark button-plus border rounded-circle icon-shape icon-sm lh-0" data-field="quantity">
+						      </div>
                         </td>
                         <td class="actions" data-th="">
                             <div class="text-right">
@@ -64,7 +69,7 @@
 									      </div>
 									      <div class="modal-footer">
 									        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-									        <button type="button" class="btn btn-danger" id="delete">Delete</button>
+									        <button type="button" class="btn btn-danger" id="delete">Remove</button>
 									      </div>
 									    </div>
 									  </div>
@@ -92,7 +97,49 @@
 </div>
 </section>
 <script>
+	function incrementValue(e) {
+	  e.preventDefault();
+	  var fieldName = $(e.target).data('field');
+	  var parent = $(e.target).closest('div');
+	  var input = parent.find('input[name=' + fieldName + ']');
+	  var currentVal = parseInt(input.val(), 10);
 
+	  if (!isNaN(currentVal)) {
+	    var newVal = currentVal + 1;
+	    // Check if the new value exceeds the maximum allowed value
+	    if (newVal <= 20) { // Assuming a maximum of 10 (adjust as needed)
+	      input.val(newVal);
+	    } 
+	  } else {
+	    input.val(0);
+	  }
+	}
+
+	function decrementValue(e) {
+	  e.preventDefault();
+	  var fieldName = $(e.target).data('field');
+	  var parent = $(e.target).closest('div');
+	  var input = parent.find('input[name=' + fieldName + ']');
+	  var currentVal = parseInt(input.val(), 10);
+
+	  if (!isNaN(currentVal) && currentVal > 0) {
+	    var newVal = currentVal - 1;
+	    // Check if the new value falls below the minimum allowed value
+	    if (newVal >= 1) { // Assuming a minimum of 0 (adjust as needed)
+	      input.val(newVal);
+	    }
+	  } else {
+	    input.val(0);
+	  }
+	}
+
+	$('.input-group').on('click', '.button-plus', function(e) {
+	  incrementValue(e);
+	});
+
+	$('.input-group').on('click', '.button-minus', function(e) {
+	  decrementValue(e);
+	});
 </script>
 
 </body>

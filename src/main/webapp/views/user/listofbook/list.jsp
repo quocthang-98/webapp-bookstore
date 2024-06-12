@@ -51,7 +51,7 @@
 
 						</div>
 
-						<a class="btn btn-success"
+						<a class="btn btn-dark text-light"
 							style="margin-top: 20px; margin-bottom: 8px;" id="filter">Apply</a>
 					</div>
 
@@ -60,28 +60,13 @@
 						<div class="row mb-4">
 							<div class="col-12">
 								<h6 class="mb-0">
-									<span class="text-primary">${book.totalItem}</span> rerult(s)
+									<span class="text-primary">${book.totalItem}</span> result(s)
 									found
 								</h6>
 							</div>
 						</div>
 						<div class="job-filter mb-4 d-sm-flex align-items-center">
 							<div class="job-shortby ml-sm-auto d-flex align-items-center">
-								<!-- <div class="form-group mb-0">
-									<label class="justify-content-start mr-2">Sort by:</label>
-									<div class="short-by">
-										<button class="btn btn-light dropdown-toggle" type="button"
-											id="dropdownMenuButton" data-toggle="dropdown"
-											aria-haspopup="true" aria-expanded="false">---</button>
-										<div class="dropdown-menu"
-											aria-labelledby="dropdownMenuButton">
-											<a class="dropdown-item" href="#">Lastest</a> <a
-												class="dropdown-item" href="#">Rating</a> <a
-												class="dropdown-item" href="#">Price</a>
-
-										</div>
-									</div>
-								</div> -->
 
 								<div class="dropdown">
 									<button class="btn btn-secondary dropdown-toggle" type="button"
