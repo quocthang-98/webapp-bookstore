@@ -1,5 +1,6 @@
 package com.webapp.servicce;
 
+import java.awt.print.Book;
 import java.util.List;
 
 import com.webapp.model.BookModel;
@@ -17,4 +18,5 @@ public interface IBookService {
 	int getTotalItem(String keyWord);
 	void deleteOne(Long id);
 	List<BookModel> findByKeyWord(Integer offset, Integer limit, String keyWord);
+	List<BookModel> findBookSuggestion();
 }
