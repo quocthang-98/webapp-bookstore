@@ -26,4 +26,22 @@ public class AuthorDAO extends AbstractDAO<AuthorModel> implements IAuthorDAO {
 		String sql = "SELECT * FROM author WHERE name LIKE '%?%' OR name LIKE '%?%' OR name LIKE '%?%'";
 		return query(sql, new AuthorMapper(), keyWord1, keyWord2, keyWord3);
 	}
+
+	@Override
+	public Long save(AuthorModel authorModel) {
+		String sql = "INSERT INTO author (name, nationality, created_by, date_created) VALUE(?, ?, ?, ?)";
+		return insert(sql, authorModel.getName(), authorModel.getNationality(), authorModel.getCreatedBy(), authorModel.getCreatedDate());
+	}
+
+	@Override
+	public void update(AuthorModel authorModel) {
+		String sql = "UPDATE author SET name = ?, nationality = ? WHERE id = ?";
+		update(sql, authorModel.getName(), authorModel.getNationality(), authorModel.getId());
+	}
+
+	@Override
+	public void delete(long id) {
+		String sql = "DELETE FROM author WHERE id = ?";
+		update(sql, id);
+	}
 }
