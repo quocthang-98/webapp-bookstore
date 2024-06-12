@@ -1,7 +1,9 @@
 package com.webapp.service.impl;
 
 import java.sql.Timestamp;
+import java.sql.Types;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -153,5 +155,51 @@ public class BookService implements IBookService{
 		String newKeyWord2 = newKeyWord.toUpperCase();
 		String newKeyWord3 = capitalizeWords(newKeyWord1);
 		return bookDAO.getTotalItem(keyWord, newKeyWord1, newKeyWord2, newKeyWord3);
+	}
+
+	@Override
+	public List<BookModel> findBookSuggestion() {
+		List<TypeModel> typeList = typeDAO.findAll();
+		Long[] types = new Long[50];
+		int i=0;
+		for (TypeModel type:typeList) {
+			types[i] = type.getId();
+			++i;
+		}
+		
+		Long[] genres = new Long[50];
+		
+		Integer offset = 0;
+		Integer limit = 4;
+		
+		List<BookModel>[] books = new List[50];
+		
+		Long[] typess = new Long[50];
+		for (int j=0; j<typeList.size(); ++j) {
+		typess[0] = types[j];
+		books[j] = bookDAO.findAll(offset, limit, typess, genres, "Latest");
+		}
+		for (int j=1; j<typeList.size(); ++j) {
+			books[0].addAll(books[j]);
+		}
+		TypeModel typeModel;
+		GenreModel genreModel;
+		PublisherModel publisherModel;
+		AuthorModel authorModel;
+		for (BookModel book: books[0]) {
+			typeModel = null;
+			genreModel = null;
+			publisherModel = null;
+			authorModel = null;
+			typeModel = typeDAO.findOne(book.getTypeId());
+			genreModel = genreDAO.findOne(book.getGenreId());
+			publisherModel = publisherDAO.findOne(book.getPublisherId());
+			authorModel = authorDAO.findOne(book.getAuthorId());
+			if (genreModel != null) book.setGenreName(genreModel.getName());
+			if (publisherModel != null) book.setPublisherName(publisherModel.getName());
+			if (typeModel != null) book.setTypeName(typeModel.getName());
+			if (authorModel != null) book.setAuthorName(authorModel.getName());
+		}
+		return books[0];
 	}
 }

@@ -105,53 +105,53 @@
 	<div class="container px-4 px-lg-5 mt-5">
 		<h2 class="fw-bolder mb-4" id="section-whatsnew">New Arrivals</h2>
 			<div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-
+				<c:forEach var="item" items="${book.resultList}">
 				<div class="col mb-5 item-card">
 					<div class="card h-100 inner-item-card">
 						<!-- Product image-->
 						<div class="image-item-card-container">
 							<img class="card-img-top image-item-card"
-							src="https://cdn0.fahasa.com/media/flashmagazine/images/page_images/mot_doi_nhu_ke_tim_duong/2020_05_06_15_19_32_1-390x510.JPG?_gl=1*1hua68f*_ga*MTY0MDI0NjEzMS4xNzE0NzkwNzc4*_ga_460L9JMC2G*MTcxNzU1NDU3Ny43LjEuMTcxNzU1NTQ5Ni41Ny4wLjYxODk5NjM2MQ..*_gcl_aw*R0NMLjE3MTYyNTc1MDIuQ2owS0NRanc2YXV5QmhEekFSSXNBTElvNnZfVGlGbHd5UnVMOWQtd2F2aEVURW4yeDl0TDhBY2lWZVpkRXdlWWd1Qmk1WUYwTzRJSmM4WWFBcWt3RUFMd193Y0I.*_gcl_au*Mzc3MjU1Mjk5LjE3MTQ3OTA3Nzg." alt="..." />
+							src="${item.thumbnail}" alt="..." />
 						</div>
 						<!-- Product details-->
 						<div class="content-item-card-container">
 							<div class="card-body p-4 item-card-body">
 								<div class="text-center content-text-item-card">
 									<!-- Product name-->
-									<h5 class="fw-bolder content-product-name-item-card" style="margin: 0;">Một Đời Như Kẻ Tìm Đường</h5>
-									<p>Phan Văn Trường</p>
+									<h5 class="fw-bolder content-product-name-item-card" style="margin: 0;">${item.title}</h5>
+									<p>${item.authorName}</p>
 									<!-- Product price-->
 									
 								</div>
 								<div class="text-center content-subtext-item-card">
 									
-									<p class="content-price-item-card">120.000 ₫</p>
+									<p class="content-price-item-card">${item.price} ₫</p>
 									<div class="text-center">
-										<p class="mt-auto">Life Skills</p>
+										<p class="mt-auto">${item.genreName}</p>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div> 
-				
-				<div class="col mb-5 item-card">
+				</c:forEach>
+				<!-- <div class="col mb-5 item-card">
 					<div class="card h-100 inner-item-card">
-						<!-- Product image-->
+						Product image
 						<div class="image-item-card-container">
 							<div class="badge text-white position-absolute sale-badge"
 							style="top: 0.5rem; right: 0.5rem">Sale</div>
 							<img class="card-img-top image-item-card"
 							src="https://cdn0.fahasa.com/media/catalog/product/n/h/nhung_quy_luat_cua_ban_chat_con_nguoi_1_2021_06_11_15_50_12.jpg?_gl=1*1mwqmq8*_ga*MTY0MDI0NjEzMS4xNzE0NzkwNzc4*_ga_460L9JMC2G*MTcxNzU1NDU3Ny43LjEuMTcxNzU1NTY3OS41OC4wLjYxODk5NjM2MQ..*_gcl_aw*R0NMLjE3MTYyNTc1MDIuQ2owS0NRanc2YXV5QmhEekFSSXNBTElvNnZfVGlGbHd5UnVMOWQtd2F2aEVURW4yeDl0TDhBY2lWZVpkRXdlWWd1Qmk1WUYwTzRJSmM4WWFBcWt3RUFMd193Y0I.*_gcl_au*Mzc3MjU1Mjk5LjE3MTQ3OTA3Nzg." alt="..." />
 						</div>
-						<!-- Product details-->
+						Product details
 						<div class="content-item-card-container">
 							<div class="card-body p-4 item-card-body">
 								<div class="text-center content-text-item-card">
-									<!-- Product name-->
+									Product name
 									<h5 class="fw-bolder content-product-name-item-card" style="margin: 0;">Quy Luật Bản Chất Của Con Người</h5>
 									<p>Robert Greene</p>
-									<!-- Product price-->
+									Product price
 									
 								</div>
 								<div class="text-center content-subtext-item-card">
@@ -165,24 +165,24 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> -->
 				
 				
-				<div class="col mb-5 item-card">
+				<!-- <div class="col mb-5 item-card">
 					<div class="card h-100 inner-item-card">
-						<!-- Product image-->
+						Product image
 						<div class="image-item-card-container">
 							<img class="card-img-top image-item-card"
 							src="https://cdn0.fahasa.com/media/catalog/product/n/x/nxbtre_full_06402022_014041_1.jpg?_gl=1*15q15z2*_ga*MTY0MDI0NjEzMS4xNzE0NzkwNzc4*_ga_460L9JMC2G*MTcxNzU1OTUyMi44LjEuMTcxNzU1OTU0Ny4zNS4wLjEwNzM4MDUwOTU.*_gcl_aw*R0NMLjE3MTYyNTc1MDIuQ2owS0NRanc2YXV5QmhEekFSSXNBTElvNnZfVGlGbHd5UnVMOWQtd2F2aEVURW4yeDl0TDhBY2lWZVpkRXdlWWd1Qmk1WUYwTzRJSmM4WWFBcWt3RUFMd193Y0I.*_gcl_au*Mzc3MjU1Mjk5LjE3MTQ3OTA3Nzg." alt="..." />
 						</div>
-						<!-- Product details-->
+						Product details
 						<div class="content-item-card-container">
 							<div class="card-body p-4 item-card-body">
 								<div class="text-center content-text-item-card">
-									<!-- Product name-->
+									Product name
 									<h5 class="fw-bolder content-product-name-item-card" style="margin: 0;">Mắt Biếc (2022 Edition)</h5>
 									<p>Nguyễn Nhật Ánh</p>
-									<!-- Product price-->
+									Product price
 									
 								</div>
 								<div class="text-center content-subtext-item-card">
@@ -200,21 +200,21 @@
 				<div class="col mb-5 item-card">
 					<a href="user-bookdetail?id=26" class="item-card-link">
 					<div class="card h-100 inner-item-card">
-						<!-- Product image-->
+						Product image
 						<div class="image-item-card-container">
 							<div class="badge sale-badge text-white position-absolute"
 							style="top: 0.5rem; right: 0.5rem">Sale</div>
 							<img class="card-img-top image-item-card"
 							src="https://upload.wikimedia.org/wikipedia/vi/thumb/2/27/Wren_Evans_-_Loi_Choi.jpg/330px-Wren_Evans_-_Loi_Choi.jpg" alt="..." />
 						</div>
-						<!-- Product details-->
+						Product details
 						<div class="content-item-card-container">
 							<div class="card-body p-4 item-card-body">
 								<div class="text-center content-text-item-card">
-									<!-- Product name-->
+									Product name
 									<h5 class="fw-bolder content-product-name-item-card" style="margin: 0;">LOI CHOI: The Neo Pop Punk - Booklet</h5>
 									<p>Wren Evans & itsnk</p>
-									<!-- Product price-->
+									Product price
 									
 								</div>
 								
@@ -234,19 +234,19 @@
 				
 				<div class="col mb-5 item-card">
 					<div class="card h-100 inner-item-card">
-						<!-- Product image-->
+						Product image
 						<div class="image-item-card-container">
 							<img class="card-img-top image-item-card"
 							src="https://upload.wikimedia.org/wikipedia/en/2/21/Joker_graphic_novel_Cover.jpg" alt="..." />
 						</div>
-						<!-- Product details-->
+						Product details
 						<div class="content-item-card-container">
 							<div class="card-body p-4 item-card-body">
 								<div class="text-center content-text-item-card">
-									<!-- Product name-->
+									Product name
 									<h5 class="fw-bolder content-product-name-item-card" style="margin: 0;">Joker</h5>
 									<p>Brian Azzarello</p>
-									<!-- Product price-->
+									Product price
 									
 								</div>
 								<div class="text-center content-subtext-item-card">
@@ -263,21 +263,21 @@
 				
 				<div class="col mb-5 item-card">
 					<div class="card h-100 inner-item-card">
-						<!-- Product image-->
+						Product image
 						<div class="image-item-card-container">
 							<div class="badge sale-badge text-white position-absolute"
 							style="top: 0.5rem; right: 0.5rem">Sale</div>
 							<img class="card-img-top image-item-card"
 							src="https://deitel.com/wp-content/uploads/2020/01/c-plus-plus-how-to-program-10e.jpg" alt="..." />
 						</div>
-						<!-- Product details-->
+						Product details
 						<div class="content-item-card-container">
 							<div class="card-body p-4 item-card-body">
 								<div class="text-center content-text-item-card">
-									<!-- Product name-->
+									Product name
 									<h5 class="fw-bolder content-product-name-item-card" style="margin: 0;">C++: How To Program (10th Edition)</h5>
 									<p>Paul Deltel</p>
-									<!-- Product price-->
+									Product price
 									
 								</div>
 								<div class="text-center content-subtext-item-card">
@@ -295,19 +295,19 @@
 				
 				<div class="col mb-5 item-card">
 					<div class="card h-100 inner-item-card">
-						<!-- Product image-->
+						Product image
 						<div class="image-item-card-container">
 							<img class="card-img-top image-item-card"
 							src="https://m.media-amazon.com/images/I/81YkqyaFVEL._AC_UF1000,1000_QL80_.jpg" alt="..." />
 						</div>
-						<!-- Product details-->
+						Product details
 						<div class="content-item-card-container">
 							<div class="card-body p-4 item-card-body">
 								<div class="text-center content-text-item-card">
-									<!-- Product name-->
+									Product name
 									<h5 class="fw-bolder content-product-name-item-card" style="margin: 0;">Atomic Habits: An Easy & Proven Way to Build Good Habits & Break Bad Ones</h5>
 									<p>James Clear</p>
-									<!-- Product price-->
+									Product price
 									
 								</div>
 								<div class="text-center content-subtext-item-card">
@@ -324,21 +324,21 @@
 				
 				<div class="col mb-5 item-card">
 					<div class="card h-100 inner-item-card">
-						<!-- Product image-->
+						Product image
 						<div class="image-item-card-container">
 							<div class="badge sale-badge text-white position-absolute"
 							style="top: 0.5rem; right: 0.5rem">Sale</div>
 							<img class="card-img-top image-item-card"
 							src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
 						</div>
-						<!-- Product details-->
+						Product details
 						<div class="content-item-card-container">
 							<div class="card-body p-4 item-card-body">
 								<div class="text-center content-text-item-card">
-									<!-- Product name-->
+									Product name
 									<h5 class="fw-bolder content-product-name-item-card" style="margin: 0;">Special Product</h5>
 									<p>Author Name</p>
-									<!-- Product price-->
+									Product price
 									
 								</div>
 								<div class="text-center content-subtext-item-card">
@@ -352,7 +352,7 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> -->
 			</div>
 			</div>
 				

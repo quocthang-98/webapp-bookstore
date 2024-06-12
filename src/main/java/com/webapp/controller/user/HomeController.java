@@ -12,7 +12,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.webapp.constant.SystemConstant;
 import com.webapp.dao.IUserDAO;
+import com.webapp.model.BookModel;
 import com.webapp.model.UserModel;
 import com.webapp.servicce.IBookService;
 import com.webapp.servicce.ITypeService;
@@ -37,6 +39,9 @@ public class HomeController extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String action = request.getParameter("action");
+		BookModel bookModel = new BookModel();
+		bookModel.setResultList(bookService.findBookSuggestion());
+		request.setAttribute(SystemConstant.BOOK, bookModel);
 		if (action!= null && action.equals("login")) {
 			String message = request.getParameter("message");
 			String alert = request.getParameter("alert");
