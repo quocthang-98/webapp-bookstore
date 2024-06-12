@@ -14,7 +14,7 @@ public class AuthorMapper implements RowMapper<AuthorModel> {
 			AuthorModel authorModel = new AuthorModel();
 			authorModel.setId(resultSet.getLong("id"));
 			authorModel.setName(resultSet.getString("name"));
-			authorModel.setNationality("nationality");
+			authorModel.setNationality(resultSet.getString("nationality"));
 			authorModel.setCreatedBy(resultSet.getString("created_by"));
 			authorModel.setCreatedDate(resultSet.getTimestamp("date_created"));
 			return authorModel;
