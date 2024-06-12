@@ -48,6 +48,10 @@
 						</div>
                         </c:if>
                         </c:if>
+                        <div class="like-button-pair" style="margin-top: 12px;">
+					 		<button id="button-like btn btn-link" class="book-like-btn" style="border: 0; background-color: transparent; font-size: 40px; color: #23272B;"><i class="fa-regular fa-heart"></i></button>
+					 		<button id="button-unlike btn btn-link" class=" book-unlike-btn" style="display: none; border: 0; background-color: transparent; font-size: 40px; color: #23272B;"><i class="fa-solid fa-heart"></i></button>
+						</div>
                         </div>
                     </div>
                 </div>
@@ -213,8 +217,8 @@
 
               </div>
 				<div class="like-button-pair">
-					  <button id="button-like btn btn-link" style="border: 0; background-color: transparent;"><i class="fa-regular fa-heart"></i><p>0</p></button>
-					  <button id="button-unlike btn btn-link" style="display: none; border: 0; background-color: transparent;"><i class="fa-solid fa-heart"></i><p>1</p></button>
+					 <button id="button-like btn btn-link" style="border: 0; background-color: transparent;"><i class="fa-regular fa-heart"></i><p>0</p></button>
+					 <button id="button-unlike btn btn-link" style="display: none; border: 0; background-color: transparent;"><i class="fa-solid fa-heart"></i><p>1</p></button>
 				</div>
             </div>
           </div>
@@ -315,6 +319,15 @@
 					
 				});
         
+        $(document).ready(function() {
+        	  $("#content").keypress(function(e) {
+        	    if (e.keyCode === 13) { // Check if Enter key is pressed
+        	      $("#comment").click(); // Simulate click on the Post button
+        	      e.preventDefault(); // Prevent default form submission behavior (optional)
+        	    }
+        	  });
+        	});
+        
         function create(data) {
 			$.ajax({
 				url : '${APIurl}',
@@ -362,24 +375,7 @@
 					console.log(error);
 				}
 			});
-		}
-        
-        function linkify(text) {
-       	  var urlRegex = /(?:(https?:\/\/)?(?:www\.)?[-a-zA-Z0-9@:%_\+~#=]{1,256}\.[a-z]{2,6}\b)([-a-zA-Z0-9@:%_\+.~#?&//=]*)/gi;
-
-       	  return text.replace(urlRegex, function(url) {
-       	    // Prepend "http://" if no protocol is found
-       	    if (!url.startsWith("http")) {
-       	      var newurl = "http://" + url;
-       	      return '<a href="' + newurl + '" target="_blank">' + url + '</a>';
-
-       	    }
-       	    return '<a href="' + url + '" target="_blank">' + url + '</a>';
-       	  });
-       	}   
-
-       	const contentElement = document.getElementsByClassName('commentContent');
-       	contentElement.innerHTML = linkify(contentElement.textContent);
+		}     	
         
         const buttonPairs = document.querySelectorAll('.like-button-pair');
 

@@ -11457,3 +11457,15 @@ textarea.form-control-lg {
 .footer-outline-light-button:hover {
 	color: black;
 }
+
+.book-like-btn {
+	transition: all 0.2s ease;
+}
+
+.book-unlike-btn {
+	transition: all 0.2s ease;
+}
+
+.book-like-btn:hover {
+	color: #5B6670 !important;
+}
