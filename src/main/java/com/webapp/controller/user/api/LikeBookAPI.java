@@ -43,6 +43,7 @@ public class LikeBookAPI extends HttpServlet{
 		ObjectMapper objectMapper = new ObjectMapper();
 		resp.setContentType("application/json");
 		LikeBookModel likeBookModel = HttpUtil.of(req.getReader()).toModel(LikeBookModel.class);
+		likeBookModel.setUserId(((UserModel) SessionUtil.getInstance().getValue(req, "USERMODEL")).getId());
 		likeBookService.deleteByUserIdAndBookId(likeBookModel.getUserId(), likeBookModel.getBookId());
 		objectMapper.writeValue(resp.getOutputStream(), "");
 	}

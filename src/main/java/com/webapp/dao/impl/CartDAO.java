@@ -25,9 +25,9 @@ public class CartDAO extends AbstractDAO<CartModel> implements ICartDAO {
 	}
 
 	@Override
-	public List<CartModel> findByUserIdAndOrdered(Long userId, Integer odered) {
-		String sql = "SELECT * FROM cart WHERE user_id = ? AND odered = ?";
-		return query(sql, new CartMapper(), userId, odered);
+	public List<CartModel> findByUserIdAndOrdered(Long userId, Integer ordered) {
+		String sql = "SELECT * FROM cart WHERE user_id = ? AND ordered = ?";
+		return query(sql, new CartMapper(), userId, ordered);
 	}
 
 	@Override
@@ -54,6 +54,8 @@ public class CartDAO extends AbstractDAO<CartModel> implements ICartDAO {
 		String sql = "UPDATE cart SET quantity = ?, order_id = ?, ordered = ? WHERE id = ?";
 		update(sql, cartModel.getQuantity(), cartModel.getOrderId(), cartModel.getOrdered(), cartModel.getId());
 	}
+	
+	
 
 	@Override
 	public void delete(Long id) {
@@ -66,6 +68,19 @@ public class CartDAO extends AbstractDAO<CartModel> implements ICartDAO {
 		String sql = "SELECT * FROM cart WHERE user_id = ? AND book_id = ?";
 		List<CartModel> carts = query(sql, new CartMapper(), userId, bookId);
 		return carts.isEmpty() ? null : carts.get(0);
+	}
+
+	@Override
+	public int getTotalItem(Long userId) {
+		String sql = "SELECT count(DISTINCT(book_id)) FROM cart WHERE user_id = ? AND ordered = 0";
+		return count(sql, userId);
+	}
+
+	@Override
+	public void updateQuantity(CartModel cartModel) {
+		String sql = "UPDATE cart SET quantity = ? WHERE id = ?";
+		update(sql, cartModel.getQuantity(), cartModel.getId());
+		
 	}
 
 

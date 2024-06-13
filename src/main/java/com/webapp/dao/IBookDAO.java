@@ -9,6 +9,7 @@ public interface IBookDAO {
 	List<BookModel> findByType(Long id);
 	Long save(BookModel bookModel);
 	void update(BookModel bookModel);
+	void updateStocks(BookModel bookModel);
 	void delete(long id);
 	List<BookModel> findAll();
 	List<BookModel> findByConditions(Long[] typeList, Long[] genreList);

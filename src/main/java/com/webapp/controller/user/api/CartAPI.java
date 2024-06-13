@@ -32,6 +32,8 @@ public class CartAPI extends HttpServlet{
 		cartModel.setCreatedBy(((UserModel) SessionUtil.getInstance().getValue(req, "USERMODEL")).getUsername());
 		cartModel.setUserId(((UserModel) SessionUtil.getInstance().getValue(req, "USERMODEL")).getId());
 		cartModel = cartService.save(cartModel);
+		Integer cartNumber = new Integer(cartService.getTotalItem(((UserModel) SessionUtil.getInstance().getValue(req, "USERMODEL")).getId()));
+		SessionUtil.getInstance().putValue(req, "CARTNUMBER", cartNumber);
 		objectMapper.writeValue(resp.getOutputStream(), cartModel);
 	}
 	
@@ -40,7 +42,7 @@ public class CartAPI extends HttpServlet{
 		ObjectMapper objectMapper = new ObjectMapper();
 		resp.setContentType("application/json");
 		CartModel cartModel = HttpUtil.of(req.getReader()).toModel(CartModel.class);
-		cartModel = cartService.update(cartModel);
+		cartModel = cartService.updateQuantity(cartModel);
 		objectMapper.writeValue(resp.getOutputStream(), cartModel);
 	}
 	
@@ -50,6 +52,8 @@ public class CartAPI extends HttpServlet{
 		resp.setContentType("application/json");
 		CartModel cartModel = HttpUtil.of(req.getReader()).toModel(CartModel.class);
 		cartService.delete(cartModel.getId());
+		Integer cartNumber = new Integer(cartService.getTotalItem(((UserModel) SessionUtil.getInstance().getValue(req, "USERMODEL")).getId()));
+		SessionUtil.getInstance().putValue(req, "CARTNUMBER", cartNumber);
 		objectMapper.writeValue(resp.getOutputStream(), "");
 	}
 	

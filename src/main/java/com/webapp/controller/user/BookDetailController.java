@@ -1,6 +1,7 @@
 package com.webapp.controller.user;
 		
 import java.io.IOException;
+import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.RequestDispatcher;
@@ -21,6 +22,8 @@ import com.webapp.model.UserModel;
 import com.webapp.servicce.IBookService;
 import com.webapp.servicce.ICartService;
 import com.webapp.servicce.ICommentService;
+import com.webapp.servicce.ILikeBookService;
+import com.webapp.servicce.ILikeCommentService;
 import com.webapp.servicce.ITypeService;
 import com.webapp.utils.FormUtil;
 import com.webapp.utils.SessionUtil;
@@ -38,6 +41,11 @@ public class BookDetailController extends HttpServlet{
 	@Inject
 	private ICartService cartService;
 	
+	@Inject
+	private ILikeBookService likeBookService;
+	
+	@Inject
+	private ILikeCommentService likeCommentService;
 	
 		
 	private static final long serialVersionUID = 1L;
@@ -50,11 +58,23 @@ public class BookDetailController extends HttpServlet{
 			status = bookModel.getStatus();}
 		bookModel = bookService.findOne(bookModel.getId());	
 		bookModel.setStatus(status);
+		if (((UserModel) SessionUtil.getInstance().getValue(request, "USERMODEL"))!=null) {
+		bookModel.setLikeBookModel(likeBookService.findByUserIdAndBookId(((UserModel) SessionUtil.getInstance().getValue(request, "USERMODEL")).getId(), bookModel.getId()));
+		}
+		bookModel.setLikeNumber(likeBookService.getTotalLikeByBookId(bookModel.getId()));
 		request.setAttribute(SystemConstant.BOOK, bookModel);
 		
 		CommentModel commentModel = new CommentModel();
-		commentModel.setResultList(commentService.findByBookId(bookModel.getId()));
+		List<CommentModel> comments = commentService.findByBookId(bookModel.getId());
+		for (CommentModel comment:comments) {
+			if (((UserModel) SessionUtil.getInstance().getValue(request, "USERMODEL"))!=null) {
+				comment.setLikeCommentModel(likeCommentService.findByUserIdAndCommentId(((UserModel) SessionUtil.getInstance().getValue(request, "USERMODEL")).getId(), comment.getId()));
+			}
+			comment.setLikeNumber(likeCommentService.getTotalLikeByCommentId(comment.getId()));
+		}
+		commentModel.setResultList(comments);
 		request.setAttribute(SystemConstant.COMMENT, commentModel);
+		
 		if (((UserModel) SessionUtil.getInstance().getValue(request, "USERMODEL"))!=null) {
 		CartModel cartModel = cartService.findByUserIdAndBookId(((UserModel) SessionUtil.getInstance().getValue(request, "USERMODEL")).getId(), bookModel.getId());
 		request.setAttribute(SystemConstant.CART, cartModel);

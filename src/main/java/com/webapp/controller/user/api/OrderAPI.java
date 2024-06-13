@@ -31,7 +31,7 @@ public class OrderAPI extends HttpServlet{
 	ICartService cartService;
 	
 	@Override
-	protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		ObjectMapper objectMapper = new ObjectMapper();
 		resp.setContentType("application/json");
 		OrderModel orderModel = HttpUtil.of(req.getReader()).toModel(OrderModel.class);
@@ -45,6 +45,8 @@ public class OrderAPI extends HttpServlet{
 			cart.setOrdered(1);
 			cartService.update(cart);
 		}
+		Integer cartNumber = new Integer(cartService.getTotalItem(((UserModel) SessionUtil.getInstance().getValue(req, "USERMODEL")).getId()));
+		SessionUtil.getInstance().putValue(req, "CARTNUMBER", cartNumber);
 		objectMapper.writeValue(resp.getOutputStream(), orderModel);
 	}
 }

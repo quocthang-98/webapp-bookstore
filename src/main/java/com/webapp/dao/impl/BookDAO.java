@@ -182,4 +182,11 @@ public class BookDAO extends AbstractDAO<BookModel> implements IBookDAO {
 		return count(sql.toString());
 	}
 
+	@Override
+	public void updateStocks(BookModel bookModel) {
+		String sql = "UPDATE book SET stocks = ? WHERE id = ?";
+		update(sql, bookModel.getStocks(), bookModel.getId());
+		
+	}
+
 }

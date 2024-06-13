@@ -7,8 +7,23 @@ public class CommentModel extends AbstractModel<CommentModel>{
 	private Long likes;
 	private String userName;
 	private String bookName;
+	
+	private LikeCommentModel likeCommentModel;
+	private Integer likeNumber;
 
 	
+	public LikeCommentModel getLikeCommentModel() {
+		return likeCommentModel;
+	}
+	public void setLikeCommentModel(LikeCommentModel likeCommentModel) {
+		this.likeCommentModel = likeCommentModel;
+	}
+	public Integer getLikeNumber() {
+		return likeNumber;
+	}
+	public void setLikeNumber(Integer likeNumber) {
+		this.likeNumber = likeNumber;
+	}
 	public String getUserName() {
 		return userName;
 	}
