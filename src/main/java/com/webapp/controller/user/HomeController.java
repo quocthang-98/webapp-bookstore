@@ -17,6 +17,7 @@ import com.webapp.dao.IUserDAO;
 import com.webapp.model.BookModel;
 import com.webapp.model.UserModel;
 import com.webapp.servicce.IBookService;
+import com.webapp.servicce.ICartService;
 import com.webapp.servicce.ITypeService;
 import com.webapp.servicce.IUserService;
 import com.webapp.utils.FormUtil;
@@ -33,6 +34,9 @@ public class HomeController extends HttpServlet{
 	
 	@Inject
 	private IUserService userService;
+	
+	@Inject
+	private ICartService cartService;
 	
 	ResourceBundle resourceBundle = ResourceBundle.getBundle("message");
 		
@@ -53,6 +57,7 @@ public class HomeController extends HttpServlet{
 			rd.forward(request, response);
 		} else if (action!= null && action.equals("logout")) {
 			SessionUtil.getInstance().removeValue(request, "USERMODEL");
+			SessionUtil.getInstance().removeValue(request, "CARTNUMBER");
 			response.sendRedirect(request.getContextPath() + "/user-home");
 		} else {
 			RequestDispatcher rd = request.getRequestDispatcher("/views/user/home.jsp");
@@ -67,6 +72,8 @@ public class HomeController extends HttpServlet{
 			userModel = userService.findByUsernameAndPassword(userModel.getUsername(), userModel.getPassword());
 			if (userModel != null) {
 				SessionUtil.getInstance().putValue(request, "USERMODEL", userModel);
+				Integer cartNumber = new Integer(cartService.getTotalItem(((UserModel) SessionUtil.getInstance().getValue(request, "USERMODEL")).getId()));
+				SessionUtil.getInstance().putValue(request, "CARTNUMBER", cartNumber);
 				if (userModel.getRoleModel().getName().equals("User")) {
 					response.sendRedirect(request.getContextPath() + "/user-home");
 				} else if (userModel.getRoleModel().getName().equals("Admin")){

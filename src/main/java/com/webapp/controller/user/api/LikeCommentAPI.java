@@ -44,6 +44,7 @@ public class LikeCommentAPI extends HttpServlet{
 		ObjectMapper objectMapper = new ObjectMapper();
 		resp.setContentType("application/json");
 		LikeCommentModel likeCommentModel = HttpUtil.of(req.getReader()).toModel(LikeCommentModel.class);
+		likeCommentModel.setUserId(((UserModel) SessionUtil.getInstance().getValue(req, "USERMODEL")).getId());
 		likeCommentService.deleteByUserIdAndCommentId(likeCommentModel.getUserId(), likeCommentModel.getCommentId());
 		objectMapper.writeValue(resp.getOutputStream(), "");
 	}

@@ -14,6 +14,7 @@ public class OrderMapper implements RowMapper<OrderModel> {
 			OrderModel orderModel = new OrderModel();
 			orderModel.setId(resultSet.getLong("id"));
 			orderModel.setUserId(resultSet.getLong("user_id"));
+			orderModel.setTotalPrice(resultSet.getDouble("total_price"));
 			orderModel.setCreatedBy(resultSet.getString("created_by"));
 			orderModel.setCreatedDate(resultSet.getTimestamp("date_created"));
 			return orderModel;
