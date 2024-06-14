@@ -223,7 +223,7 @@
                 </p>
 
               </div>
-				<div class="like-button-pair2">
+				<div class="like-button-pair2-${item.id}">
 					 <!-- <button id="button-like btn btn-link" style="border: 0; background-color: transparent;"><i class="fa-regular fa-heart"></i><p>0</p></button>
 					 <button id="button-unlike btn btn-link" style="display: none; border: 0; background-color: transparent;"><i class="fa-solid fa-heart"></i><p>1</p></button> -->
 					 
@@ -445,11 +445,11 @@
             
           });
         });
-        
-        const buttonPairs2 = document.querySelectorAll('.like-button-pair2');
-		
+        const buttonPairs = {};
         <c:forEach var="item" items="${comment.resultList}">
-        buttonPairs2.forEach(pair => {
+        buttonPairs['${item.id}'] = document.querySelectorAll('.like-button-pair2-${item.id}');
+		
+        buttonPairs['${item.id}'].forEach(pair => {
           const buttonLike = pair.querySelector('button[id^="button-like-${item.id}"]'); // Select button starting with "buttonA"
           const buttonUnlike = pair.querySelector('button[id^="button-unlike-${item.id}"]'); // Select button starting with "buttonB"
 

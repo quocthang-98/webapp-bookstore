@@ -23,6 +23,7 @@ import com.webapp.model.TypeModel;
 import com.webapp.model.UserModel;
 import com.webapp.servicce.IBookService;
 import com.webapp.servicce.ICommentService;
+import com.webapp.servicce.ILikeCommentService;
 
 public class CommentService implements ICommentService{
 	@Inject
@@ -34,9 +35,22 @@ public class CommentService implements ICommentService{
 	@Inject
 	IUserDAO userDAO;
 	
+	@Inject
+	ILikeCommentService likeCommentService;
+	
 	@Override
 	public List<CommentModel> findAll() {
-		return commentDAO.findAll();
+		List<CommentModel> commentList = commentDAO.findAll();
+		BookModel bookModel;
+		UserModel userModel;
+		for(CommentModel commentModel:commentList) {
+			bookModel = bookDAO.findOne(commentModel.getBookId());
+			commentModel.setBookName(bookModel.getTitle());
+			userModel = userDAO.findOne(commentModel.getUserId());
+			commentModel.setUserName(userModel.getUsername());
+			commentModel.setLikeNumber(likeCommentService.getTotalLikeByCommentId(commentModel.getId()));
+		}
+		return commentList;
 	}
 
 	@Override
@@ -49,6 +63,7 @@ public class CommentService implements ICommentService{
 			commentModel.setBookName(bookModel.getTitle());
 			userModel = userDAO.findOne(commentModel.getUserId());
 			commentModel.setUserName(userModel.getUsername());
+			commentModel.setLikeNumber(likeCommentService.getTotalLikeByCommentId(commentModel.getId()));
 		}
 		return commentList;
 	}
