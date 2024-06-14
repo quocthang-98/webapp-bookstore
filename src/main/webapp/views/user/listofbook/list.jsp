@@ -81,35 +81,40 @@
 								</div>
 							</div>
 						</div>
-						<div class="row">
-
+						
+						<div class="row gx-3 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-3 justify-content-center">
 							<c:forEach var="item" items="${book.resultList}">
-								<div class="col-sm-6 col-lg-4 mb-4">
-									<div class="card h-100">
+							<div class="col mb-5 item-card">
+								<a href="<c:url value="/user-bookdetail?id=${item.id}"/>">
+									<div class="card h-100 inner-item-card">
 										<!-- Sale badge-->
 										<!-- Product image-->
-										<img class="card-img-top"
-											src="<c:url value='${item.thumbnail}' />" />
-										<!-- Product details-->
-										<div class="card-body p-4">
-											<div class="text-center">
-												<!-- Product name-->
-												<h5 class="fw-bolder">${item.title}</h5>
-												<!-- Product price-->
-												${item.price} VND
-											</div>
+										<div class="image-item-card-container">
+											<img class="card-img-top image-item-card"
+											src="${item.thumbnail}" alt="..." />
 										</div>
-										<!-- Product actions-->
-										<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-											<div class="text-center">
-												<a class="btn btn-outline-dark mt-auto"
-													href='<c:url value="/user-bookdetail?id=${item.id}"/>'>View
-													detail</a>
+										<!-- Product details-->
+										<div class="content-item-card-container">
+											<div class="card-body p-4 item-card-body">
+												<div class="text-center content-text-item-card">
+													<!-- Product name-->
+													<h5 class="fw-bolder content-product-name-item-card" style="margin: 0;">${item.title}</h5>
+													<p>${item.authorName}</p>
+													<!-- Product price--> 
+												</div>
+											<div class="text-center content-subtext-item-card">
+													<p class="content-price-item-card">${item.price}₫</p>
+													<div class="text-center">
+														<p class="mt-auto">${item.genreName}</p>
+													</div>
+												</div>
 											</div>
 										</div>
 									</div>
+									</a>
 								</div>
 							</c:forEach>
+							</div>
 
 							<div class="container">
 								<nav aria-label="Page navigation">
@@ -117,7 +122,6 @@
 								</nav>
 							</div>
 						</div>
-
 					</div>
 				</div>
 			</div>

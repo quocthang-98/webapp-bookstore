@@ -21,7 +21,7 @@
                     <div class="col-md-6">
                         <div class="small mb-1">${book.authorName}</div>
                         
-                        <h1 class="display-5 fw-bolder">${book.title}</h1>
+                        <h1 class="display-5 fw-bolder book-detail-title">${book.title}</h1>
                         <div class="fs-5 mb-5">
                             <span style="font-weight: bold;">${book.price} VND</span>
                             <div class="small">Remaining: ${book.stocks}</div>
@@ -195,7 +195,7 @@
                 <h2 class="fw-bolder mb-4">Comments</h2>
                 <div class="mb-3">
 				  <label for="commentInput" class="form-label">What do you think about this product?</label>
-				  <input type="text" class="form-control" id="content" placeholder="Type your comments here..." name="content">
+				  <input type="text" autocomplete="off" class="form-control" id="content" placeholder="Type your comments here..." name="content">
 				</div>
 				<input type="hidden" value ="${book.id}" id="bookId" name="bookId">
 				<input type="hidden" value ="0" id="likes" name="likes">
@@ -541,6 +541,23 @@
 				}
 			});
 		}
+        
+        function linkify(text) {
+        	  var urlRegex = /(?:(https?:\/\/)?(?:www\.)?[-a-zA-Z0-9@:%_\+~#=]{1,256}\.[a-z]{2,6}\b)([-a-zA-Z0-9@:%_\+.~#?&//=]*)/gi;
+
+        	  return text.replace(urlRegex, function(url) {
+        	    // Prepend "http://" if no protocol is found
+        	    if (!url.startsWith("http")) {
+        	      var newurl = "http://" + url;
+        	      return '<a href="' + newurl + '" target="_blank">' + url + '</a>';
+
+        	    }
+        	    return '<a href="' + url + '" target="_blank">' + url + '</a>';
+        	  });
+        	}   
+
+        	const contentElement = document.getElementById('myContent');
+        	contentElement.innerHTML = linkify(contentElement.textContent);
         
         </script>
         
