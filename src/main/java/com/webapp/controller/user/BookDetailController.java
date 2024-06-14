@@ -70,7 +70,6 @@ public class BookDetailController extends HttpServlet{
 			if (((UserModel) SessionUtil.getInstance().getValue(request, "USERMODEL"))!=null) {
 				comment.setLikeCommentModel(likeCommentService.findByUserIdAndCommentId(((UserModel) SessionUtil.getInstance().getValue(request, "USERMODEL")).getId(), comment.getId()));
 			}
-			comment.setLikeNumber(likeCommentService.getTotalLikeByCommentId(comment.getId()));
 		}
 		commentModel.setResultList(comments);
 		request.setAttribute(SystemConstant.COMMENT, commentModel);

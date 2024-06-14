@@ -32,7 +32,11 @@ public class CartService implements ICartService{
 
 	@Override
 	public List<CartModel> findAll() {
-		return cartDAO.findAll();
+		List<CartModel> carts = cartDAO.findAll();
+		for (CartModel cart: carts) {
+			cart.setBookModel(bookDAO.findOne(cart.getBookId()));
+		}
+		return carts;
 	}
 
 	@Override
