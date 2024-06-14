@@ -6,12 +6,12 @@
 <meta charset="UTF-8">
 <title>Login</title>
 </head>
-<body>
+<body style="overflow: hidden;">
 	<div class="container">
 		<div class="d-flex justify-content-center h-100">
-			<div class="card">
+			<div class="card" style="width: 750px; height: 550px;">
 				<div class="card-header">
-					<h3 style="margin-top: 24px; text-align:center; font-weight: bolder;">SIGN IN</h3>
+					<h3 style="margin-top: 24px; text-align:center; font-weight: bolder;">SIGN UP</h3>
 					<div class="d-flex justify-content-end social_icon">
 						<h6>Login with</h6>
 						<span><i class="fab fa-facebook-f"></i></span> <span>
@@ -19,40 +19,99 @@
 					</div>
 				</div>
 				<div class="card-body">
-					<%-- <form action="<c:url value='login'/>" method="POST"> --%>
-					<form action="./login" id="formSubmit" method="POST">
-						<div class="input-group form-group">
-							<div class="input-group-prepend">
-								<span class="input-group-text"><i class="fas fa-user"></i></span>
+					<form action="=" id="formSubmit" method="POST">
+					<div class="container " style="align-content: start; height: 100px;">
+						<div class="row justify-content-center">
+							<div class="col-sm-auto">
+								<div class="input-group form-group">
+									<div class="input-group-prepend">
+										<span class="input-group-text"><i class="fa-solid fa-f"></i></span>
+									</div>
+									<input type="text" class="form-control" placeholder="First Name"
+								name="firstname">
+								</div>
+								
+								<div class="input-group form-group">
+									<div class="input-group-prepend">
+										<span class="input-group-text"><i class="fa-solid fa-l"></i></span>
+									</div>
+									<input type="text" class="form-control" placeholder="Last Name"
+								name="lastname">
+								</div>
 							</div>
-							<input type="text" class="form-control" placeholder="Username"
-								name="username">
+							
+							
+						<div class="col-sm-auto">
+							<div class="input-group form-group">
+									<div class="input-group-prepend">
+										<span class="input-group-text"><i class="fa-regular fa-envelope"></i></span>
+									</div>
+									<input type="text" class="form-control" placeholder="Email"
+								name="email">
+								</div>
 
+								<div class="input-group form-group">
+									<div class="input-group-prepend">
+										<span class="input-group-text"><i class="fa-solid fa-map-pin"></i></span>
+									</div>
+									<input type="text" class="form-control" placeholder="Address"
+								name="address">
+								</div>
+								
+								<div class="input-group form-group">
+									<div class="input-group-prepend">
+										<span class="input-group-text"><i class="fa-solid fa-phone"></i></span>
+									</div>
+									<input type="text" class="form-control" placeholder="Phone Number"
+								name="tel">
+								</div>
+							</div>
 						</div>
+					</div>
+					
+				<div class="container align-items-center">		
+					<div class="row justify-content-center" style="width: 560px;">
+								<div class="input-group form-group">
+							<div class="input-group-prepend">
+								<span class="input-group-text"><i class="fa-solid fa-user"></i></span>
+							</div>
+							<input type="text" class="form-control"
+								placeholder="Username" name="username">
+						</div>
+						
 						<div class="input-group form-group">
 							<div class="input-group-prepend">
 								<span class="input-group-text"><i class="fas fa-key"></i></span>
 							</div>
-							<input type="password" class="form-control"
+							<input type="password" class="form-control" id="main-password"
 								placeholder="Password" name="password">
 						</div>
-						<div class="row align-items-center remember">
-							<input type="checkbox">Remember Me
+						
+						<div class="input-group form-group">
+							<div class="input-group-prepend">
+								<span class="input-group-text"><i class="fas fa-key"></i></span>
+							</div>
+							<input type="password" class="form-control" id="cf-password"
+								placeholder="Re-enter Password" name="password">
 						</div>
-						<div class="form-group">
-							<input type="submit" value="Login"
-								class="btn float-right login_btn">
+						
 						</div>
+							</div>
+					</div>
+					
+					
+						
+					<div class="form-group m-auto" style="margin-bottom: 25px !important;">
+						<p id="password-msg" style="color: white; position: absolute; top: 500px; right: 20px;"></p>
+							<input type="submit" value="Create"
+								class="btn float-right login_btn" onclick="matchPassword()">
+						</div>
+						
+							<input type="button" value="CheckPass"
+								class="btn float-right login_btn" onclick="matchPassword()">
+							</div>
 						<input type="hidden" value="login" name="action">
 					</form>
-				</div>
-				<div class="card-footer">
-					<div class="d-flex justify-content-center links">
-						Don't have an account?<a href="#" style="margin-left: 4px;">Sign Up</a>
-					</div>
-					<div class="d-flex justify-content-center">
-						<a href="#">Forgot your password?</a>
-					</div>
 				</div>
 				<c:if test="${not empty message}">
 				<div class="alert alert-${alert}" style="text-align: center;">
@@ -66,6 +125,26 @@
 			</div>
 		</div>
 	</div>
+	
+	<script>
+	function matchPassword() {
+		let p1 = document.getElementById("main-password").value;
+		let p2 = document.getElementById("cf-password").value;
+		console.log(p1, p2);
+		let msg = document.getElementById("password-msg")
+		
+		if(p1.length != 0) {
+			if (p1 == p2) {
+				msg.textContent = "Password matches."
+			}
+			else {
+				msg.textContent = "Password doesn't match."
+			}
+		}
+	}
+	</script>
 </body>
-</body>
+
+
+
 </html>
