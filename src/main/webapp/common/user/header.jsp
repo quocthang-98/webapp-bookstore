@@ -52,7 +52,7 @@
 			<div class="justify-content-end align-items-end mw-100">
 	       		<form action="<c:url value='user-booklist'/>" id="formSubmit" method="GET" class="form-control-sm" style="width: 300px; padding-top: 2px;">
 					<div class="input-group ">
-					  <input type="text" class="form-control search-bar" id="searchKeyword" style="background-color: rgba(0, 0, 0, 0.02); height: 100%;" placeholder="I'm searching for..." aria-describedby="search-addon" name="keyWord" id="keyWord" value="${book.keyWord}"/>
+					  <input type="text" autocomplete="off" class="form-control search-bar" id="searchKeyword" style="background-color: rgba(0, 0, 0, 0.02); height: 100%;" placeholder="I'm searching for..." aria-describedby="search-addon" name="keyWord" id="keyWord" value="${book.keyWord}"/>
 					  <a type="submit" class="btn btn-dark search-btn" style="height: 50%;" onClick="searchFunction()" data-mdb-ripple-init id="searchbar"><img src="./template/images/iconSearch.svg" style="display: inline-block; filter: invert(1);"></a>
 					</div>
 					 <input type="hidden" value="" id="page" name="page"> 
