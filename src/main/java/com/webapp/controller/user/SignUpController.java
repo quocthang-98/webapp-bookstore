@@ -1,5 +1,5 @@
 package com.webapp.controller.user;
-
+		
 import java.io.IOException;
 
 import javax.inject.Inject;
@@ -11,29 +11,22 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.webapp.constant.SystemConstant;
-import com.webapp.model.CartModel;
-import com.webapp.model.UserModel;
+import com.webapp.model.BookModel;
+import com.webapp.model.GenreModel;
+import com.webapp.model.TypeModel;
 import com.webapp.servicce.IBookService;
-import com.webapp.servicce.ICartService;
+import com.webapp.servicce.IGenreService;
 import com.webapp.servicce.ITypeService;
-import com.webapp.service.impl.CartService;
-import com.webapp.utils.SessionUtil;
-
-@WebServlet(urlPatterns = {"/user-cart"})
-public class CartController extends HttpServlet{
+import com.webapp.utils.ConverterUtil;
+import com.webapp.utils.FormUtil;
 	
-	@Inject
-	ICartService cartService;
+@WebServlet(urlPatterns = {"/signup"})
+public class SignUpController extends HttpServlet{
+	
 		
 	private static final long serialVersionUID = 1L;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		CartModel cartModel = new CartModel();
-		cartModel.setResultList(cartService.findByUserIdAndOrdered(((UserModel) SessionUtil.getInstance().getValue(request, "USERMODEL")).getId(), 0));
-		cartModel.setTotalPrice();
-		cartModel.setNumberItem(cartService.getTotalItem(((UserModel) SessionUtil.getInstance().getValue(request, "USERMODEL")).getId()));
-		request.setAttribute(SystemConstant.CART, cartModel);
-		
-		RequestDispatcher rd = request.getRequestDispatcher("/views/user/cart/cart.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/views/signup/signup.jsp");
 		rd.forward(request, response);
 	}
 		
@@ -41,4 +34,4 @@ public class CartController extends HttpServlet{
 		
 		
 	}
-}
+}	

@@ -1,5 +1,6 @@
 package com.webapp.service.impl;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -34,6 +35,7 @@ public class OrderService implements IOrderService{
 
 	@Override
 	public OrderModel save(OrderModel orderModel) {
+		orderModel.setCreatedDate(new Timestamp(System.currentTimeMillis()));
 		Long id = orderDAO.save(orderModel);
 		return orderDAO.findOne(id);
 	}

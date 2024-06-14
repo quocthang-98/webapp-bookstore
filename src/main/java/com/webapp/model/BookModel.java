@@ -28,6 +28,9 @@ public class BookModel extends AbstractModel<BookModel>{
 	private String genreListString;
 	private String sortBy;
 	
+	private LikeBookModel likeBookModel;
+	private Integer likeNumber;
+	
 	private Integer isNameNotOK = 0;
 	private Integer isStockNotOK = 0;
 	private Integer isPriceNotOK = 0;
@@ -39,8 +42,18 @@ public class BookModel extends AbstractModel<BookModel>{
 	private Integer isPriceInvalid = 0;
 	
 	
-	
-	
+	public Integer getLikeNumber() {
+		return likeNumber;
+	}
+	public void setLikeNumber(Integer likeNumber) {
+		this.likeNumber = likeNumber;
+	}
+	public LikeBookModel getLikeBookModel() {
+		return likeBookModel;
+	}
+	public void setLikeBookModel(LikeBookModel likeBookModel) {
+		this.likeBookModel = likeBookModel;
+	}
 	public String getSortBy() {
 		return sortBy;
 	}

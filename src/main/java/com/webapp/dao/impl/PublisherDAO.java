@@ -21,4 +21,24 @@ public class PublisherDAO extends AbstractDAO<PublisherModel> implements IPublis
 		return publishers.isEmpty() ? null : publishers.get(0);
 	}
 
+	@Override
+	public Long save(PublisherModel publisherModel) {
+		String sql = "INSERT INTO publisher (name, headquarters_location, created_by, date_created) VALUE(?, ?, ?, ?)";
+		return insert(sql, publisherModel.getName(), publisherModel.getHeadquarterLocation(), publisherModel.getCreatedBy(), publisherModel.getCreatedDate());
+	}
+
+	@Override
+	public void update(PublisherModel publisherModel) {
+		String sql = "UPDATE publisher SET name = ?, headquarters_location = ? WHERE id = ?";
+		update(sql, publisherModel.getName(), publisherModel.getHeadquarterLocation(), publisherModel.getId());
+		
+	}
+
+	@Override
+	public void delete(long id) {
+		String sql = "DELETE FROM publisher WHERE id = ?";
+		update(sql, id);
+		
+	}
+
 }

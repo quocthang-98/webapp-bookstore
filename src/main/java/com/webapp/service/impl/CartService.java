@@ -46,7 +46,11 @@ public class CartService implements ICartService{
 
 	@Override
 	public List<CartModel> findByUserIdAndOrdered(Long userId, Integer odered) {
-		return cartDAO.findByUserIdAndOrdered(userId, odered);
+		List<CartModel> carts = cartDAO.findByUserIdAndOrdered(userId, odered);
+		for (CartModel cart: carts) {
+			cart.setBookModel(bookDAO.findOne(cart.getBookId()));
+		}
+		return carts;
 	}
 
 	@Override
@@ -63,7 +67,7 @@ public class CartService implements ICartService{
 	public CartModel save(CartModel cartModel) {
 		BookModel bookModel = bookDAO.findOne(cartModel.getBookId());
 		bookModel.setStocks(bookModel.getStocks()-cartModel.getQuantity());
-		bookDAO.update(bookModel);
+		bookDAO.updateStocks(bookModel);
 		cartModel.setCreatedDate(new Timestamp(System.currentTimeMillis()));
 		cartModel.setOrdered(0);
 		Long id = cartDAO.save(cartModel);
@@ -72,12 +76,7 @@ public class CartService implements ICartService{
 
 	@Override
 	public CartModel update(CartModel cartModel) {
-		CartModel oldCart = cartDAO.findOne(cartModel.getId());
-		Long adjQuantity = oldCart.getQuantity() - cartModel.getQuantity();
-		BookModel bookModel = bookDAO.findOne(cartModel.getBookId());
-		bookModel.setStocks(bookModel.getStocks()+adjQuantity);
-		bookDAO.update(bookModel);
-		update(cartModel);
+		cartDAO.update(cartModel);
 		return cartDAO.findOne(cartModel.getId());
 	}
 
@@ -87,7 +86,7 @@ public class CartService implements ICartService{
 		if (oldCart.getOrdered()==0) {
 			BookModel bookModel = bookDAO.findOne(oldCart.getBookId());
 			bookModel.setStocks(bookModel.getStocks()+oldCart.getQuantity());
-			bookDAO.update(bookModel);
+			bookDAO.updateStocks(bookModel);
 		}
 		cartDAO.delete(id);
 	}
@@ -95,6 +94,22 @@ public class CartService implements ICartService{
 	@Override
 	public CartModel findByUserIdAndBookId(Long userId, Long bookId) {
 		return cartDAO.findByUserIdAndBookId(userId, bookId);
+	}
+
+	@Override
+	public int getTotalItem(Long userId) {
+		return cartDAO.getTotalItem(userId);
+	}
+
+	@Override
+	public CartModel updateQuantity(CartModel cartModel) {
+		CartModel oldCart = cartDAO.findOne(cartModel.getId());
+		Long adjQuantity = oldCart.getQuantity() - cartModel.getQuantity();
+		BookModel bookModel = bookDAO.findOne(cartModel.getBookId());
+		bookModel.setStocks(bookModel.getStocks()+adjQuantity);
+		bookDAO.updateStocks(bookModel);
+		cartDAO.updateQuantity(cartModel);
+		return cartDAO.findOne(cartModel.getId());
 	}
 	
 	

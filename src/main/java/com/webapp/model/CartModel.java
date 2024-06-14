@@ -8,8 +8,22 @@ public class CartModel extends AbstractModel<CartModel>{
 	private Integer ordered;
 	private BookModel bookModel;
 	private Double totalPrice;
+	private Integer numberItem;
+	private String bookName;
 	
 	
+	public String getBookName() {
+		return bookName;
+	}
+	public void setBookName(String bookName) {
+		this.bookName = bookName;
+	}
+	public Integer getNumberItem() {
+		return numberItem;
+	}
+	public void setNumberItem(Integer numberItem) {
+		this.numberItem = numberItem;
+	}
 	public void setTotalPrice() {
 		totalPrice = 0.0;
 		for (CartModel cart: getResultList()) {

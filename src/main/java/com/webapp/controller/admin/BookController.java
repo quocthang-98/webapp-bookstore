@@ -19,7 +19,7 @@ import com.webapp.servicce.IPublisherService;
 import com.webapp.servicce.ITypeService;
 import com.webapp.utils.ConverterUtil;
 import com.webapp.utils.FormUtil;
-import com.webapp.validation.BookValidation;
+import com.webapp.validation.Validation;
 
 import java.io.IOException;
 
@@ -76,7 +76,7 @@ public class BookController extends HttpServlet{
 			view = "/views/admin/book/edit.jsp";
 		} else if (bookModel.getType().equals(SystemConstant.VALIDATE)) {
 			bookModel.setResultList(bookService.findAll());
-			if (BookValidation.validate(bookModel)) view = "/views/admin/book/validate.jsp";
+			if (Validation.bookValidate(bookModel)) view = "/views/admin/book/validate.jsp";
 			else view = "/views/admin/book/edit.jsp";
 		}
 

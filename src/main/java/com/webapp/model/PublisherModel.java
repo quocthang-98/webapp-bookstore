@@ -4,6 +4,28 @@ public class PublisherModel extends AbstractModel<PublisherModel>{
 	private String name;
 	private String headquarterLocation;
 	
+	private Integer isNameNotOK = 0;
+	private Integer isNameNull = 0;
+	private Integer isNameDublicate = 0;
+	
+	public Integer getIsNameNotOK() {
+		return isNameNotOK;
+	}
+	public void setIsNameNotOK(Integer isNameNotOK) {
+		this.isNameNotOK = isNameNotOK;
+	}
+	public Integer getIsNameNull() {
+		return isNameNull;
+	}
+	public void setIsNameNull(Integer isNameNull) {
+		this.isNameNull = isNameNull;
+	}
+	public Integer getIsNameDublicate() {
+		return isNameDublicate;
+	}
+	public void setIsNameDublicate(Integer isNameDublicate) {
+		this.isNameDublicate = isNameDublicate;
+	}
 	public String getHeadquarterLocation() {
 		return headquarterLocation;
 	}

@@ -14,4 +14,5 @@ public class SystemConstant {
 	public static final String VALIDATE = "validate";
 	public static final String COMMENT = "comment";
 	public static final String CART = "cart";
+	public static final String CARTNUMBER = "cartNumber";
 }

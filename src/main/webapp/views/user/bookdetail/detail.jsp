@@ -4,6 +4,8 @@
 
 <c:url var="APIurl" value="/api-user-comment" />
 <c:url var="APICarturl" value="/api-user-cart" />
+<c:url var="APILikeBookurl" value="/api-user-likebook" />
+<c:url var="APILikeCommenturl" value="/api-user-likecomment" />
 <c:url var="BookdetailURL" value="/user-bookdetail" />
 <!DOCTYPE html>
 <html>
@@ -48,9 +50,14 @@
 						</div>
                         </c:if>
                         </c:if>
-                        <div class="like-button-pair" style="margin-top: 12px;">
-					 		<button id="button-like btn btn-link" class="book-like-btn" style="border: 0; background-color: transparent; font-size: 40px; color: #23272B;"><i class="fa-regular fa-heart"></i></button>
-					 		<button id="button-unlike btn btn-link" class=" book-unlike-btn" style="display: none; border: 0; background-color: transparent; font-size: 40px; color: #23272B;"><i class="fa-solid fa-heart"></i></button>
+                        <div class="like-button-pair1" style="margin-top: 12px;">
+                        	<c:if test="${book.status == 'notLogin'}">
+					 		<button id="button-like btn btn-link" class="book-like-btn" style="border: 0; background-color: transparent; font-size: 40px; color: #23272B;" data-bs-toggle="modal" data-bs-target="#alert"><i class="fa-regular fa-heart"></i><p>${book.likeNumber}</p></button>
+					 		</c:if>
+					 		<c:if test="${book.status != 'notLogin'}">
+					 		<button id="button-like btn btn-link" class="book-like-btn" style="display: <c:if test="${not empty book.likeBookModel}"> none </c:if><c:if test="${empty book.likeBookModel}"> block </c:if>  ; border: 0; background-color: transparent; font-size: 40px; color: #23272B;"><i class="fa-regular fa-heart"></i><a id="likeBook"></a></button>
+					 		<button id="button-unlike btn btn-link" class=" book-unlike-btn" style="display: <c:if test="${empty book.likeBookModel}"> none </c:if><c:if test="${not empty book.likeBookModel}"> block </c:if>  ; border: 0; background-color: transparent; font-size: 40px; color: #23272B;"><i class="fa-solid fa-heart"></i><a id="unLikeBook"></a></button>
+							</c:if>							
 						</div>
                         </div>
                     </div>
@@ -216,9 +223,17 @@
                 </p>
 
               </div>
-				<div class="like-button-pair">
-					 <button id="button-like btn btn-link" style="border: 0; background-color: transparent;"><i class="fa-regular fa-heart"></i><p>0</p></button>
-					 <button id="button-unlike btn btn-link" style="display: none; border: 0; background-color: transparent;"><i class="fa-solid fa-heart"></i><p>1</p></button>
+				<div class="like-button-pair2">
+					 <!-- <button id="button-like btn btn-link" style="border: 0; background-color: transparent;"><i class="fa-regular fa-heart"></i><p>0</p></button>
+					 <button id="button-unlike btn btn-link" style="display: none; border: 0; background-color: transparent;"><i class="fa-solid fa-heart"></i><p>1</p></button> -->
+					 
+					 <c:if test="${book.status == 'notLogin'}">
+					 		<button id="button-like-${item.id} btn btn-link" class="book-like-btn" style="border: 0; background-color: transparent;" data-bs-toggle="modal" data-bs-target="#alert"><i class="fa-regular fa-heart"></i><p>${item.likeNumber}</p></button>
+					 	</c:if>
+					 		<c:if test="${book.status != 'notLogin'}">
+					 		<button id="button-like-${item.id} btn btn-link" class="book-like-btn" style="display: <c:if test="${not empty item.likeCommentModel}"> none </c:if><c:if test="${empty item.likeCommentModel}"> block </c:if>  ; border: 0; background-color: transparent;"><i class="fa-regular fa-heart"></i><a id="likeComment${item.id}"></a></button>
+					 		<button id="button-unlike-${item.id} btn btn-link" class=" book-unlike-btn" style="display: <c:if test="${empty item.likeCommentModel}"> none </c:if><c:if test="${not empty item.likeCommentModel}"> block </c:if>  ; border: 0; background-color: transparent;"><i class="fa-solid fa-heart"></i><a id="unLikeComment${item.id}"></a></button>
+							</c:if>
 				</div>
             </div>
           </div>
@@ -254,8 +269,29 @@
         	var status = '${book.status}';
         	if (status != null && status == 'comment')
         	window.location.href = "${BookdetailURL}?id=${book.id}#commentSection";
+        	
+        	var isLike = '${book.likeBookModel}';
+        	if (isLike == ''){
+        		document.getElementById("likeBook").innerHTML = ${book.likeNumber};
+        		document.getElementById("unLikeBook").innerHTML = ${book.likeNumber} + 1;
+        	} else {
+        		document.getElementById("likeBook").innerHTML = ${book.likeNumber}-1;
+        		document.getElementById("unLikeBook").innerHTML = ${book.likeNumber};
+        	}
 		});
         
+        <c:forEach var="item" items="${comment.resultList}">
+        $(document).ready(function() {
+        	var isLike = '${item.likeCommentModel}';
+        	if (isLike == ''){
+        		document.getElementById("likeComment" + ${item.id}).innerHTML = ${item.likeNumber};
+        		document.getElementById("unLikeComment" + ${item.id}).innerHTML = ${item.likeNumber} + 1;
+        	} else {
+        		document.getElementById("likeComment" + ${item.id}).innerHTML = ${item.likeNumber}-1;
+        		document.getElementById("unLikeComment" + ${item.id}).innerHTML = ${item.likeNumber};
+        	}
+		});
+        </c:forEach>
         
         function incrementValue(e) {
       	  e.preventDefault();
@@ -267,7 +303,7 @@
       	  if (!isNaN(currentVal)) {
       	    var newVal = currentVal + 1;
       	    // Check if the new value exceeds the maximum allowed value
-      	    if (newVal <= 20) { // Assuming a maximum of 10 (adjust as needed)
+      	    if (newVal <= ${book.stocks}) { // Assuming a maximum of 10 (adjust as needed)
       	      input.val(newVal);
       	    } 
       	  } else {
@@ -377,22 +413,134 @@
 			});
 		}     	
         
-        const buttonPairs = document.querySelectorAll('.like-button-pair');
+        const buttonPairs1 = document.querySelectorAll('.like-button-pair1');
 
-        buttonPairs.forEach(pair => {
+        buttonPairs1.forEach(pair => {
           const buttonLike = pair.querySelector('button[id^="button-like"]'); // Select button starting with "buttonA"
           const buttonUnlike = pair.querySelector('button[id^="button-unlike"]'); // Select button starting with "buttonB"
 
           buttonLike.addEventListener('click', function() {
-            buttonLike.style.display = 'none';
+        	var status = '${book.status}';
+        	if (status != null && status != 'notLogin'){
+        	buttonLike.style.display = 'none';
             buttonUnlike.style.display = 'block';
+            
+        	
+			var data = {};
+			data["bookId"] = ${book.id};
+			likeBook(data);
+        	}
           });
 
           buttonUnlike.addEventListener('click', function() {
             buttonLike.style.display = 'block';
             buttonUnlike.style.display = 'none';
+            
+            var status = '${book.status}';
+        	if (status != null && status != 'notLogin'){
+			var data = {};
+			data["bookId"] = ${book.id};
+			unLikeBook(data);
+        	}
+            
           });
         });
+        
+        const buttonPairs2 = document.querySelectorAll('.like-button-pair2');
+		
+        <c:forEach var="item" items="${comment.resultList}">
+        buttonPairs2.forEach(pair => {
+          const buttonLike = pair.querySelector('button[id^="button-like-${item.id}"]'); // Select button starting with "buttonA"
+          const buttonUnlike = pair.querySelector('button[id^="button-unlike-${item.id}"]'); // Select button starting with "buttonB"
+
+          buttonLike.addEventListener('click', function() {
+            buttonLike.style.display = 'none';
+            buttonUnlike.style.display = 'block';
+            
+            var status = '${book.status}';
+        	if (status != null && status != 'notLogin'){
+			var data = {};
+			data["commentId"] = ${item.id};
+			likeComment(data);
+        	}
+          });
+
+          buttonUnlike.addEventListener('click', function() {
+            buttonLike.style.display = 'block';
+            buttonUnlike.style.display = 'none';
+            
+            var status = '${book.status}';
+        	if (status != null && status != 'notLogin'){
+			var data = {};
+			data["commentId"] = ${item.id};
+			unLikeComment(data);
+        	}
+          });
+        });
+        </c:forEach>
+        function likeBook(data) {
+			$.ajax({
+				url : '${APILikeBookurl}',
+				type : 'POST',
+				contentType : 'application/json',
+				data : JSON.stringify(data),
+				dataType : 'json',
+				success : function(result) {
+					/* window.location.href = "${BookdetailURL}?id=${book.id}"; */
+				},
+				error : function(error) {
+					console.log(error);
+				}
+			});
+		}	
+        
+        function unLikeBook(data) {
+			$.ajax({
+				url : '${APILikeBookurl}',
+				type : 'DELETE',
+				contentType : 'application/json',
+				data : JSON.stringify(data),
+				dataType : 'json',
+				success : function(result) {
+					/* window.location.href = "${BookdetailURL}?id=${book.id}"; */
+				},
+				error : function(error) {
+					console.log(error);
+				}
+			});
+		}
+        
+        function likeComment(data) {
+			$.ajax({
+				url : '${APILikeCommenturl}',
+				type : 'POST',
+				contentType : 'application/json',
+				data : JSON.stringify(data),
+				dataType : 'json',
+				success : function(result) {
+					/* window.location.href = "${BookdetailURL}?id=${book.id}"; */
+				},
+				error : function(error) {
+					console.log(error);
+				}
+			});
+		}
+        
+        function unLikeComment(data) {
+			$.ajax({
+				url : '${APILikeCommenturl}',
+				type : 'DELETE',
+				contentType : 'application/json',
+				data : JSON.stringify(data),
+				dataType : 'json',
+				success : function(result) {
+					/* window.location.href = "${BookdetailURL}?id=${book.id}"; */
+				},
+				error : function(error) {
+					console.log(error);
+				}
+			});
+		}
         
         function linkify(text) {
         	  var urlRegex = /(?:(https?:\/\/)?(?:www\.)?[-a-zA-Z0-9@:%_\+~#=]{1,256}\.[a-z]{2,6}\b)([-a-zA-Z0-9@:%_\+.~#?&//=]*)/gi;

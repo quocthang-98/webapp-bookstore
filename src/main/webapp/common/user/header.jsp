@@ -82,7 +82,7 @@
 						<img src="./template/images/shopping-cart-outline.svg" class="cart-button-image" style="display: inline-block;">
 						<p class="cart-button-text" style="display: inline-block;">Cart</p>
 					</div>
-					<span class="badge bg-dark text-white ms-1 rounded-pill cart-button-badge">0</span>
+					<span class="badge bg-dark text-white ms-1 rounded-pill cart-button-badge">${CARTNUMBER}</span>
 					</button>
 				</form>
       		</div></li>
