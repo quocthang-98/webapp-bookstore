@@ -64,6 +64,10 @@ public class BookDetailController extends HttpServlet{
 		bookModel.setLikeNumber(likeBookService.getTotalLikeByBookId(bookModel.getId()));
 		request.setAttribute(SystemConstant.BOOK, bookModel);
 		
+		BookModel bookModel2 = new BookModel();
+		bookModel2.setResultList(bookService.findBookDetailSuggestion(bookModel.getGenreId()));
+		request.setAttribute(SystemConstant.BOOK2, bookModel2);
+
 		CommentModel commentModel = new CommentModel();
 		List<CommentModel> comments = commentService.findByBookId(bookModel.getId());
 		for (CommentModel comment:comments) {

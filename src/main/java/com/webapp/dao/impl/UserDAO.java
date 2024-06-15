@@ -28,4 +28,28 @@ public class UserDAO extends AbstractDAO<UserModel> implements IUserDAO {
 		return users.isEmpty() ? null : users.get(0);
 	}
 
+	@Override
+	public List<UserModel> findAll() {
+		String sql = "SELECT * FROM user";
+		return query(sql, new UserMapper());
+	}
+
+	@Override
+	public Long save(UserModel userModel) {
+		String sql = "INSERT INTO user (role_id, first_name, last_name, email, address, tel, created_by, date_created, username, password) VALUE(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		return insert(sql, userModel.getRoleId(), userModel.getFirstName(), userModel.getLastName(), userModel.getEmail(), userModel.getAddress(), userModel.getTel(), userModel.getCreatedBy(), userModel.getCreatedDate(), userModel.getUsername(), userModel.getPassword());
+	}
+
+	@Override
+	public void update(UserModel userModel) {
+		String sql = "UPDATE user SET role_id = ?, first_name = ?, last_name = ?, address = ?, tel = ?, password = ? WHERE id = ?";
+		update(sql, userModel.getRoleId(), userModel.getFirstName(), userModel.getLastName(), userModel.getAddress(), userModel.getTel(), userModel.getPassword(), userModel.getId());
+	}
+
+	@Override
+	public void delete(long id) {
+		String sql = "DELETE FROM user WHERE id = ?";
+		update(sql);
+	}
+
 }

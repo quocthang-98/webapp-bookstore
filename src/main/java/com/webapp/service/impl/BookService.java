@@ -202,4 +202,31 @@ public class BookService implements IBookService{
 		}
 		return books[0];
 	}
+
+	@Override
+	public List<BookModel> findBookDetailSuggestion(Long genreId) {
+		Long[] types = new Long[50];
+		Long[] genres  = new Long[50];
+		genres[0] = genreId;
+		List<BookModel> books = findAll(0, 4, types, genres, "Latest");
+		TypeModel typeModel;
+		GenreModel genreModel;
+		PublisherModel publisherModel;
+		AuthorModel authorModel;
+		for (BookModel book: books) {
+			typeModel = null;
+			genreModel = null;
+			publisherModel = null;
+			authorModel = null;
+			typeModel = typeDAO.findOne(book.getTypeId());
+			genreModel = genreDAO.findOne(book.getGenreId());
+			publisherModel = publisherDAO.findOne(book.getPublisherId());
+			authorModel = authorDAO.findOne(book.getAuthorId());
+			if (genreModel != null) book.setGenreName(genreModel.getName());
+			if (publisherModel != null) book.setPublisherName(publisherModel.getName());
+			if (typeModel != null) book.setTypeName(typeModel.getName());
+			if (authorModel != null) book.setAuthorName(authorModel.getName());
+		}
+		return books;
+	}
 }
