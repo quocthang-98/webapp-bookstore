@@ -11,21 +11,22 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Book detail</title>
+<title>${book.title} - ${book.authorName}</title>
 </head>
 <body>
-	<section class="py-5">
+	<section class="py-5 book-details-section">
             <div class="container px-4 px-lg-5 my-5">
                 <div class="row gx-4 gx-lg-5 align-items-center">
-                    <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="${book.thumbnail}" alt="..." /></div>
+                    <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" style="transform: scale(0.65 );"src="${book.thumbnail}" alt="..." /></div>
                     <div class="col-md-6">
-                        <div class="small mb-1">${book.authorName}</div>
+                        <div class="small mb-1" style="font-size: 16px;">${book.authorName}</div>
                         
                         <h1 class="display-5 fw-bolder book-detail-title">${book.title}</h1>
                         <div class="fs-5 mb-5">
-                            <span style="font-weight: bold;">${book.price} VND</span>
-                            <div class="small">Remaining: ${book.stocks}</div>
+                            <span style="font-weight: bold; font-size: 26px; color: green;" class="content-price-item-card">${book.price}</span>
+                            <div class="small">Remaining: <strong>${book.stocks}</strong></div>
                         </div>
+                        <hr>
                         <c:if test="${not empty cart}">
                         <div>
 					      	<button type="button" class="btn btn-outline-dark" id="addtocart" disabled>Added to Cart</button>
@@ -36,10 +37,11 @@
 						<form id = "cartForm">
                         <div class="d-flex" style="margin-bottom: 0;">
 						   <div class="d-flex flex-row" style="margin-bottom: 20px;">
-						      <div class="input-group w-auto justify-content-start align-items-start">
+						      <div class="input-group w-auto justify-content-start align-items-center" style="width:100%;">
 						         <input type="button" value="-" class="btn-dark button-minus border rounded-circle  icon-shape icon-sm mx-1 " data-field="quantity">
-						         <input type="number" step="1" min="1" max="5" value="1" name="quantity" class="quantity-field border-0 text-center w-25" readonly style="margin: 0;">
-						         <input type="button" value="+" class="btn-dark button-plus border rounded-circle icon-shape icon-sm lh-0" data-field="quantity">
+						         <input type="number" step="1" min="1" max="5" value="1" name="quantity" class="border-0 text-center w-25"  readonly style="margin: 0 4px 0 4px;">
+						         
+						         <input type="button" value="+" class="btn-dark button-plus border rounded-circle icon-shape icon-sm mx-1" data-field="quantity">
 						      </div>
 						   </div>
 						</div>
@@ -71,13 +73,15 @@
             </div>
         </section>
         
-        <section class="py-5 bg-light" style="margin-top:0;">
+        <!-- Book Description -->
+        <section class="py-5 bg-light book-details-section" style="margin-top:0; margin-bottom: 20px;">
             <div class="container px-4 px-lg-5 mt-5">
                 <h2 class="fw-bolder mb-4">About this product</h2>
                 <div class="mb-3">
                         <p class="lead">
-                        Type - Genre: ${book.typeName}  - ${book.genreName}  <br>	
-                        Description: <br>
+                        <strong>Type: </strong>${book.typeName}<br>
+                        <strong>Genre: </strong>${book.genreName}<br>
+                        <br>	
                         ${book.description}
                         </p>
 				</div>
@@ -89,15 +93,16 @@
         <!-- Related items section-->
         <section class="py-5 bg-light">
             <div class="container px-4 px-lg-5 mt-5">
-                <h2 class="fw-bolder mb-4">Related products</h2>
+                <h2 class="fw-bolder mb-4">Similar to <span style="font-family: Space Grotesk, sans-serif; color: green;">${book.title}</span></h2>
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
                 
                 <c:forEach var="item" items="${book2.resultList}">
                 
                     <div class="col mb-5 item-card">
+                    <a href="<c:url value="/user-bookdetail?id=${item.id}"/>">
                         <div class="card h-100 inner-item-card">
                             <!-- Product image-->
-                            <img class="card-img-top" src="${item.thumbnail}" alt="..." />
+                            <img class="card-img-top image-item-card" src="${item.thumbnail}" alt="..." />
                             <!-- Product details-->
                             <div class="content-item-card-container">
 	                            <div class="card-body p-4 item-card-body">
@@ -109,7 +114,7 @@
 	                                
 	                                <div class="text-center content-subtext-item-card">
 									
-									<p class="content-price-item-card">${item.price} ₫</p>
+									<p class="content-price-item-card">${item.price}</p>
 									<div class="text-center">
 										<p class="mt-auto">${item.genreName}</p>
 									</div>
@@ -119,10 +124,10 @@
 	                           
                        	 </div>
                         </div>
+                        </a>
                     </div>
                   </c:forEach>
                     
-                   
                 </div>
             </div>
         </section>
@@ -148,10 +153,10 @@
             <div class="container px-4 px-lg-5 mt-5">
             <div class="d-flex flex-start">
               <img class="rounded-circle shadow-1-strong me-3"
-                src="https://scontent.fsgn5-15.fna.fbcdn.net/v/t39.30808-1/405372159_871851221392800_4877411962768229159_n.jpg?stp=dst-jpg_p200x200&_nc_cat=111&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeH__uEuwvMUWv1FA9Qrf4c7yzq2hRTIM1bLOraFFMgzVtE7yUYpZRsIeDdpo9kgY_emZ5wQHtFF39R3zS8Cj5vn&_nc_ohc=P78aPtlHgZcQ7kNvgFdukLA&_nc_ht=scontent.fsgn5-15.fna&oh=00_AYBhkhN8e9_s5EkrzkWwFSJhO2ZdiNkxO5yasvhk6heB-A&oe=66607981" alt="avatar" width="60"
+                src="https://t3.ftcdn.net/jpg/05/53/79/60/360_F_553796090_XHrE6R9jwmBJUMo9HKl41hyHJ5gqt9oz.jpg" alt="avatar" width="60"
                 height="60" />
               <div style="width: 100%; margin: auto;">
-                <h6 class="fw-bold mb-1">${item.userName}</h6>
+                <h6 class="fw-bold mb-1">${USERMODEL.lastName}</h6>
                 <div class="d-flex align-items-center mb-3">
                   <p class="mb-0">
                     ${item.createdDate}
@@ -215,7 +220,7 @@
         		document.getElementById("likeBook").innerHTML = ${book.likeNumber};
         		document.getElementById("unLikeBook").innerHTML = ${book.likeNumber} + 1;
         	} else {
-        		document.getElementById("likeBook").innerHTML = ${book.likeNumber}-1;
+        		document.getElementById("likeBook").innerHTML = ${book.likeNumber} - 1;
         		document.getElementById("unLikeBook").innerHTML = ${book.likeNumber};
         	}
 		});

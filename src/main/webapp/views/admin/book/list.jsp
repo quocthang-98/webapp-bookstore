@@ -13,7 +13,7 @@
 	<div class="container-fluid px-4">
 		<form action="<c:url value='/admin-book'/>" id="formSubmit"
 			method="get">
-			<h1 class="mt-4">BOOK MANAGER</h1>
+			<h1 class="mt-4"><strong>BOOK MANAGER</strong></h1>
 			<ol class="breadcrumb mb-4">
 				<li class="breadcrumb-item active">Find, add, edit, and delete your books here.</li>
 			</ol>
@@ -148,10 +148,10 @@
 									<td>${item.authorName}</td>
 									<td>${item.typeName}</td>
 									<td>${item.genreName}</td>
-									<td>${item.price}</td>
+									<td><p class="book-item-price">${item.price}</p></td>
 									<td>${item.publisherName}</td>
 									<td>${item.publicationDate}</td>
-									<td>${item.description}</td>
+									<td><p class="book-item-desc" title="Description of ${item.title}">${item.description}</p></td>
 									<td>${item.stocks}</td>
 									<td>
 									
@@ -159,20 +159,18 @@
 										<c:param name = "type" value = "edit"/>
 										<c:param name = "id" value="${item.id}"/>
 									</c:url>
-								
-									<a class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#exampleModal" title="Delete item" onclick = "myfunction2(${item.id})">
-									
-									<i class="fa-solid fa-trash"></i>
-									</a>
-									
-									
-									
+								<div style="text-align: center">
 									<input type="hidden" value="${item.id}" id = "id" name="id"/>
 									
-									<a class="btn btn-outline-warning" data-toggle="tooltip" title="Edit item"  href='${editURL}'>
+									<a class="btn btn-outline-warning" data-toggle="tooltip" title="Edit item"  href='${editURL}' style="width: 42px;">
 									<i class="fa-solid fa-pen-to-square"></i>
 									</a>
 									
+									<a class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#exampleModal" title="Delete item" onclick = "myfunction2(${item.id})" style="width: 42px;">
+									
+									<i class="fa-solid fa-trash"></i>
+									</a>
+								</div>
 									
 									<!-- Delete Warning Popup Box -->
 									<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
@@ -183,7 +181,7 @@
 									        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 									      </div>
 									      <div class="modal-body">
-									        Are you sure you want to remove all the things related to Book ID = <a id="bookID"></a>? This action cannot be undone.
+									        Are you sure you want to remove all data related to <strong>${item.title}</strong> (Book ID = <a id="bookID"></a>)? This action cannot be undone.
 									      </div>
 									      <div class="modal-footer">
 									        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -250,6 +248,14 @@
 				}
 		
 		);
+		
+		let x = document.querySelectorAll(".book-item-price");
+	    for (let i = 0, len = x.length; i < len; i++) {
+	        let num = Number(x[i].innerHTML)
+	            .toLocaleString('en');
+	        x[i].innerHTML = num;
+	        x[i].classList.add("vnd-symbol");
+	    }
 		
 
 		</script>

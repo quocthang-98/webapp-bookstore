@@ -5,7 +5,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>List of books</title>
+<link rel="apple-touch-icon" sizes="180x180" href="template/images/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="template/images/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="template/images/favicon/favicon-16x16.png">
+<link rel="manifest" href="template/images/favicon/site.webmanifest">
+<title>All Books</title>
 </head>
 <body>
 	<h1 style="text-align: center; font-weight: bold; margin: 50px;">
@@ -103,7 +107,7 @@
 													<!-- Product price--> 
 												</div>
 											<div class="text-center content-subtext-item-card">
-													<p class="content-price-item-card">${item.price}₫</p>
+													<p class="content-price-item-card">${item.price}</p>
 													<div class="text-center">
 														<p class="mt-auto">${item.genreName}</p>
 													</div>

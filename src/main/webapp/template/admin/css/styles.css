@@ -11241,3 +11241,23 @@ body {
   font-size: 0.75rem;
   border-radius: 0.375rem !important;
 }
+
+.admin-manager-option {
+	transition: transform 0.15s ease;
+}
+
+.admin-manager-option:hover {
+	transform: translateX(10px);
+}
+
+.book-item-desc {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 4;
+	-webkit-box-orient: vertical;
+}
+
+.vnd-symbol:after {
+	content: '₫';
+}
