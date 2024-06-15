@@ -1,71 +1,68 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@include file="/common/taglib.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Login</title>
 </head>
-<body>
+<body style="overflow: hidden;">
+	<form action="<c:url value='/signup'/>" id="formSubmit"
+			method="get">
 	<div class="container">
 		<div class="d-flex justify-content-center h-100">
-			<div class="card">
+			<div class="card" style="width: 550px; height: 450px;">
 				<div class="card-header">
-					<h3 style="margin-top: 24px; text-align:center; font-weight: bolder;">SIGN IN</h3>
-					<div class="d-flex justify-content-end social_icon">
-						<h6>Login with</h6>
-						<span><i class="fab fa-facebook-f"></i></span> <span>
-							<i class="fab fa-google"></i></span>
-					</div>
+					<h3 style="margin-top: 24px; text-align:center; font-weight: bolder;">SIGN UP</h3>
 				</div>
 				<div class="card-body">
-					<%-- <form action="<c:url value='login'/>" method="POST"> --%>
-					<form action="./login" id="formSubmit" method="POST">
-						<div class="input-group form-group">
-							<div class="input-group-prepend">
-								<span class="input-group-text"><i class="fas fa-user"></i></span>
+				
+				<div class="container">
+							<div class="row ">
+							<div class="col">
+							<label class="col-form-label" style="color: yellow">An email has sent to your email, please input the OTP code!</label>
+							</div> </div>
+							<div class="row ">
+							
+							<div class="col">
+								<div class="input-group form-group">
+									<input type="text" class="form-control" placeholder="OTP code"
+								name="code" value="${User.code}">
+								</div>
 							</div>
-							<input type="text" class="form-control" placeholder="Username"
-								name="username">
-
-						</div>
-						<div class="input-group form-group">
-							<div class="input-group-prepend">
-								<span class="input-group-text"><i class="fas fa-key"></i></span>
 							</div>
-							<input type="password" class="form-control"
-								placeholder="Password" name="password">
+							
+						<div class="row ">
+						<div class="col">
+							<div class="alert alert-danger" style="text-align: center; display: <c:if test="${User.messageWrongCode != 1}">none</c:if><c:if test="${User.messageWrongCode == 1}">block</c:if>;" id="alert">
+								<strong>Wrong code!</strong> 
+							</div>	
 						</div>
-						<div class="row align-items-center remember">
-							<input type="checkbox">Remember Me
 						</div>
-						<div class="form-group">
-							<input type="submit" value="Login"
-								class="btn float-right login_btn">
+						
 						</div>
-						<input type="hidden" value="login" name="action">
-					</form>
 				</div>
-				<div class="card-footer">
-					<div class="d-flex justify-content-center links">
-						Don't have an account?<a href="#" style="margin-left: 4px;">Sign Up</a>
-					</div>
-					<div class="d-flex justify-content-center">
-						<a href="#">Forgot your password?</a>
-					</div>
+				<input type="hidden" value="checkEmail" id="type" name="type" />
+					
+						
+					<div class="form-group m-auto" style="margin-bottom: 25px !important;">
+	
+							<button type="button"
+								class="btn float-right login_btn" onclick="submit()">Check</button>
+						</div>
 				</div>
-				<c:if test="${not empty message}">
-				<div class="alert alert-${alert}" style="text-align: center;">
-					<strong>${message}</strong> 
-				</div>	
-				</c:if>
-				<!-- <div class="alert alert-danger">
-					<strong>Danger!</strong> Indicates a dangerous or potentially
-					negative action.
-				</div> -->
 			</div>
 		</div>
-	</div>
+		
+	</form>
+	<script>
+	function submit() {
+		$('#formSubmit').submit();
+	}
+	</script>
 </body>
-</body>
+
+
+
 </html>

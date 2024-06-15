@@ -107,7 +107,7 @@
 
 		<ul class="navbar-nav justify-content-center align-items-center header-logging-button-wrapper d-flex" style="width: 100%; margin: 0;">
 			<li class="nav-item mx-2">
-			<a class=" text-black btn btn-outline-light text-decoration-none px-3 py-1 rounded-3 header-logging-button" style="width: 90px; border-color: black;"aria-current="page" href='<c:url value="/signup"/>'>Sign Up</a>
+			<a class=" text-black btn btn-outline-light text-decoration-none px-3 py-1 rounded-3 header-logging-button" style="width: 90px; border-color: black;"aria-current="page" href='<c:url value="/signup?type=display"/>'>Sign Up</a>
 			</li>
 			
 			<li class="nav-item mx-2">

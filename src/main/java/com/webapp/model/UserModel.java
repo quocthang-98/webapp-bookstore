@@ -9,7 +9,9 @@ public class UserModel extends AbstractModel<UserModel>{
 	private String tel;
 	private String username; 
 	private String password;
+	private Integer code;
 	private RoleModel roleModel = new RoleModel();
+	
 	
 	private Integer isLastNameNotOK = 0;
 	private Integer isLastNameNull = 0;
@@ -17,6 +19,8 @@ public class UserModel extends AbstractModel<UserModel>{
 	private Integer isEmailNotOK = 0;
 	private Integer isEmailNull = 0;
 	private Integer isEmailDublicate = 0;
+	private Integer isEmailInvalid = 0;
+	
 	
 	private Integer isUserameNotOK = 0;
 	private Integer isUsernameNull = 0;
@@ -26,7 +30,26 @@ public class UserModel extends AbstractModel<UserModel>{
 	private Integer isPasswordNull = 0;
 	private Integer isPasswordUnvalidated = 0;
 	
+	private Integer messageWrongCode;
 	
+	public Integer getMessageWrongCode() {
+		return messageWrongCode;
+	}
+	public void setMessageWrongCode(Integer messageWrongCode) {
+		this.messageWrongCode = messageWrongCode;
+	}
+	public Integer getIsEmailInvalid() {
+		return isEmailInvalid;
+	}
+	public void setIsEmailInvalid(Integer isEmailInvalid) {
+		this.isEmailInvalid = isEmailInvalid;
+	}
+	public Integer getCode() {
+		return code;
+	}
+	public void setCode(Integer code) {
+		this.code = code;
+	}
 	public Integer getIsPasswordUnvalidated() {
 		return isPasswordUnvalidated;
 	}
