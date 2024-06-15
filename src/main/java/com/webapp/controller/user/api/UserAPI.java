@@ -20,7 +20,7 @@ import com.webapp.servicce.IUserService;
 import com.webapp.utils.HttpUtil;
 import com.webapp.utils.SessionUtil;
 
-@WebServlet(urlPatterns = {"/api-user-user"})
+@WebServlet(urlPatterns = {"/api-user"})
 public class UserAPI extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;

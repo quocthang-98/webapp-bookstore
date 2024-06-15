@@ -103,7 +103,7 @@ public class Validation {
 			userModel.setIsEmailNull(1); result = false;
 		} else {
 			for (UserModel user:userModel.getResultList()) {
-				if (user.getEmail().equals(userModel.getEmail()) && !userModel.getId().equals(user.getId())) {
+				if (userModel.getEmail().equals(user.getEmail())) {
 					userModel.setIsEmailDublicate(1); result = false; break;
 				}
 			}
@@ -115,7 +115,7 @@ public class Validation {
 			userModel.setIsUsernameNull(1); result = false;
 		} else {
 			for (UserModel user:userModel.getResultList()) {
-				if (user.getUsername().equals(userModel.getUsername()) && !userModel.getId().equals(user.getId())) {
+				if (user.getUsername().equals(userModel.getUsername())) {
 					userModel.setIsUsernameDublicate(1); result = false; break;
 				}
 			}

@@ -17,4 +17,6 @@ public class SystemConstant {
 	public static final String ORDER = "order";
 	public static final String CARTNUMBER = "cartNumber";
 	public static final String BOOK2 = "book2";
+	public static final String DISPLAY = "display";
+	public static final String CHECKEMAIL = "checkEmail";
 }
