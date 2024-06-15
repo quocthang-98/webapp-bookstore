@@ -15,6 +15,8 @@ public class UserModel extends AbstractModel<UserModel>{
 	
 	private Integer isLastNameNotOK = 0;
 	private Integer isLastNameNull = 0;
+	private Integer isFirstNameNull = 0;
+	private Integer isFirstNameNotOK = 0;
 	
 	private Integer isEmailNotOK = 0;
 	private Integer isEmailNull = 0;
@@ -31,6 +33,7 @@ public class UserModel extends AbstractModel<UserModel>{
 	private Integer isPasswordUnvalidated = 0;
 	
 	private Integer messageWrongCode;
+
 	
 	public Integer getMessageWrongCode() {
 		return messageWrongCode;
@@ -169,6 +172,18 @@ public class UserModel extends AbstractModel<UserModel>{
 	}
 	public void setTel(String tel) {
 		this.tel = tel;
+	}
+	public void setIsFirstNameNull(Integer isFirstNameNull) {
+		this.isFirstNameNull = isFirstNameNull;
+	}
+	public Integer getIsFirstNameNull() {
+		return isFirstNameNull;
+	}
+	public Integer getIsFirstNameNotOK() {
+		return isFirstNameNotOK;
+	}
+	public void setIsFirstNameNotOK(Integer isFirstNameNotOK) {
+		this.isFirstNameNotOK = isFirstNameNotOK;
 	}
 	
 }
