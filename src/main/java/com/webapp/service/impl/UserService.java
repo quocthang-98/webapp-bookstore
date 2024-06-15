@@ -20,4 +20,12 @@ public class UserService implements IUserService{
 		return userDAO.findByUsernameAndPassword(username, password);
 	}
 
+	@Override
+	public UserModel save(UserModel userModel) {
+		userModel.setCreatedDate(new Timestamp(System.currentTimeMillis()));
+		userModel.setRoleId(1L);
+		Long id = userDAO.save(userModel);
+		return userDAO.findOne(id);
+	}
+
 }

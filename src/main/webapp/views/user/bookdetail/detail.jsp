@@ -91,18 +91,20 @@
             <div class="container px-4 px-lg-5 mt-5">
                 <h2 class="fw-bolder mb-4">Related products</h2>
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                
+                <c:forEach var="item" items="${book2.resultList}">
+                
                     <div class="col mb-5 item-card">
                         <div class="card h-100 inner-item-card">
                             <!-- Product image-->
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                            <img class="card-img-top" src="${item.thumbnail}" alt="..." />
                             <!-- Product details-->
                             <div class="content-item-card-container">
 	                            <div class="card-body p-4 item-card-body">
 	                                <div class="text-center content-text-item-card">
 	                                    <!-- Product name-->
-	                                    <h5 class="fw-bolder content-product-name-item-card">Fancy Product</h5>
+	                                    <h5 class="fw-bolder content-product-name-item-card">${item.title}</h5>
 	                                    <!-- Product price-->
-	                                    $40.00 - $80.00
 	                                </div>
 	                                
 	                                <div class="text-center content-subtext-item-card">
@@ -112,89 +114,15 @@
 										<p class="mt-auto">${item.genreName}</p>
 									</div>
 								</div>
+								
 	                            </div>
 	                           
                        	 </div>
                         </div>
                     </div>
-                   <div class="col mb-5 item-card">
-                        <div class="card h-100 inner-item-card">
-                            <!-- Product image-->
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                            <!-- Product details-->
-                            <div class="content-item-card-container">
-	                            <div class="card-body p-4 item-card-body">
-	                                <div class="text-center content-text-item-card">
-	                                    <!-- Product name-->
-	                                    <h5 class="fw-bolder content-product-name-item-card">Fancy Product</h5>
-	                                    <!-- Product price-->
-	                                    $40.00 - $80.00
-	                                </div>
-	                                
-	                                <div class="text-center content-subtext-item-card">
-									
-									<p class="content-price-item-card">${item.price} ₫</p>
-									<div class="text-center">
-										<p class="mt-auto">${item.genreName}</p>
-									</div>
-								</div>
-	                            </div>
-	                           
-                       	 </div>
-                        </div>
-                    </div>
-                    <div class="col mb-5 item-card">
-                        <div class="card h-100 inner-item-card">
-                            <!-- Product image-->
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                            <!-- Product details-->
-                            <div class="content-item-card-container">
-	                            <div class="card-body p-4 item-card-body">
-	                                <div class="text-center content-text-item-card">
-	                                    <!-- Product name-->
-	                                    <h5 class="fw-bolder content-product-name-item-card">Fancy Product</h5>
-	                                    <!-- Product price-->
-	                                    $40.00 - $80.00
-	                                </div>
-	                                
-	                                <div class="text-center content-subtext-item-card">
-									
-									<p class="content-price-item-card">${item.price} ₫</p>
-									<div class="text-center">
-										<p class="mt-auto">${item.genreName}</p>
-									</div>
-								</div>
-	                            </div>
-	                           
-                       	 </div>
-                        </div>
-                    </div>
-                   <div class="col mb-5 item-card">
-                        <div class="card h-100 inner-item-card">
-                            <!-- Product image-->
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                            <!-- Product details-->
-                            <div class="content-item-card-container">
-	                            <div class="card-body p-4 item-card-body">
-	                                <div class="text-center content-text-item-card">
-	                                    <!-- Product name-->
-	                                    <h5 class="fw-bolder content-product-name-item-card">Fancy Product</h5>
-	                                    <!-- Product price-->
-	                                    $40.00 - $80.00
-	                                </div>
-	                                
-	                                <div class="text-center content-subtext-item-card">
-									
-									<p class="content-price-item-card">${item.price} ₫</p>
-									<div class="text-center">
-										<p class="mt-auto">${item.genreName}</p>
-									</div>
-								</div>
-	                            </div>
-	                           
-                       	 </div>
-                        </div>
-                    </div>
+                  </c:forEach>
+                    
+                   
                 </div>
             </div>
         </section>
@@ -226,7 +154,7 @@
                 <h6 class="fw-bold mb-1">${item.userName}</h6>
                 <div class="d-flex align-items-center mb-3">
                   <p class="mb-0">
-                    March 15, 2021
+                    ${item.createdDate}
                     <span class="badge bg-success">Author</span>
                   </p>
                 </div>

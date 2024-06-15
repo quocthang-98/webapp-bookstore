@@ -11,6 +11,88 @@ public class UserModel extends AbstractModel<UserModel>{
 	private String password;
 	private RoleModel roleModel = new RoleModel();
 	
+	private Integer isLastNameNotOK = 0;
+	private Integer isLastNameNull = 0;
+	
+	private Integer isEmailNotOK = 0;
+	private Integer isEmailNull = 0;
+	private Integer isEmailDublicate = 0;
+	
+	private Integer isUserameNotOK = 0;
+	private Integer isUsernameNull = 0;
+	private Integer isUsernameDublicate = 0;
+	
+	private Integer isPasswordNotOK = 0;
+	private Integer isPasswordNull = 0;
+	private Integer isPasswordUnvalidated = 0;
+	
+	
+	public Integer getIsPasswordUnvalidated() {
+		return isPasswordUnvalidated;
+	}
+	public void setIsPasswordUnvalidated(Integer isPasswordUnvalidated) {
+		this.isPasswordUnvalidated = isPasswordUnvalidated;
+	}
+	public Integer getIsPasswordNotOK() {
+		return isPasswordNotOK;
+	}
+	public void setIsPasswordNotOK(Integer isPasswordNotOK) {
+		this.isPasswordNotOK = isPasswordNotOK;
+	}
+	public Integer getIsPasswordNull() {
+		return isPasswordNull;
+	}
+	public void setIsPasswordNull(Integer isPasswordNull) {
+		this.isPasswordNull = isPasswordNull;
+	}
+	public Integer getIsLastNameNotOK() {
+		return isLastNameNotOK;
+	}
+	public void setIsLastNameNotOK(Integer isLastNameNotOK) {
+		this.isLastNameNotOK = isLastNameNotOK;
+	}
+	public Integer getIsLastNameNull() {
+		return isLastNameNull;
+	}
+	public void setIsLastNameNull(Integer isLastNameNull) {
+		this.isLastNameNull = isLastNameNull;
+	}
+	public Integer getIsEmailNotOK() {
+		return isEmailNotOK;
+	}
+	public void setIsEmailNotOK(Integer isEmailNotOK) {
+		this.isEmailNotOK = isEmailNotOK;
+	}
+	public Integer getIsEmailNull() {
+		return isEmailNull;
+	}
+	public void setIsEmailNull(Integer isEmailNull) {
+		this.isEmailNull = isEmailNull;
+	}
+	public Integer getIsEmailDublicate() {
+		return isEmailDublicate;
+	}
+	public void setIsEmailDublicate(Integer isEmailDublicate) {
+		this.isEmailDublicate = isEmailDublicate;
+	}
+	public Integer getIsUserameNotOK() {
+		return isUserameNotOK;
+	}
+	public void setIsUserameNotOK(Integer isUserameNotOK) {
+		this.isUserameNotOK = isUserameNotOK;
+	}
+	public Integer getIsUsernameNull() {
+		return isUsernameNull;
+	}
+	public void setIsUsernameNull(Integer isUsernameNull) {
+		this.isUsernameNull = isUsernameNull;
+	}
+	public Integer getIsUsernameDublicate() {
+		return isUsernameDublicate;
+	}
+	public void setIsUsernameDublicate(Integer isUsernameDublicate) {
+		this.isUsernameDublicate = isUsernameDublicate;
+	}
 	public RoleModel getRoleModel() {
 		return roleModel;
 	}

@@ -1,8 +1,12 @@
 package com.webapp.validation;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import com.webapp.model.AuthorModel;
 import com.webapp.model.BookModel;
 import com.webapp.model.PublisherModel;
+import com.webapp.model.UserModel;
 
 public class Validation {
 	
@@ -68,6 +72,57 @@ public class Validation {
 		}
 		if (publisherModel.getIsNameDublicate()==1 || publisherModel.getIsNameNull()==1) publisherModel.setIsNameNotOK(1);
 
+		return result;
+	}
+	
+	public static Boolean userValidate(UserModel userModel) {
+		Boolean result = true;
+		
+		if (userModel.getLastName() == null || userModel.getLastName().equals("")) {
+			userModel.setIsLastNameNull(1); result = false;
+		} 
+		if (userModel.getIsLastNameNull() == 1) userModel.setIsLastNameNotOK(1);
+		
+		if (userModel.getPassword() == null || userModel.getPassword().equals("")) {
+			userModel.setIsPasswordNull(1); result = false;
+		} else {
+			Pattern letter = Pattern.compile("[a-zA-z]");
+	        Pattern digit = Pattern.compile("[0-9]");
+	        Pattern special = Pattern.compile ("[!@#$%&*()_+=|<>?{}\\[\\]~-]");
+	        Matcher hasLetter = letter.matcher(userModel.getPassword());
+	        Matcher hasDigit = digit.matcher(userModel.getPassword());
+	        Matcher hasSpecial = special.matcher(userModel.getPassword());
+	        
+	        if (!hasLetter.find() || !hasDigit.find() || !hasSpecial.find() || userModel.getPassword().length()<6) {
+	        		userModel.setIsPasswordUnvalidated(1); result = false;
+	        }
+		}
+		if (userModel.getIsPasswordNull() == 1 || userModel.getIsPasswordUnvalidated() == 1) userModel.setIsPasswordNotOK(1);
+		
+		if (userModel.getEmail() == null || userModel.getEmail().equals("")) {
+			userModel.setIsEmailNull(1); result = false;
+		} else {
+			for (UserModel user:userModel.getResultList()) {
+				if (user.getEmail().equals(userModel.getEmail()) && !userModel.getId().equals(user.getId())) {
+					userModel.setIsEmailDublicate(1); result = false; break;
+				}
+			}
+		}
+		if (userModel.getIsEmailDublicate()==1 || userModel.getIsEmailNull()==1) userModel.setIsEmailNotOK(1);
+		
+		
+		if (userModel.getUsername() == null || userModel.getUsername().equals("")) {
+			userModel.setIsUsernameNull(1); result = false;
+		} else {
+			for (UserModel user:userModel.getResultList()) {
+				if (user.getUsername().equals(userModel.getUsername()) && !userModel.getId().equals(user.getId())) {
+					userModel.setIsUsernameDublicate(1); result = false; break;
+				}
+			}
+				
+		}
+		if (userModel.getIsUsernameDublicate()==1 || userModel.getIsUsernameNull()==1) userModel.setIsUserameNotOK(1);
+		
 		return result;
 	}
 }
