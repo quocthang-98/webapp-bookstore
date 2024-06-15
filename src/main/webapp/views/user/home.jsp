@@ -127,7 +127,7 @@
 								</div>
 								<div class="text-center content-subtext-item-card">
 									
-									<p class="content-price-item-card">${item.price} ₫</p>
+									<p class="content-price-item-card">${item.price}</p>
 									<div class="text-center">
 										<p class="mt-auto">${item.genreName}</p>
 									</div>
@@ -205,7 +205,7 @@
 								</div>
 								<div class="text-center disabled-content-subtext-item-card text-center">
 									
-									<p class="content-price-item-card">December 2024</p>
+									<p>December 2024</p>
 								</div>
 							</div>
 						</div>
@@ -231,7 +231,7 @@
 								</div>
 								<div class="text-center disabled-content-subtext-item-card text-center">
 									
-									<p class="content-price-item-card">January 2025</p>
+									<p>January 2025</p>
 								</div>
 							</div>
 						</div>

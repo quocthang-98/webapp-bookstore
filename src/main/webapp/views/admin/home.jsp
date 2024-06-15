@@ -10,9 +10,9 @@
 
 <body>
 	<div class="container-fluid px-4">
-		<h1 class="mt-4">Dashboard</h1>
+		<h1 class="mt-4"><strong>ADMIN HOMEPAGE</strong></h1>
 		<ol class="breadcrumb mb-4">
-			<li class="breadcrumb-item active">Dashboard</li>
+			<li class="breadcrumb-item active">Welcome to the administrator page. Here, you can view every data on your system.<br>Manage, edit, add, or delete one or many books, authors, publishers information and so on.</li>
 		</ol>
 		<div class="row">
 			<div class="col-xl-3 col-md-6">

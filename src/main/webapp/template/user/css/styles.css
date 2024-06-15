@@ -11488,3 +11488,12 @@ textarea.form-control-lg {
 .reader-like-count {
 	font-size: 24px;
 }
+
+
+.vnd-symbol:after {
+	content: '₫';
+}
+
+.book-details-section {
+	padding: 0 !important;
+}

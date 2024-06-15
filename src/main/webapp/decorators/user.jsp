@@ -54,6 +54,16 @@
 
 	<!-- Core theme JS-->
 	
+	<script>
+		let x = document.querySelectorAll(".content-price-item-card");
+	    for (let i = 0, len = x.length; i < len; i++) {
+	        let num = Number(x[i].innerHTML)
+	            .toLocaleString('en');
+	        x[i].innerHTML = num;
+	        x[i].classList.add("vnd-symbol");
+	    }
+	</script>
+	
 	<script src="https://kit.fontawesome.com/b31709c2ba.js" crossorigin="anonymous"></script>
 	<script src="<c:url value='/template/user/js/scripts.js' />"></script>
 	<script src="<c:url value='/template/user/js/jquery.min.js' />"></script>

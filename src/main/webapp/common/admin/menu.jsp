@@ -3,12 +3,12 @@
 
 <div id="layoutSidenav_nav">
 	<nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
-		<div class="sb-sidenav-menu">
+		<div class="sb-sidenav-menu" style="overflow-x: hidden;">
 			<ul class="nav">
-				<li class="nav-item"><a class="nav-link" href="index.html">
+				<li class="nav-item"><a class="nav-link" href="./admin-home">
 						<div class="sb-nav-link-icon">
 							<i class="fas fa-tachometer-alt"></i>
-						</div> Dashboard
+						</div> HOME
 				</a></li>
 
 				<li class="nav-item">
@@ -20,7 +20,7 @@
 					aria-controls="collapseLayouts">
 						<div class="sb-nav-link-icon">
 							<i class="fas fa-columns"></i>
-						</div> Layouts
+						</div> MY SYSTEM
 						<div class="sb-sidenav-collapse-arrow">
 							<i class="fas fa-angle-down"></i>
 						</div>
@@ -28,25 +28,34 @@
 					<div class="collapse" id="collapseLayouts"
 						aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 						<nav class="sb-sidenav-menu-nested nav">
-							<a class="nav-link" href='<c:url value="/admin-book?type=list"/>'>List of books</a> 
-							<a class="nav-link" href='<c:url value="/admin-author?type=list"/>'>List of authors</a> 
-							<a class="nav-link" href='<c:url value="/admin-publisher?type=list"/>'>List of publishers</a> 
-							<a class="nav-link" href='<c:url value="/admin-comment?type=list"/>'>List of comments</a> 
-							<a class="nav-link" href='<c:url value="/admin-cart"/>'>List of carts</a> 
-							<a class="nav-link" href='<c:url value="/admin-order"/>'>List of orders</a> 
-							<a class="nav-link" href="layout-sidenav-light.html">Light
-								Sidenav</a>
+							<a class="nav-link admin-manager-option" href='<c:url value="/admin-book?type=list"/>'>&#9830; BOOKS</a> 
+							<a class="nav-link admin-manager-option" href='<c:url value="/admin-author?type=list"/>'>&#9830; AUTHORS</a> 
+							<a class="nav-link admin-manager-option" href='<c:url value="/admin-publisher?type=list"/>'>&#9830; PUBLISHERS</a> 
+							<a class="nav-link admin-manager-option" href='<c:url value="/admin-comment?type=list"/>'>&#9830; COMMENTS</a> 
+							<a class="nav-link admin-manager-option" href='<c:url value="/admin-cart"/>'>&#9830; CARTS</a> 
+							<a class="nav-link admin-manager-option" href='<c:url value="/admin-order"/>'>&#9830; ORDERS</a> 
 						</nav>
 					</div></li>
-
-				<li class="nav-item collapsed">...</li>
-				<li class="nav-item">...</li>
+				
+				<li class="nav-item">
+					<div class="sb-sidenav-menu-heading">My Website</div>
+				</li>
+				
+				<li class="nav-item"><a class="nav-link" href="./user-home">
+						<div class="sb-nav-link-icon">
+							<i class="fa-solid fa-user"></i></i>
+						</div> USER HOMEPAGE
+				</a></li>
+				
+				
 
 			</ul>
 		</div>
 		<div class="sb-sidenav-footer">
 			<div class="small">Logged in as:</div>
-			Start Bootstrap
+			admin
 		</div>
 	</nav>
 </div>
+
+<script src="https://kit.fontawesome.com/b31709c2ba.js" crossorigin="anonymous"></script>
