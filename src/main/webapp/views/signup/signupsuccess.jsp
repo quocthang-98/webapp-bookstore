@@ -39,6 +39,11 @@
 
 						<input type="hidden" value="login" name="action">
 						
+						<div class="card-footer">
+						<div class="d-flex justify-content-center links">
+						<a href="./login?action=login">Log In</a>
+					</div>
+				</div>
 				</div>
 			</div>
 		</div>

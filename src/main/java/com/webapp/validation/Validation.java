@@ -83,6 +83,11 @@ public class Validation {
 		} 
 		if (userModel.getIsLastNameNull() == 1) userModel.setIsLastNameNotOK(1);
 		
+		if (userModel.getFirstName() == null || userModel.getFirstName().equals("")) {
+			userModel.setIsFirstNameNull(1); result = false;
+		} 
+		if (userModel.getIsFirstNameNull() == 1) userModel.setIsFirstNameNotOK(1);
+		
 		if (userModel.getPassword() == null || userModel.getPassword().equals("")) {
 			userModel.setIsPasswordNull(1); result = false;
 		} else {

@@ -105,3 +105,38 @@ background-color: white;
 .links{
 color: white;
 }
+
+.signup-input-group {
+	transition: all 0.2s ease;
+}
+
+.signup-input-group:hover .form-control{
+	background-color: #fafde1;
+}
+
+.signup-form-input-prepend .input-group-text {
+	width: 45px;
+	background-color: #004000;
+	transition: all 0.2s ease;
+}
+
+.signup-input-group .form-control {
+	background-color: #ebebeb;
+	font-size: 14px;
+	transition: 0.2s all ease;
+}
+
+.signup-input-group .form-control:focus {
+	background-color: #e1edbe;
+	font-size: 16px;
+	
+}
+
+.signup-input-group:focus-within .input-group-text {
+	width: 65px;
+	background-color: #008000;
+}
+
+#resend-otp-button {
+	opacity: 0.5;
+}

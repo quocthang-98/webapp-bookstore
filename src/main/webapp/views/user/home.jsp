@@ -168,7 +168,7 @@
 			                <div class="col-sm-7">
 			                    <div class="horizontal-card-body">
 			                        <h5 class="fw-bolder content-product-name-item-card">Mắt Biếc (2022 Edition)</h5>
-			                        <p class="content-price-item-card">88.000 ₫</p>
+			                        <p class="fw-bold">88.000₫</p>
 									<p class="mt-auto">Novels</p>
 									<p class="mt-auto" style="width: 90%; text-align: justify;'">Nguyen Nhat Anh has come back with one of his masterpieces. Critics are already praising his masterful storytelling in his latest work, lauding its poignant characters and evocative descriptions. With his signature blend of wit and wisdom, Nguyen Nhat Anh promises to transport readers to another world with his newest masterpiece.</p>
 			                        <a href="#" class="btn btn-outline-dark">View Details</a>
