@@ -13,7 +13,7 @@ public interface ICartDAO {
 	Long save(CartModel cartModel);
 	void update(CartModel cartModel);
 	void delete(Long id);
-	CartModel findByUserIdAndBookId(Long userId, Long bookId);
+	CartModel findByUserIdAndBookIdAndUnordered(Long userId, Long bookId);
 	int getTotalItem(Long userId);
 	void updateQuantity(CartModel cartModel);
 }

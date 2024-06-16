@@ -3,7 +3,6 @@ package com.webapp.mapper;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import com.webapp.model.BookModel;
 import com.webapp.model.RoleModel;
 import com.webapp.model.UserModel;
 

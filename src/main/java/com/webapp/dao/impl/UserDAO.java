@@ -2,12 +2,8 @@ package com.webapp.dao.impl;
 
 import java.util.List;
 
-import com.opensymphony.sitemesh.webapp.decorator.BaseWebAppDecorator;
-import com.webapp.dao.IBookDAO;
 import com.webapp.dao.IUserDAO;
-import com.webapp.mapper.BookMapper;
 import com.webapp.mapper.UserMapper;
-import com.webapp.model.BookModel;
 import com.webapp.model.UserModel;
 
 public class UserDAO extends AbstractDAO<UserModel> implements IUserDAO {

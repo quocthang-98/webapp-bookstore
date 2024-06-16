@@ -1,20 +1,15 @@
 package com.webapp.service.impl;
 
 import java.sql.Timestamp;
-import java.sql.Types;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import javax.inject.Inject;
-import javax.swing.table.TableStringConverter;
 
 import com.webapp.dao.IAuthorDAO;
 import com.webapp.dao.IBookDAO;
 import com.webapp.dao.IGenreDAO;
 import com.webapp.dao.IPublisherDAO;
 import com.webapp.dao.ITypeDAO;
-import com.webapp.dao.impl.BookDAO;
 import com.webapp.model.AuthorModel;
 import com.webapp.model.BookModel;
 import com.webapp.model.GenreModel;

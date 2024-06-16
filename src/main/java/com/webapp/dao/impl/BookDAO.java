@@ -2,7 +2,6 @@ package com.webapp.dao.impl;
 
 import java.util.List;
 
-import com.opensymphony.sitemesh.webapp.decorator.BaseWebAppDecorator;
 import com.webapp.dao.IBookDAO;
 import com.webapp.mapper.BookMapper;
 import com.webapp.model.BookModel;

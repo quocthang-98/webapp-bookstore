@@ -1,7 +1,6 @@
 package com.webapp.service.impl;
 
 import java.sql.Timestamp;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -12,14 +11,12 @@ import com.webapp.dao.ICartDAO;
 import com.webapp.dao.IGenreDAO;
 import com.webapp.dao.IPublisherDAO;
 import com.webapp.dao.ITypeDAO;
-import com.webapp.dao.impl.BookDAO;
 import com.webapp.model.AuthorModel;
 import com.webapp.model.BookModel;
 import com.webapp.model.CartModel;
 import com.webapp.model.GenreModel;
 import com.webapp.model.PublisherModel;
 import com.webapp.model.TypeModel;
-import com.webapp.servicce.IBookService;
 import com.webapp.servicce.ICartService;
 
 public class CartService implements ICartService{
@@ -117,8 +114,8 @@ public class CartService implements ICartService{
 	}
 
 	@Override
-	public CartModel findByUserIdAndBookId(Long userId, Long bookId) {
-		return cartDAO.findByUserIdAndBookId(userId, bookId);
+	public CartModel findByUserIdAndBookIdAndUnordered(Long userId, Long bookId) {
+		return cartDAO.findByUserIdAndBookIdAndUnordered(userId, bookId);
 	}
 
 	@Override

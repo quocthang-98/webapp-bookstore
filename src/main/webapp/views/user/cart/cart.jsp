@@ -91,9 +91,12 @@
     </div>
     <div class="row mt-4 d-flex align-items-center">
         <div class="col-sm-6 order-md-2 text-right">
+
+        <c:if test="${not empty cart.resultList}">
             <a class="btn btn-dark mb-4 btn-lg pl-5 pr-5 text-white" data-bs-toggle="modal" data-bs-target="#exampleModal2" style="margin-right: 26px;">
             Checkout</a>
-        
+        </c:if>
+
         <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
 									  <div class="modal-dialog modal-dialog-centered">
 									    <div class="modal-content">

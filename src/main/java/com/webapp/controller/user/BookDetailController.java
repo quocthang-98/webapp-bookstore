@@ -11,9 +11,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.collections.functors.IfClosure;
-
-import com.mysql.cj.x.protobuf.MysqlxCrud.Find;
 import com.webapp.constant.SystemConstant;
 import com.webapp.model.BookModel;
 import com.webapp.model.CartModel;
@@ -24,7 +21,6 @@ import com.webapp.servicce.ICartService;
 import com.webapp.servicce.ICommentService;
 import com.webapp.servicce.ILikeBookService;
 import com.webapp.servicce.ILikeCommentService;
-import com.webapp.servicce.ITypeService;
 import com.webapp.utils.FormUtil;
 import com.webapp.utils.SessionUtil;
 	
@@ -79,7 +75,7 @@ public class BookDetailController extends HttpServlet{
 		request.setAttribute(SystemConstant.COMMENT, commentModel);
 		
 		if (((UserModel) SessionUtil.getInstance().getValue(request, "USERMODEL"))!=null) {
-		CartModel cartModel = cartService.findByUserIdAndBookId(((UserModel) SessionUtil.getInstance().getValue(request, "USERMODEL")).getId(), bookModel.getId());
+		CartModel cartModel = cartService.findByUserIdAndBookIdAndUnordered(((UserModel) SessionUtil.getInstance().getValue(request, "USERMODEL")).getId(), bookModel.getId());
 		request.setAttribute(SystemConstant.CART, cartModel);
 		}
 		RequestDispatcher rd = request.getRequestDispatcher("/views/user/bookdetail/detail.jsp");

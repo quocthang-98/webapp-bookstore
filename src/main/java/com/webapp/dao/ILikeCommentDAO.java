@@ -2,8 +2,6 @@ package com.webapp.dao;
 
 import java.util.List;
 
-import com.webapp.model.CartModel;
-import com.webapp.model.LikeBookModel;
 import com.webapp.model.LikeCommentModel;
 
 public interface ILikeCommentDAO {

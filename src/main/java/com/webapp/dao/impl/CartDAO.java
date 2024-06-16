@@ -2,12 +2,8 @@ package com.webapp.dao.impl;
 
 import java.util.List;
 
-import com.opensymphony.sitemesh.webapp.decorator.BaseWebAppDecorator;
-import com.webapp.dao.IBookDAO;
 import com.webapp.dao.ICartDAO;
-import com.webapp.mapper.BookMapper;
 import com.webapp.mapper.CartMapper;
-import com.webapp.model.BookModel;
 import com.webapp.model.CartModel;
 
 public class CartDAO extends AbstractDAO<CartModel> implements ICartDAO {
@@ -64,8 +60,8 @@ public class CartDAO extends AbstractDAO<CartModel> implements ICartDAO {
 	}
 
 	@Override
-	public CartModel findByUserIdAndBookId(Long userId, Long bookId) {
-		String sql = "SELECT * FROM cart WHERE user_id = ? AND book_id = ?";
+	public CartModel findByUserIdAndBookIdAndUnordered(Long userId, Long bookId) {
+		String sql = "SELECT * FROM cart WHERE user_id = ? AND book_id = ? AND ordered = 0";
 		List<CartModel> carts = query(sql, new CartMapper(), userId, bookId);
 		return carts.isEmpty() ? null : carts.get(0);
 	}

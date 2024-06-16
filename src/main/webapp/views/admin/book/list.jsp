@@ -166,7 +166,7 @@
 									<i class="fa-solid fa-pen-to-square"></i>
 									</a>
 									
-									<a class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#exampleModal" title="Delete item" onclick = "myfunction2(${item.id})" style="width: 42px;">
+									<a class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#exampleModal" title="Delete item" onclick = "myfunction2(${item.id}, '${item.title}')" style="width: 42px;">
 									
 									<i class="fa-solid fa-trash"></i>
 									</a>
@@ -181,7 +181,7 @@
 									        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 									      </div>
 									      <div class="modal-body">
-									        Are you sure you want to remove all data related to <strong>${item.title}</strong> (Book ID = <a id="bookID"></a>)? This action cannot be undone.
+									        Are you sure you want to remove all data related to <strong><a id="bookTitle"></a></strong> (Book ID = <a id="bookID"></a>)? This action cannot be undone.
 									      </div>
 									      <div class="modal-footer">
 									        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -208,9 +208,10 @@
 		
 		var data = {};
 		
-		function myfunction2(index) {
+		function myfunction2(index, index2) {
 			data["id"] = index;
 	 	    document.getElementById("bookID").innerHTML = index; 
+	 	   document.getElementById("bookTitle").innerHTML = index2;
 		}
 		
 		function myfunction3(){

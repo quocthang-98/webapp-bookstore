@@ -6,12 +6,8 @@ import java.util.List;
 import javax.inject.Inject;
 
 import com.webapp.dao.IOrderDAO;
-import com.webapp.dao.ITypeDAO;
 import com.webapp.model.OrderModel;
-import com.webapp.model.TypeModel;
-import com.webapp.servicce.IBookService;
 import com.webapp.servicce.IOrderService;
-import com.webapp.servicce.ITypeService;
 
 public class OrderService implements IOrderService{
 	

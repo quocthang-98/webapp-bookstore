@@ -2,8 +2,6 @@ package com.webapp.servicce;
 
 import java.util.List;
 
-import com.webapp.model.BookModel;
-import com.webapp.model.CartModel;
 import com.webapp.model.LikeBookModel;
 
 public interface ILikeBookService {
