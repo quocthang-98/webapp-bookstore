@@ -45,7 +45,7 @@
                         <td data-th="Quantity">					      
 						      <div class="input-group-${item.id} w-auto justify-content-start align-items-center" style="width:100%; white-space: nowrap;">
 						         <input type="button" value="-" class="btn-dark button-minus border rounded-circle  icon-shape icon-sm mx-1 " data-field="quantity">
-						         <input type="number" step="1" min="1" max="5" value="1" name="quantity" class="border-0 text-center w-50"  readonly style="margin: 0 4px 0 4px;">
+						         <input type="number" step="1" min="1" max="5" value="${item.quantity}" name="quantity" class="border-0 text-center w-50"  readonly style="margin: 0 4px 0 4px;">
 						         <input type="button" value="+" class="btn-dark button-plus border rounded-circle icon-shape icon-sm mx-1" data-field="quantity">
 						      </div>
 						      

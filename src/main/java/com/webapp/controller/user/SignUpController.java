@@ -70,7 +70,6 @@ public class SignUpController extends HttpServlet{
 				userModel.setMessageWrongCode(1);
 				view = "/views/signup/sendemail.jsp";
 			}
-			 
 		} else {
 			view = "/views/signup/signupsuccess.jsp";
 		}
