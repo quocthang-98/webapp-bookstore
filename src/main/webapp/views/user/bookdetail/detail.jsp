@@ -109,6 +109,7 @@
 	                                <div class="text-center content-text-item-card">
 	                                    <!-- Product name-->
 	                                    <h5 class="fw-bolder content-product-name-item-card">${item.title}</h5>
+	                                    <p>${item.authorName}</p>
 	                                    <!-- Product price-->
 	                                </div>
 	                                

@@ -100,7 +100,26 @@ public class BookService implements IBookService{
 
 	@Override
 	public List<BookModel> findAll(Integer offset, Integer limit, Long[] typeList, Long[] genreList, String sortBy) {
-		return bookDAO.findAll(offset, limit, typeList, genreList, sortBy);
+		List<BookModel> bookList = bookDAO.findAll(offset, limit, typeList, genreList, sortBy);
+		TypeModel typeModel;
+		GenreModel genreModel;
+		PublisherModel publisherModel;
+		AuthorModel authorModel;
+		for (BookModel book: bookList) {
+			typeModel = null;
+			genreModel = null;
+			publisherModel = null;
+			authorModel = null;
+			typeModel = typeDAO.findOne(book.getTypeId());
+			genreModel = genreDAO.findOne(book.getGenreId());
+			publisherModel = publisherDAO.findOne(book.getPublisherId());
+			authorModel = authorDAO.findOne(book.getAuthorId());
+			if (genreModel != null) book.setGenreName(genreModel.getName());
+			if (publisherModel != null) book.setPublisherName(publisherModel.getName());
+			if (typeModel != null) book.setTypeName(typeModel.getName());
+			if (authorModel != null) book.setAuthorName(authorModel.getName());
+		}
+		return bookList;
 	}
 
 	@Override
@@ -204,11 +223,11 @@ public class BookService implements IBookService{
 	}
 
 	@Override
-	public List<BookModel> findBookDetailSuggestion(Long genreId) {
+	public List<BookModel> findBookDetailSuggestion(Long genreId, Long bookId) {
 		Long[] types = new Long[50];
 		Long[] genres  = new Long[50];
 		genres[0] = genreId;
-		List<BookModel> books = findAll(0, 4, types, genres, "Latest");
+		List<BookModel> books = bookDAO.findAllSuggestionForOneBook(0, 4, types, genres, "Latest", bookId);
 		TypeModel typeModel;
 		GenreModel genreModel;
 		PublisherModel publisherModel;

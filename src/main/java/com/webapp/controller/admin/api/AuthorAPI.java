@@ -5,6 +5,7 @@ import java.sql.Date;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;
+import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -30,6 +31,8 @@ public class AuthorAPI extends HttpServlet{
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		req.setCharacterEncoding("UTF-8");
+		resp.setContentType("text/html;charset=UTF-8");
 		ObjectMapper objectMapper = new ObjectMapper();
 		resp.setContentType("application/json");
 		AuthorModel authorModel = HttpUtil.of(req.getReader()).toModel(AuthorModel.class);
@@ -40,6 +43,8 @@ public class AuthorAPI extends HttpServlet{
 	
 	@Override	
 	protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		req.setCharacterEncoding("UTF-8");
+		resp.setContentType("text/html;charset=UTF-8");
 		ObjectMapper objectMapper = new ObjectMapper();
 		resp.setContentType("application/json");
 		AuthorModel authorModel = HttpUtil.of(req.getReader()).toModel(AuthorModel.class);

@@ -37,7 +37,7 @@
                                 </div>
                                 <div class="col-md-9 text-left mt-sm-2">
                                     <h4>${item.bookModel.title}</h4>
-                                    <p class="font-weight-light">${item.bookModel.typeName} &amp; ${item.bookModel.genreName}</p>
+                                    <p class="font-weight-light">${item.bookModel.authorName}</p>
                                 </div>
                             </div>
                         </td>

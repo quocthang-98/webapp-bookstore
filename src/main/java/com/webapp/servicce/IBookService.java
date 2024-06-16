@@ -19,5 +19,5 @@ public interface IBookService {
 	void deleteOne(Long id);
 	List<BookModel> findByKeyWord(Integer offset, Integer limit, String keyWord);
 	List<BookModel> findBookSuggestion();
-	List<BookModel> findBookDetailSuggestion(Long genreId); 
+	List<BookModel> findBookDetailSuggestion(Long genreId, Long bookId); 
 }
