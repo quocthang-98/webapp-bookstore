@@ -17,8 +17,39 @@
 	<section class="py-5 book-details-section">
             <div class="container px-4 px-lg-5 my-5">
                 <div class="row gx-4 gx-lg-5 align-items-center">
-                    <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" style="transform: scale(0.65 );"src="${book.thumbnail}" alt="..." /></div>
                     <div class="col-md-6">
+                    <img class="card-img-top mb-5 mb-md-0" style="transform: scale(0.65 );"src="${book.thumbnail}" alt="..." />
+                    
+                    </div>
+                    <div class="col-md-6">
+                    	 <div class="like-button-pair1" style="margin-top: 4px;">
+                        	<c:if test="${book.status == 'notLogin'}">
+					 		<button id="button-like btn btn-link" class="book-like-btn" style="border: 0; background-color: transparent; font-size: 40px; color: #23272B;" data-bs-toggle="modal" data-bs-target="#alert">
+					 			<div class="container">
+					 				<i class="fa-regular fa-heart"></i>
+					 				<p class="reader-like-count">${book.likeNumber}</p>
+					 			</div>
+					 		</button>
+					 		
+					 		</c:if>
+					 		
+					 		<c:if test="${book.status != 'notLogin'}">
+					 		<button id="button-like btn btn-link" class="book-like-btn" style="display: <c:if test="${not empty book.likeBookModel}"> none </c:if><c:if test="${empty book.likeBookModel}"> block </c:if>  ; border: 0; background-color: transparent; font-size: 40px; color: #23272B;">
+					 			<div class="container">
+					 				<i class="fa-regular fa-heart"></i>
+					 				<p class="reader-like-count"><a id="likeBook"></a></p>
+					 			</div>
+					 		</button>
+					 		<button id="button-unlike btn btn-link" class=" book-unlike-btn" style="display: <c:if test="${empty book.likeBookModel}"> none </c:if><c:if test="${not empty book.likeBookModel}"> block </c:if>  ; border: 0; background-color: transparent; font-size: 40px; color: #23272B;">
+					 			<div class="container">
+					 				<i class="fa-solid fa-heart"></i>
+					 				<p class="reader-like-count"><a id="unLikeBook"></a></p>
+					 			</div>
+					 		
+					 		</button>
+							</c:if>							
+						</div>
+						
                         <div class="small mb-1" style="font-size: 16px;">${book.authorName}</div>
                         
                         <h1 class="display-5 fw-bolder book-detail-title">${book.title}</h1>
@@ -52,21 +83,7 @@
 						</div>
                         </c:if>
                         </c:if>
-                        <div class="like-button-pair1" style="margin-top: 12px;">
-                        	<c:if test="${book.status == 'notLogin'}">
-					 		<button id="button-like btn btn-link" class="book-like-btn" style="border: 0; background-color: transparent; font-size: 40px; color: #23272B;" data-bs-toggle="modal" data-bs-target="#alert">
-					 			<div class="container">
-					 				<i class="fa-regular fa-heart"></i>
-					 				<p class="reader-like-count">${book.likeNumber}</p>
-					 			</div>
-					 		</button>
-					 		
-					 		</c:if>
-					 		<c:if test="${book.status != 'notLogin'}">
-					 		<button id="button-like btn btn-link" class="book-like-btn" style="display: <c:if test="${not empty book.likeBookModel}"> none </c:if><c:if test="${empty book.likeBookModel}"> block </c:if>  ; border: 0; background-color: transparent; font-size: 40px; color: #23272B;"><i class="fa-regular fa-heart"></i><a id="likeBook"></a></button>
-					 		<button id="button-unlike btn btn-link" class=" book-unlike-btn" style="display: <c:if test="${empty book.likeBookModel}"> none </c:if><c:if test="${not empty book.likeBookModel}"> block </c:if>  ; border: 0; background-color: transparent; font-size: 40px; color: #23272B;"><i class="fa-solid fa-heart"></i><a id="unLikeBook"></a></button>
-							</c:if>							
-						</div>
+                        
                         </div>
                     </div>
                 </div>
@@ -161,7 +178,6 @@
                 <div class="d-flex align-items-center mb-3">
                   <p class="mb-0">
                     ${item.createdDate}
-                    <span class="badge bg-success">Author</span>
                   </p>
                 </div>
                 <p class="mb-0 commentContent">
