@@ -29,6 +29,18 @@ public class CartService implements ICartService{
 	
 	@Inject
 	IBookDAO bookDAO;
+	
+	@Inject
+	private ITypeDAO typeDAO;
+	
+	@Inject
+	private IGenreDAO genreDAO;
+	
+	@Inject
+	private IPublisherDAO publisherDAO;
+	
+	@Inject
+	private IAuthorDAO authorDAO;
 
 	@Override
 	public List<CartModel> findAll() {
@@ -52,7 +64,16 @@ public class CartService implements ICartService{
 	public List<CartModel> findByUserIdAndOrdered(Long userId, Integer odered) {
 		List<CartModel> carts = cartDAO.findByUserIdAndOrdered(userId, odered);
 		for (CartModel cart: carts) {
-			cart.setBookModel(bookDAO.findOne(cart.getBookId()));
+			BookModel bookModel = bookDAO.findOne(cart.getBookId());
+			TypeModel typeModel = typeDAO.findOne(bookModel.getTypeId());
+			GenreModel genreModel = genreDAO.findOne(bookModel.getGenreId());
+			PublisherModel publisherModel = publisherDAO.findOne(bookModel.getPublisherId());
+			AuthorModel authorModel = authorDAO.findOne(bookModel.getAuthorId());
+			if (genreModel != null) bookModel.setGenreName(genreModel.getName());
+			if (publisherModel != null) bookModel.setPublisherName(publisherModel.getName());
+			if (typeModel != null) bookModel.setTypeName(typeModel.getName());
+			if (authorModel!=null) bookModel.setAuthorName(authorModel.getName());
+			cart.setBookModel(bookModel);
 		}
 		return carts;
 	}

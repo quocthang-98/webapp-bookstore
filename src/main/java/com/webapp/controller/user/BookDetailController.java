@@ -65,7 +65,7 @@ public class BookDetailController extends HttpServlet{
 		request.setAttribute(SystemConstant.BOOK, bookModel);
 		
 		BookModel bookModel2 = new BookModel();
-		bookModel2.setResultList(bookService.findBookDetailSuggestion(bookModel.getGenreId()));
+		bookModel2.setResultList(bookService.findBookDetailSuggestion(bookModel.getGenreId(), bookModel.getId()));
 		request.setAttribute(SystemConstant.BOOK2, bookModel2);
 
 		CommentModel commentModel = new CommentModel();

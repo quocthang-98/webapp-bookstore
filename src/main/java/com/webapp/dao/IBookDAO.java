@@ -16,5 +16,6 @@ public interface IBookDAO {
 	int getTotalItem(Long[] typeList, Long[] genreList);
 	int getTotalItem(String keyWord, String keyWord1, String keyWord2, String keyWord3);
 	List<BookModel> findAll(Integer offset, Integer limit, Long[] typeList, Long[] genreList, String sortBy);
+	List<BookModel> findAllSuggestionForOneBook(Integer offset, Integer limit, Long[] typeList, Long[] genreList, String sortBy, Long bookId);
 	List<BookModel> findByKeyWord(Integer offset, Integer limit, String keyWord, String keyWord1, String keyWord2, String keyWord3);
 }

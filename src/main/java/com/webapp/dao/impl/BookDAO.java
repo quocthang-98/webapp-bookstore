@@ -189,4 +189,48 @@ public class BookDAO extends AbstractDAO<BookModel> implements IBookDAO {
 		
 	}
 
+	@Override
+	public List<BookModel> findAllSuggestionForOneBook(Integer offset, Integer limit, Long[] typeList, Long[] genreList,
+			String sortBy, Long bookId) {
+		StringBuilder sql = new StringBuilder("SELECT * FROM book WHERE (id <> ?) AND ");
+		if (typeList[0] == null) {
+			sql.append("(type_id > 0 OR type_id IS NULL)");
+		} else {
+			sql.append("(type_id = " + typeList[0]);
+			int k=1;
+			while (typeList[k] != null) {
+				sql.append(" OR type_id = " + typeList[k]);
+				k++;
+			}
+			sql.append(")");
+		}
+		sql.append(" AND ");
+		if (genreList[0] == null) {
+			sql.append("(genre_id > 0 OR genre_id IS NULL)");
+		} else {
+			sql.append("(genre_id = " + genreList[0]);
+			int k = 1;
+			while (genreList[k] != null) {
+				sql.append(" OR genre_id = " +genreList[k]);
+				k++;
+			}
+			sql.append(")");
+		}
+		if (sortBy!=null) {
+			if (sortBy.equals("Oldest")) {
+				sql.append(" ORDER BY publication_date DESC");
+			} else if (sortBy.equals("Lastest")) {
+				sql.append(" ORDER BY publication_date ASC");
+			} else if (sortBy.equals("HighestPrice")) {
+				sql.append(" ORDER BY price DESC");
+			} else if (sortBy.equals("LowsttPrice")) {
+				sql.append(" ORDER BY price ASC");
+			}
+		}
+		sql.append(" LIMIT ?, ?");
+		return query(sql.toString(), new BookMapper(), bookId, offset, limit);
+	}
+	
+	
+
 }
