@@ -13,7 +13,7 @@
 	<div class="container-fluid px-4">
 		<form action="<c:url value='/admin-cart'/>" id="formSubmit"
 			method="get">
-			<h1 class="mt-4">CART MANAGER</h1>
+			<h1 class="mt-4"><strong>CARTS MANAGER</strong></h1>
 			<ol class="breadcrumb mb-4">
 				<li class="breadcrumb-item active">Find carts.</li>
 			</ol>
