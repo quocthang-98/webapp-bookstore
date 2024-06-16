@@ -23,83 +23,32 @@
 		</div>
 		
 		<div class="wrapper banner-scroll">
-		  <div class="item item1"></div>
-		  <div class="item item2"></div>
-		  <div class="item item3"></div>
-		  <div class="item item4"></div>
-		  <div class="item item5"></div>
-		  <div class="item item6"></div>
-		  <div class="item item7"></div>
-		  <div class="item item8"></div>
+		  <div class="banner-scroll-item item1">
+		  	<img src="./template/images/banner-scroll-img1.png">
+		  </div>
+		  <div class="banner-scroll-item item2">
+		  	<img src="./template/images/banner-scroll-img2.png">
+		  </div>
+		  <div class="banner-scroll-item item3">
+		  	<img src="./template/images/banner-scroll-img3.png">
+		  </div>
+		  <div class="banner-scroll-item item4">
+		  	<img src="./template/images/banner-scroll-img4.png">
+		  </div>
+		  <div class="banner-scroll-item item5">
+		  	<img src="./template/images/banner-scroll-img5.png">
+		  </div>
+		  <div class="banner-scroll-item item6">
+		  	<img src="./template/images/banner-scroll-img6.png">
+		  </div>
+		  <div class="banner-scroll-item item7">
+		  	<img src="./template/images/banner-scroll-img7.png">
+		  </div>
+		  <div class="banner-scroll-item item8">
+		  	<img src="./template/images/banner-scroll-img8.png">
+		  </div>
 		</div>
 	</header>
-	
-	<!-- Section-->
-	<section class="py-5 page-section" style="margin: 0;">
-		<div class="container px-4 px-lg-5 mt-5">
-			<div class="home-slider owl-carousel js-fullheight">
-      			<div class="slider-item js-fullheight" style="background-image:url(./template/images/slider-1.jpg);">
-      				<div class="overlay"></div>
-       				<div class="container">
-         					<div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center">
-         					<div class="col-md-12 ftco-animate">
-          						<div class="text w-100 text-center">
-          							<h2>Book Of The Week</h2>
-            						<h1 class="mb-3">The Godfather</h1>
-	            					<h3>Mario Puzzo</h3>
-            					</div>
-          					</div>
-        				</div>
-       				</div>
-    			</div>
-
-      <div class="slider-item js-fullheight" style="background-image:url(./template/images/slider-2.jpg);">
-      	<div class="overlay"></div>
-        <div class="container">
-          <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center">
-	          <div class="col-md-12 ftco-animate">
-	          	<div class="text w-100 text-center">
-	          		<h2>BookBrowse Awards Winner</h2>
-		            <h1 class="mb-3">Remember Us</h1>
-		            <h3>Jacqueline Woodson</h3>
-	            </div>
-	          </div>
-	        </div>
-        </div>
-      </div>
-
-      <div class="slider-item js-fullheight" style="background-image:url(./template/images/slider-3.jpg);">
-      	<div class="overlay"></div>
-        <div class="container">
-          <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center">
-	          <div class="col-md-12 ftco-animate">
-	          	<div class="text w-100 text-center">
-	          		<h2>Readers Recommend</h2>
-		            <h1 class="mb-3">The Flower Sisters</h1>
-		            <h3>Michelle Collins Anderson</h3>
-	            </div>
-	          </div>
-	        </div>
-        </div>
-      </div>
-      
-      <div class="slider-item js-fullheight" style="background-image:url(./template/images/slider-3.jpg);">
-      	<div class="overlay"></div>
-        <div class="container">
-          <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center">
-	          <div class="col-md-12 ftco-animate">
-	          	<div class="text w-100 text-center">
-	          		<h2>Readers Recommend 2</h2>
-		            <h1 class="mb-3">The Flower Sisters 2</h1>
-		            <h3>Michelle Collins Anderson</h3>
-	            </div>
-	          </div>
-	        </div>
-        </div>
-      </div>
-    </div>
-	</div>
-	</section>
 	
 	<section class="py-5 page-section" style="margin: 0;">
 	<div class="container px-4 px-lg-5 mt-5">
