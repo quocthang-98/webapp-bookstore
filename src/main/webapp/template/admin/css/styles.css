@@ -11261,3 +11261,11 @@ body {
 .vnd-symbol:after {
 	content: '₫';
 }
+
+.admin-home-card {
+	transition: 0.2s all ease;
+}
+
+.admin-home-card:hover {
+	transform: scale(1.03);
+}

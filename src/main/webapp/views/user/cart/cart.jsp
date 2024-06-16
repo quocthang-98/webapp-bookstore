@@ -17,7 +17,7 @@
         <div class="col-lg-12 col-md-12 col-12">
             <h3 class="display-5 mb-2 text-center">Shopping Cart</h3>
             <p class="mb-5 text-center">
-                <i class="text-info font-weight-bold">${cart.numberItem}</i> item(s) in your cart</p>
+                <i class="text-info fw-bolder">${cart.numberItem}</i> item(s) in your cart</p>
             <table id="shoppingCart" class="table table-condensed table-responsive">
                 <thead>
                     <tr>
@@ -36,19 +36,20 @@
                                     <img src="${item.bookModel.thumbnail}" alt="" class="img-fluid d-none d-md-block rounded mb-2 shadow ">
                                 </div>
                                 <div class="col-md-9 text-left mt-sm-2">
-                                    <h4>${item.bookModel.title}</h4>
+                                    <h4 style="font-family: Space Grotesk, sans-serif;">${item.bookModel.title}</h4>
                                     <p class="font-weight-light">${item.bookModel.authorName}</p>
                                 </div>
                             </div>
                         </td>
-                        <td data-th="Price">${item.bookModel.price} VND</td>
-                        <td data-th="Quantity">
-<%--                             <input type="number" class="form-control form-control-lg text-center" value="${item.quantity}" min="1" max="${item.quantity + item.bookModel.stocks}"> --%>
-							<div class="input-group-${item.id} w-auto justify-content-start align-items-start">
+                        <td data-th="Price"><h5 class="content-price-item-card" style="font-weight: normal !important;">${item.bookModel.price}</h5></td>
+                        <td data-th="Quantity">					      
+						      <div class="input-group-${item.id} w-auto justify-content-start align-items-center" style="width:100%; white-space: nowrap;">
 						         <input type="button" value="-" class="btn-dark button-minus border rounded-circle  icon-shape icon-sm mx-1 " data-field="quantity">
-						         <input type="number" step="1" min="1" max="5" value="${item.quantity}" name="quantity" class="quantity-field border-0 text-center w-25" readonly style="margin: 0;" id = "cart-${item.id}">
-						         <input type="button" value="+" class="btn-dark button-plus border rounded-circle icon-shape icon-sm lh-0" data-field="quantity">
+						         <input type="number" step="1" min="1" max="5" value="1" name="quantity" class="border-0 text-center w-50"  readonly style="margin: 0 4px 0 4px;">
+						         <input type="button" value="+" class="btn-dark button-plus border rounded-circle icon-shape icon-sm mx-1" data-field="quantity">
 						      </div>
+						      
+						      
                         </td>
                         <td class="actions" data-th="">
                             <div class="text-right">
@@ -84,15 +85,18 @@
             </table>
             <div class="float-right text-right">
                 <h4>Subtotal:</h4>
-                <h1><a id="totalPrice"></a></h1>
+                <h1 id="totalPrice" class="content-price-item-card fw-bold"></h1>
             </div>
         </div>
     </div>
     <div class="row mt-4 d-flex align-items-center">
         <div class="col-sm-6 order-md-2 text-right">
+
         <c:if test="${not empty cart.resultList}">
-            <a class="btn btn-primary mb-4 btn-lg pl-5 pr-5" data-bs-toggle="modal" data-bs-target="#exampleModal2">Checkout</a>
+            <a class="btn btn-dark mb-4 btn-lg pl-5 pr-5 text-white" data-bs-toggle="modal" data-bs-target="#exampleModal2" style="margin-right: 26px;">
+            Checkout</a>
         </c:if>
+
         <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
 									  <div class="modal-dialog modal-dialog-centered">
 									    <div class="modal-content">
@@ -157,7 +161,9 @@
 	    if (newVal <= max) { // Assuming a maximum of 10 (adjust as needed)
 	      input.val(newVal);
 	      totalPrice = totalPrice + price;
-	      document.getElementById("totalPrice").innerHTML = totalPrice; 
+	      let priceFormat = Number(totalPrice).toLocaleString('en');
+	      document.getElementById("totalPrice").innerHTML = priceFormat; 
+	      
 	    } 
 	  } else {
 	    input.val(0);
@@ -177,7 +183,8 @@
 	    if (newVal >= 1) { // Assuming a minimum of 0 (adjust as needed)
 	      input.val(newVal);
 	      totalPrice = totalPrice - price;
-	      document.getElementById("totalPrice").innerHTML = totalPrice; 
+	      let priceFormat = Number(totalPrice).toLocaleString('en');
+	      document.getElementById("totalPrice").innerHTML = priceFormat; 
 	    }
 	  } else {
 	    input.val(0);
