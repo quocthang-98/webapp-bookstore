@@ -1,7 +1,6 @@
 package com.webapp.controller.admin.api;
 
 import java.io.IOException;
-import java.sql.Date;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -11,10 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.webapp.model.BookModel;
 import com.webapp.model.PublisherModel;
 import com.webapp.model.UserModel;
-import com.webapp.servicce.IBookService;
 import com.webapp.servicce.IPublisherService;
 import com.webapp.utils.HttpUtil;
 import com.webapp.utils.SessionUtil;

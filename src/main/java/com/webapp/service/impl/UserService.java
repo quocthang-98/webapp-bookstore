@@ -5,7 +5,6 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import com.webapp.dao.IBookDAO;
 import com.webapp.dao.IUserDAO;
 import com.webapp.model.UserModel;
 import com.webapp.servicce.IUserService;

@@ -3,7 +3,6 @@ package com.webapp.controller.user;
 import java.io.IOException;
 import java.util.ResourceBundle;
 
-import javax.enterprise.inject.Model;
 import javax.inject.Inject;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,21 +12,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.webapp.constant.SystemConstant;
-import com.webapp.dao.IUserDAO;
 import com.webapp.model.BookModel;
 import com.webapp.model.UserModel;
 import com.webapp.servicce.IBookService;
 import com.webapp.servicce.ICartService;
-import com.webapp.servicce.ITypeService;
 import com.webapp.servicce.IUserService;
 import com.webapp.utils.FormUtil;
 import com.webapp.utils.SessionUtil;
 	
 @WebServlet(urlPatterns = {"/user-home", "/login", "/logout"})
 public class HomeController extends HttpServlet{
-	
-	@Inject
-	private ITypeService typeService;
 	
 	@Inject
 	private IBookService bookService;

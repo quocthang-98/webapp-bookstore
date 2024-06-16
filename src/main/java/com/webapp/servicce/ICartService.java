@@ -2,7 +2,6 @@ package com.webapp.servicce;
 
 import java.util.List;
 
-import com.webapp.model.BookModel;
 import com.webapp.model.CartModel;
 
 public interface ICartService {
@@ -14,7 +13,7 @@ public interface ICartService {
 	CartModel save(CartModel cartModel);
 	CartModel update(CartModel cartModel);
 	CartModel updateQuantity(CartModel cartModel);
-	CartModel findByUserIdAndBookId(Long userId, Long bookId);
+	CartModel findByUserIdAndBookIdAndUnordered(Long userId, Long bookId);
 	void delete(Long id);
 	int getTotalItem(Long userId);
 }

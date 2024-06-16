@@ -4,7 +4,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.webapp.model.OrderModel;
-import com.webapp.model.TypeModel;
 
 public class OrderMapper implements RowMapper<OrderModel> {
 

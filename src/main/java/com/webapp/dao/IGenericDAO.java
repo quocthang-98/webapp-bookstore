@@ -3,7 +3,6 @@ package com.webapp.dao;
 import java.util.List;
 
 import com.webapp.mapper.RowMapper;
-import com.webapp.model.NameModel;
 
 public interface IGenericDAO<T> {
 	List<T> query(String sql, RowMapper<T> rowMapper, Object... objects);

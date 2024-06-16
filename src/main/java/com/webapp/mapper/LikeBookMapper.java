@@ -3,9 +3,7 @@ package com.webapp.mapper;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import com.webapp.model.CartModel;
 import com.webapp.model.LikeBookModel;
-import com.webapp.model.TypeModel;
 
 public class LikeBookMapper implements RowMapper<LikeBookModel> {
 

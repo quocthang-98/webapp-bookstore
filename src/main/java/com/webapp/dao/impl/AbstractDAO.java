@@ -13,7 +13,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
 import com.webapp.dao.IGenericDAO;
 import com.webapp.mapper.RowMapper;
 

@@ -2,18 +2,8 @@ package com.webapp.dao.impl;
 
 import java.util.List;
 
-import com.opensymphony.sitemesh.webapp.decorator.BaseWebAppDecorator;
-import com.webapp.dao.IBookDAO;
-import com.webapp.dao.ICartDAO;
-import com.webapp.dao.ILikeBookDAO;
 import com.webapp.dao.ILikeCommentDAO;
-import com.webapp.mapper.BookMapper;
-import com.webapp.mapper.CartMapper;
-import com.webapp.mapper.LikeBookMapper;
 import com.webapp.mapper.LikeCommentMapper;
-import com.webapp.model.BookModel;
-import com.webapp.model.CartModel;
-import com.webapp.model.LikeBookModel;
 import com.webapp.model.LikeCommentModel;
 
 public class LikeCommentDAO extends AbstractDAO<LikeCommentModel> implements ILikeCommentDAO {

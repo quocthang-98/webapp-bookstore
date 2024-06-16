@@ -11,13 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.webapp.constant.SystemConstant;
-import com.webapp.model.AuthorModel;
 import com.webapp.model.CommentModel;
-import com.webapp.servicce.IAuthorService;
-import com.webapp.servicce.IBookService;
 import com.webapp.servicce.ICommentService;
 import com.webapp.utils.FormUtil;
-import com.webapp.validation.Validation;
 	
 @WebServlet(urlPatterns = {"/admin-comment"})
 public class CommentController extends HttpServlet{

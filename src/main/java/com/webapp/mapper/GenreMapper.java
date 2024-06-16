@@ -4,7 +4,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.webapp.model.GenreModel;
-import com.webapp.model.TypeModel;
 
 public class GenreMapper implements RowMapper<GenreModel> {
 

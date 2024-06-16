@@ -4,7 +4,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.webapp.model.CartModel;
-import com.webapp.model.TypeModel;
 
 public class CartMapper implements RowMapper<CartModel> {
 

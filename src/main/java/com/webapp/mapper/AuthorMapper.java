@@ -4,7 +4,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.webapp.model.AuthorModel;
-import com.webapp.model.TypeModel;
 
 public class AuthorMapper implements RowMapper<AuthorModel> {
 
