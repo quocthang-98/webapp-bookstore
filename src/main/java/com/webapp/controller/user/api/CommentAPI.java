@@ -25,6 +25,8 @@ public class CommentAPI extends HttpServlet{
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		req.setCharacterEncoding("UTF-8");
+		resp.setContentType("text/html;charset=UTF-8");
 		ObjectMapper objectMapper = new ObjectMapper();
 		resp.setContentType("application/json");
 		CommentModel commentModel = HttpUtil.of(req.getReader()).toModel(CommentModel.class);
@@ -36,6 +38,8 @@ public class CommentAPI extends HttpServlet{
 	
 	@Override
 	protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		req.setCharacterEncoding("UTF-8");
+		resp.setContentType("text/html;charset=UTF-8");
 		ObjectMapper objectMapper = new ObjectMapper();
 		resp.setContentType("application/json");
 		CommentModel commentModel = HttpUtil.of(req.getReader()).toModel(CommentModel.class);

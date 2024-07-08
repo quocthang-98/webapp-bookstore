@@ -128,6 +128,7 @@ public class BookService implements IBookService{
 		if (publisherModel != null) bookModel.setPublisherName(publisherModel.getName());
 		if (typeModel != null) bookModel.setTypeName(typeModel.getName());
 		if (authorModel!=null) bookModel.setAuthorName(authorModel.getName());
+		if (bookModel.getPublicationDate()!=null)
 		bookModel.setPublicationDateString(bookModel.getPublicationDate().toString());
 		return bookModel;
 	}
