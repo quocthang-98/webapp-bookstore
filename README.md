@@ -57,19 +57,29 @@
 ![image](./image/usecase.png)
 
 ### Implementation
-#### Start Screen  
-![image](./image/StartState.png)
+#### User
+![image](./image/homepage.png)
+![image](./image/new_arrival.png)
+![image](./image/book_list.png)
+![image](./image/book_detail.png)
+![image](./image/cart.png)
+![image](./image/comment.png)
+![image](./image/sign_in.png)
+![image](./image/sign_up.png)
+![image](./image/sign_up_otp.png)
 
-#### Play Screen 
-![image](./image/PlayState.png)
-![image](./image/PlayState1.png)
 
-#### Pause Screen 
-![image](./image/PauseState.png)
+#### Admin
+![image](./image/admin_home.png)
+![image](./image/book_manager.png)
+![image](./image/edit_book.png)
+![image](./image/edit_book_2.png)
+![image](./image/delete.png)
+![image](./image/author_manager.png)
+![image](./image/comment_manager.png)
+![image](./image/cart_manager.png)
+![image](./image/order_manager.png)
 
-#### End Screen 
-![image](./image/Winner1.png)
-![image](./image/Winner2.png)
 
 ## References <a name="references"></a> 
 [1] YouTube.com: Lập trình java web học java web backend lập trình web với java jsp servlet cơ bản miễn phí - Laptrinhjavaweb
