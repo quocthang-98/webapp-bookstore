@@ -14,7 +14,7 @@
 | Index | Name                   |     ID      |              Email               | Github             |
 |:------|:-----------------------|:-----------:|:--------------------------------:|:---------------------------|
 | 1     | Đỗ Đình Phúc | ITCSIU21219 | phucdo2912@gmail.com | dodinhphuc |        
-| 2     | Phan Quốc Thắng | ITCSIU21232 | phucdo2912@gmail.com | dodinhphuc | 
+| 2     | Phan Quốc Thắng | ITCSIU21232 | phanquocthangabc@gmail.com | quocthang-98 | 
 
 ### Tasks and Contribution 
 | Index | Role                                                         | Person In Charge | Task |
@@ -62,8 +62,8 @@
 ![image](./image/new_arrival.png)
 ![image](./image/book_list.png)
 ![image](./image/book_detail.png)
-![image](./image/cart.png)
 ![image](./image/comment.png)
+![image](./image/cart.png)
 ![image](./image/sign_in.png)
 ![image](./image/sign_up.png)
 ![image](./image/sign_up_otp.png)
