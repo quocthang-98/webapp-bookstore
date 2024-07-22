@@ -7,7 +7,7 @@ import javax.inject.Inject;
 
 import com.webapp.dao.IOrderDAO;
 import com.webapp.model.OrderModel;
-import com.webapp.servicce.IOrderService;
+import com.webapp.service.IOrderService;
 
 public class OrderService implements IOrderService{
 	

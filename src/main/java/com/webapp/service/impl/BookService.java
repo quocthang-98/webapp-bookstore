@@ -15,7 +15,7 @@ import com.webapp.model.BookModel;
 import com.webapp.model.GenreModel;
 import com.webapp.model.PublisherModel;
 import com.webapp.model.TypeModel;
-import com.webapp.servicce.IBookService;
+import com.webapp.service.IBookService;
 
 public class BookService implements IBookService{
 	

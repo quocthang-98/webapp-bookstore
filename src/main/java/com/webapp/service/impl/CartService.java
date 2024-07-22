@@ -17,7 +17,7 @@ import com.webapp.model.CartModel;
 import com.webapp.model.GenreModel;
 import com.webapp.model.PublisherModel;
 import com.webapp.model.TypeModel;
-import com.webapp.servicce.ICartService;
+import com.webapp.service.ICartService;
 
 public class CartService implements ICartService{
 	

@@ -7,7 +7,7 @@ import javax.inject.Inject;
 
 import com.webapp.dao.ILikeCommentDAO;
 import com.webapp.model.LikeCommentModel;
-import com.webapp.servicce.ILikeCommentService;
+import com.webapp.service.ILikeCommentService;
 
 public class LikeCommentService implements ILikeCommentService{
 	

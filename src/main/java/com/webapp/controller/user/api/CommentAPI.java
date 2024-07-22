@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.webapp.model.CommentModel;
 import com.webapp.model.UserModel;
-import com.webapp.servicce.ICommentService;
+import com.webapp.service.ICommentService;
 import com.webapp.utils.HttpUtil;
 import com.webapp.utils.SessionUtil;
 

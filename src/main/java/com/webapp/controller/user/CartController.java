@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.webapp.constant.SystemConstant;
 import com.webapp.model.CartModel;
 import com.webapp.model.UserModel;
-import com.webapp.servicce.ICartService;
+import com.webapp.service.ICartService;
 import com.webapp.utils.SessionUtil;
 
 @WebServlet(urlPatterns = {"/user-cart"})

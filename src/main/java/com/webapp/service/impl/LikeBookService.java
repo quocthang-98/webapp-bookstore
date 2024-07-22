@@ -7,7 +7,7 @@ import javax.inject.Inject;
 
 import com.webapp.dao.ILikeBookDAO;
 import com.webapp.model.LikeBookModel;
-import com.webapp.servicce.ILikeBookService;
+import com.webapp.service.ILikeBookService;
 
 public class LikeBookService implements ILikeBookService{
 

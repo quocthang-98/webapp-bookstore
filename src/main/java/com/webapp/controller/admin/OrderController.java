@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.webapp.constant.SystemConstant;
 import com.webapp.model.OrderModel;
-import com.webapp.servicce.IOrderService;
+import com.webapp.service.IOrderService;
 import com.webapp.utils.FormUtil;
 	
 @WebServlet(urlPatterns = {"/admin-order"})

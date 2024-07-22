@@ -14,9 +14,9 @@ import com.webapp.constant.SystemConstant;
 import com.webapp.model.BookModel;
 import com.webapp.model.GenreModel;
 import com.webapp.model.TypeModel;
-import com.webapp.servicce.IBookService;
-import com.webapp.servicce.IGenreService;
-import com.webapp.servicce.ITypeService;
+import com.webapp.service.IBookService;
+import com.webapp.service.IGenreService;
+import com.webapp.service.ITypeService;
 import com.webapp.utils.ConverterUtil;
 import com.webapp.utils.FormUtil;
 	

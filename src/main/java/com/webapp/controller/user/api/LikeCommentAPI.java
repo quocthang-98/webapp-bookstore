@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.webapp.model.LikeCommentModel;
 import com.webapp.model.UserModel;
-import com.webapp.servicce.ILikeCommentService;
+import com.webapp.service.ILikeCommentService;
 import com.webapp.utils.HttpUtil;
 import com.webapp.utils.SessionUtil;
 

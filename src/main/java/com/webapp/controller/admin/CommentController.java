@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.webapp.constant.SystemConstant;
 import com.webapp.model.CommentModel;
-import com.webapp.servicce.ICommentService;
+import com.webapp.service.ICommentService;
 import com.webapp.utils.FormUtil;
 	
 @WebServlet(urlPatterns = {"/admin-comment"})
