@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.webapp.model.PublisherModel;
 import com.webapp.model.UserModel;
-import com.webapp.servicce.IPublisherService;
+import com.webapp.service.IPublisherService;
 import com.webapp.utils.HttpUtil;
 import com.webapp.utils.SessionUtil;
 

@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.webapp.constant.SystemConstant;
 import com.webapp.model.AuthorModel;
-import com.webapp.servicce.IAuthorService;
+import com.webapp.service.IAuthorService;
 import com.webapp.utils.FormUtil;
 import com.webapp.validation.Validation;
 

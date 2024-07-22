@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.webapp.model.CartModel;
 import com.webapp.model.UserModel;
-import com.webapp.servicce.ICartService;
+import com.webapp.service.ICartService;
 import com.webapp.utils.HttpUtil;
 import com.webapp.utils.SessionUtil;
 

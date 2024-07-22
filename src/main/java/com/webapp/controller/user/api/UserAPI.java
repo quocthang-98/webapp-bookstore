@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.webapp.model.UserModel;
-import com.webapp.servicce.IUserService;
+import com.webapp.service.IUserService;
 import com.webapp.utils.HttpUtil;
 
 @WebServlet(urlPatterns = {"/api-user"})

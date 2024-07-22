@@ -7,7 +7,7 @@ import javax.inject.Inject;
 
 import com.webapp.dao.IAuthorDAO;
 import com.webapp.model.AuthorModel;
-import com.webapp.servicce.IAuthorService;
+import com.webapp.service.IAuthorService;
 
 public class AuthorService implements IAuthorService{
 	

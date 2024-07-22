@@ -7,7 +7,7 @@ import javax.inject.Inject;
 
 import com.webapp.dao.IUserDAO;
 import com.webapp.model.UserModel;
-import com.webapp.servicce.IUserService;
+import com.webapp.service.IUserService;
 
 public class UserService implements IUserService{
 	

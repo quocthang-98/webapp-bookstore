@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.webapp.model.AuthorModel;
 import com.webapp.model.UserModel;
-import com.webapp.servicce.IAuthorService;
+import com.webapp.service.IAuthorService;
 import com.webapp.utils.HttpUtil;
 import com.webapp.utils.SessionUtil;
 

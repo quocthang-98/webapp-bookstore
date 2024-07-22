@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.webapp.constant.SystemConstant;
 import com.webapp.model.UserModel;
-import com.webapp.servicce.IUserService;
+import com.webapp.service.IUserService;
 import com.webapp.utils.EmailUtil;
 import com.webapp.utils.FormUtil;
 import com.webapp.utils.SessionUtil;

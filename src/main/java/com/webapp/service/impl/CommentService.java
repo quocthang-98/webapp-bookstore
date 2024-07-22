@@ -21,9 +21,9 @@ import com.webapp.model.GenreModel;
 import com.webapp.model.PublisherModel;
 import com.webapp.model.TypeModel;
 import com.webapp.model.UserModel;
-import com.webapp.servicce.IBookService;
-import com.webapp.servicce.ICommentService;
-import com.webapp.servicce.ILikeCommentService;
+import com.webapp.service.IBookService;
+import com.webapp.service.ICommentService;
+import com.webapp.service.ILikeCommentService;
 
 public class CommentService implements ICommentService{
 	@Inject

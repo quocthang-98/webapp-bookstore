@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.webapp.model.LikeBookModel;
 import com.webapp.model.UserModel;
-import com.webapp.servicce.ILikeBookService;
+import com.webapp.service.ILikeBookService;
 import com.webapp.utils.HttpUtil;
 import com.webapp.utils.SessionUtil;
 

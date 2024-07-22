@@ -7,7 +7,7 @@ import javax.inject.Inject;
 
 import com.webapp.dao.IPublisherDAO;
 import com.webapp.model.PublisherModel;
-import com.webapp.servicce.IPublisherService;
+import com.webapp.service.IPublisherService;
 
 public class PublisherService implements IPublisherService{
 	

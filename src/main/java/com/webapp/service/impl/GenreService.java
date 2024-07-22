@@ -6,7 +6,7 @@ import javax.inject.Inject;
 
 import com.webapp.dao.IGenreDAO;
 import com.webapp.model.GenreModel;
-import com.webapp.servicce.IGenreService;
+import com.webapp.service.IGenreService;
 
 public class GenreService implements IGenreService{
 	
